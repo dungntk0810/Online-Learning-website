@@ -34,9 +34,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
         <!-- font awesome style -->
         <link href="css/font-awesome.min.css" rel="stylesheet" />
-
+        <link href="css/course_detail.css" rel="stylesheet" />
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href=""/>
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
         <meta charset="utf-8">
@@ -49,83 +50,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <style>
-            h6{
-                color:white;
-                font-size: 12px;
-            }
-            .old{
-                text-decoration: line-through;
-                color:red;
-            }
-            input[type=submit]{
-                width:100px;
-                height:30px;
-                background-color: #005cbf;
-                border-radius: 10px;
-            }
-            .pagination {
-                float: right;
-                margin: 0 0 5px;
-            }
-            .pagination li a {
-                border: none;
-                font-size: 13px;
-                min-width: 30px;
-                min-height: 30px;
-                color: #999;
-                margin: 0 2px;
-                line-height: 30px;
-                border-radius: 2px !important;
-                text-align: center;
-                padding: 0 6px;
-            }
-            .pagination li a:hover {
-                color: #666;
-            }
-            .pagination li.active a, .pagination li.active a.page-link {
-                background: #03A9F4;
-            }
-            .pagination li.active a:hover {
-                background: #0397d6;
-            }
-            .pagination li.disabled i {
-                color: #ccc;
-            }
-            .pagination li i {
-                font-size: 16px;
-                padding-top: 6px
-            }
-            .circle {
-                background: white;
-                border: 0.1875em solid #0F1C3F;
-                border-radius: 50%;
-                box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
-                height: 30px;
-                width: 30px;
-                align-self: center;
 
-            }
-            .circle_per {
-                background: blue;
-                border: 0.1875em solid #0F1C3F;
-                border-radius: 50%;
-                box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
-                height: 30px;
-                width: 30px;
-                align-self: center;
-
-            }
-            .buy{
-                background: red;
-                height:40px;
-                width: 90px;
-                border-radius: 3px;
-                text-align: center;
-            }
-
-
-        </style>
         <script>
             $(document).ready(function () {
                 // Activate tooltip
@@ -203,16 +128,13 @@
                                             </p>
 
                                             <div class="f_circle" style="display: flex">
-
-                                                    <c:forEach var="i" items="${requestScope.listlesson}">
-                                                        <c:if test="${listChap.chapter_id==i.chapter_id}">
-                                                            <div class="circle" style="text-align: center">
-                                                                <a href="lesson?id=${i.lesson_content}" target="target">${i.lesson_number}</a>
-                                                            </div>
-                                                        </c:if>
-                                                    </c:forEach>
-
-
+                                                <c:forEach var="i" items="${requestScope.listlesson}">
+                                                    <c:if test="${listChap.chapter_id==i.chapter_id}">
+                                                        <div class="circle_per" style="text-align: center">
+                                                            <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                        </div>
+                                                    </c:if>
+                                                </c:forEach>
 
                                             </div>
 

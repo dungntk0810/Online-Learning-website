@@ -40,7 +40,7 @@ public class LessonServlet extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             String c = d.getDetailByLessonId(id);
-            request.getRequestDispatcher(c).forward(request, response);
+            request.getRequestDispatcher("Lesson_Java_JSP/"+c).forward(request, response);
         } catch (NumberFormatException e) {
             System.out.println(e);
 

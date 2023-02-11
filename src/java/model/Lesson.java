@@ -12,7 +12,6 @@ public class Lesson {
 
     private int lesson_id;
     private String lesson_video;
-    private int  lesson_percentage;
     private String lesson_level;
     private int chapter_id;
     private int image_id;
@@ -23,10 +22,9 @@ public class Lesson {
     public Lesson() {
     }
 
-    public Lesson(int lesson_id, String lesson_video, int lesson_percentage, String lesson_lever, int chapter_id, int image_id, String lesson_content, int lesson_number, int question_id) {
+    public Lesson(int lesson_id, String lesson_video, String lesson_lever, int chapter_id, int image_id, String lesson_content, int lesson_number, int question_id) {
         this.lesson_id = lesson_id;
         this.lesson_video = lesson_video;
-        this.lesson_percentage = lesson_percentage;
         this.lesson_level = lesson_lever;
         this.chapter_id = chapter_id;
         this.image_id = image_id;
@@ -53,13 +51,6 @@ public class Lesson {
         this.lesson_video = lesson_video;
     }
 
-    public int getLesson_percentage() {
-        return lesson_percentage;
-    }
-
-    public void setLesson_percentage(int lesson_percentage) {
-        this.lesson_percentage = lesson_percentage;
-    }
 
     public String getLesson_level() {
         return lesson_level;

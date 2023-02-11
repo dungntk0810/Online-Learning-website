@@ -390,7 +390,6 @@
                 <%--</c:forEach>--%>
             </ul>-->
 
-
                 <input type="hidden" name="num" value="1">
                 <div class="filters-content">                        
                     <div class="row grid">                            

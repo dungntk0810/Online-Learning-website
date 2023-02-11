@@ -17,24 +17,17 @@ import model.Percentage;
  */
 public class PercentageDAO extends DBContext {
 
-    public List<Percentage> getChapterByCourseID(int user_id) {
+    public List<Percentage> getPercentageByUserID(int user_id) {
 
         List<Percentage> list = new ArrayList<>();
-        String sql = "USE [SWP-Project]\n"
-                + "GO\n"
-                + "\n"
-                + "SELECT [User_Id]\n"
-                + "      ,[lesson_id]\n"
-                + "      ,[percentage]\n"
-                + "  FROM [dbo].[Percentage]\n"
-                + "  WHERE [User_id] =?\n"
-                + "GO";
+        String sql = "SELECT percentage\n"
+                + "  FROM [SWP-Project].[dbo].[Percentage] where user_id =?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, user_id);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Percentage p = new Percentage(user_id,rs.getInt(2),rs.getInt(3));
+                Percentage p = new Percentage(user_id, rs.getInt(2), rs.getInt(3));
                 list.add(p);
             }
         } catch (SQLException e) {

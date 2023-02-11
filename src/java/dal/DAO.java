@@ -139,22 +139,15 @@ public class DAO extends DBContext {
 
     public String getDetailByLessonId(int id) {
 
-        String sql = "USE [SWP-Project]\n"
-                + "GO\n"
-                + "\n"
-                + "SELECT lesson_content\n"
-                + "\n"
-                + "  FROM [dbo].[Lesson]\n"
-                + "  where lesson_id =1\n"
-                + "\n"
-                + "GO";
+        String sql = "SELECT lesson_content\n"
+                + "  FROM [SWP-Project].[dbo].[Lesson] where lesson_id =?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 String c = rs.getString(1);
-                    return c;
+                return c;
             }
 
         } catch (SQLException e) {
@@ -168,7 +161,6 @@ public class DAO extends DBContext {
         List<Lesson> list = new ArrayList<>();
         String sql = "SELECT [lesson_id]\n"
                 + "      ,[lesson_video]\n"
-                + "      ,[lesson_Percentage]\n"
                 + "      ,[lesson_level]\n"
                 + "      ,[chapter_id]\n"
                 + "      ,[image_id]\n"
@@ -180,15 +172,21 @@ public class DAO extends DBContext {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Lesson l = new Lesson(rs.getInt(1), rs.getString(2), rs.getInt(3),
-                        rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
-                        rs.getInt(8), rs.getInt(9));
+                Lesson l = new Lesson(rs.getInt(1), rs.getString(2),
+                        rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6),
+                        rs.getInt(7), rs.getInt(8));
                 list.add(l);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+        DAO d = new DAO();
+        String c = d.getDetailByLessonId(1);
+        System.out.println(c);
     }
 
     public int countCommentCourse(int id) {
@@ -235,11 +233,6 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
         return list;
-    }
-
-    public static void main(String[] args) {
-        DAO d = new DAO();
-        System.out.println(d.listAllEnroll(1).get(0).getCourse_id());
     }
 
 }
