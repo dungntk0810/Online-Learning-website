@@ -137,6 +137,32 @@ public class DAO extends DBContext {
         return null;
     }
 
+    public String getDetailByLessonId(int id) {
+
+        String sql = "USE [SWP-Project]\n"
+                + "GO\n"
+                + "\n"
+                + "SELECT lesson_content\n"
+                + "\n"
+                + "  FROM [dbo].[Lesson]\n"
+                + "  where lesson_id =1\n"
+                + "\n"
+                + "GO";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                String c = rs.getString(1);
+                    return c;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public List<Lesson> listLesson1() {
 
         List<Lesson> list = new ArrayList<>();

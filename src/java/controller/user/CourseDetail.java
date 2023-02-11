@@ -5,6 +5,7 @@
 package controller.user;
 
 import dal.DAO;
+import dal.PercentageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,10 +13,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Chapter;
 import model.Course;
 import model.Lesson;
+import model.Percentage;
+import model.User;
 
 /**
  *
@@ -64,13 +68,18 @@ public class CourseDetail extends HttpServlet {
             throws ServletException, IOException {
         String id_raw = request.getParameter("id");
         DAO d = new DAO();
+        PercentageDAO pd = new PercentageDAO();
         int id;
         try {
             id = Integer.parseInt(id_raw);
             Course c = d.getCourseById(id);
             request.setAttribute("course", c);
-            List<Lesson> listlesson=d.listLesson1();
-
+            List<Lesson> listlesson = d.listLesson1();
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("account");
+            List<Percentage> listPercentage = pd.getChapterByCourseID(user.getUser_id());
+                        request.setAttribute("listcheckpercentage", listPercentage);
+            
             List<Chapter> listChap = d.getChapterByCourseID(id);
             request.setAttribute("listChap", listChap);
             request.setAttribute("listlesson", listlesson);

@@ -4,6 +4,10 @@
         <servlet-name>CommentlLessonervlet</servlet-name>
         <servlet-class>controller.user.CommentlLessonervlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LessonServlet</servlet-name>
+        <servlet-class>controller.user.LessonServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CommentlLessonervlet</servlet-name>
         <url-pattern>/commentl</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>CommentCourseServlet</servlet-name>
         <url-pattern>/commentc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LessonServlet</servlet-name>
+        <url-pattern>/lesson</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
