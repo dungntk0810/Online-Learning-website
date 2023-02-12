@@ -3,10 +3,58 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/PRJ301/Online-Learning/src/java/dal/CommentCourseDAO.java</file>
-            <file>file:/E:/PRJ301/Online-Learning/web/pages/user/comment/commentcourse.jsp</file>
-            <file>file:/E:/PRJ301/Online-Learning/src/java/controller/user/CommentCourseServlet.java</file>
-            <file>file:/E:/PRJ301/Online-Learning/src/java/model/CommentCourse.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson20.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson12.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/pages/user/public/home.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson38.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson29.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson9.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson10.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson37.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson11.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson28.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson8.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson6.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson14.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson27.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson7.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson31.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson26.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson5.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson13.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson39.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/model/Lesson.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson30.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson43.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson25.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson33.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson3.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson16.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson42.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson32.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/dal/DAO.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson24.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson41.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson4.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson15.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/controller/user/CourseDetail.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson19.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/dal/CommentCourseDAO.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson36.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson1.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson22.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson23.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson35.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson40.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson18.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/pages/user/public/course-detail.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/model/Chapter.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson2.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson21.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/src/java/model/Course.java</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson34.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Menu_lesson/header_menu.jsp</file>
+            <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson17.jsp</file>
         </group>
     </open-files>
 </project-private>

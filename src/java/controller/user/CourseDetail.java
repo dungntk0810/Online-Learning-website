@@ -5,6 +5,7 @@
 package controller.user;
 
 import dal.DAO;
+import dal.PercentageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,10 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Chapter;
 import model.Course;
+import model.Enroll;
 import model.Lesson;
+import model.Percentage;
+import model.User;
 
 /**
  *
@@ -36,17 +41,30 @@ public class CourseDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CourseDetail</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CourseDetail at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String id_raw = request.getParameter("id");
+        DAO d = new DAO();
+        PercentageDAO pd = new PercentageDAO();
+        int id;
+        try {
+            id = Integer.parseInt(id_raw);
+            Course c = d.getCourseById(id);
+            request.setAttribute("course", c);
+            List<Lesson> listlesson = d.listLesson1();
+            
+        HttpSession session = request.getSession();
+        if (session.getAttribute("account") != null) {
+            User user = (User) session.getAttribute("account");
+            List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
+            request.setAttribute("listPercentage", listPercentage);
+        }
+            List<Chapter> listChap = d.getChapterByCourseID(id);
+            request.setAttribute("listChap", listChap);
+            request.setAttribute("listlesson", listlesson);
+
+            request.getRequestDispatcher("/pages/user/public/course-detail.jsp").forward(request, response);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+
         }
     }
 
@@ -62,24 +80,7 @@ public class CourseDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id_raw = request.getParameter("id");
-        DAO d = new DAO();
-        int id;
-        try {
-            id = Integer.parseInt(id_raw);
-            Course c = d.getCourseById(id);
-            request.setAttribute("course", c);
-            List<Lesson> listlesson=d.listLesson1();
-
-            List<Chapter> listChap = d.getChapterByCourseID(id);
-            request.setAttribute("listChap", listChap);
-            request.setAttribute("listlesson", listlesson);
-
-            request.getRequestDispatcher("/pages/user/public/course-detail.jsp").forward(request, response);
-        } catch (NumberFormatException e) {
-            System.out.println(e);
-
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -7,11 +7,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 
     <head>
         <!-- Basic -->
+
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
@@ -33,9 +35,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
         <!-- font awesome style -->
         <link href="css/font-awesome.min.css" rel="stylesheet" />
-
+        <link href="css/course_detail.css" rel="stylesheet" />
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href=""/>
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
         <meta charset="utf-8">
@@ -48,73 +51,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <style>
-            h6{
-                color:white;
-                font-size: 12px;
-            }
-            .old{
-                text-decoration: line-through;
-                color:red;
-            }
-            input[type=submit]{
-                width:100px;
-                height:30px;
-                background-color: #005cbf;
-                border-radius: 10px;
-            }
-            .pagination {
-                float: right;
-                margin: 0 0 5px;
-            }
-            .pagination li a {
-                border: none;
-                font-size: 13px;
-                min-width: 30px;
-                min-height: 30px;
-                color: #999;
-                margin: 0 2px;
-                line-height: 30px;
-                border-radius: 2px !important;
-                text-align: center;
-                padding: 0 6px;
-            }
-            .pagination li a:hover {
-                color: #666;
-            }
-            .pagination li.active a, .pagination li.active a.page-link {
-                background: #03A9F4;
-            }
-            .pagination li.active a:hover {
-                background: #0397d6;
-            }
-            .pagination li.disabled i {
-                color: #ccc;
-            }
-            .pagination li i {
-                font-size: 16px;
-                padding-top: 6px
-            }
-            .circle {
-                background: white;
-                border: 0.1875em solid #0F1C3F;
-                border-radius: 50%;
-                box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
-                height: 30px;
-                width: 30px;
-                align-self: center;
 
-            }
-            .buy{
-                background: red;
-                height:40px;
-                width: 90px;
-                border-radius: 3px;
-                text-align: center;
-            }
-
-
-        </style>
         <script>
             $(document).ready(function () {
                 // Activate tooltip
@@ -153,75 +90,14 @@
                     <c:set var="course" value="${requestScope.course}"/>
                     <form  >
                         <div class="course" style="display: flex">
-
-
                             <div class="courseDetail">
-
                                 <h1 style="color: red">${course.getCourse_name()}</h1>                      
                                 <p>${course.getCourse_description()}</p>
-
                                 Number of tasks:${course.getCourse_number_lesson()}
                                 <br/>
                                 <a style="color: black" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
                                 <br>
-<!--                                                                <div class="user_option">
-                                                                    <a class="cart_link" href="show">
-                                                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                                                                        <g>
-                                                                        <g>
-                                                                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                                                                              c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                                                                        </g>
-                                                                        </g>
-                                                                        <g>
-                                                                        <g>
-                                                                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                                                                              C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                                                                              c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                                                                              C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                                                                        </g>
-                                                                        </g>
-                                                                        <g>
-                                                                        <g>
-                                                                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                                                                              c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                                                                        </g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        <g>
-                                                                        </g>
-                                                                        </svg>
-                                                                    </a>
-                                                                </div>-->
                                 <br>
-
                             </div>
                             <div class="courseDetail">
                                 <img src="${course.getCourse_image() }" width="180px" height="150px" alt="alt"/>
@@ -253,15 +129,39 @@
                                             </p>
 
                                             <div class="f_circle" style="display: flex">
-
                                                 <c:forEach var="i" items="${requestScope.listlesson}">
-                                                    <c:if test="${listChap.chapter_id==i.chapter_id}">
-                                                        <div class="circle" style="text-align: center">
-                                                            <a href="" target="target">${i.lesson_number}</a>
-                                                        </div>
+                                                      <% int c =0;%>
+                                                        <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
+                                                            <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
+                                                                <c:set var="var" value="1"/>
+                                                                <% c = 1;%>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    <c:if test="${listChap.chapter_id == i.chapter_id}"> 
+                                                        <% if (c == 0){ %>
+                                                                <div class="circle_per" style="text-align: center">
+                                                                    <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                                </div>                                                     
+                                                        <% }else{%>
+                                                        
+                                                                <div class="circle" style="text-align: center">
+                                                                    <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                                </div>
+                                                        <% }%>
                                                     </c:if>
                                                 </c:forEach>
+                                                <c:if test="${sessionScope.account==null}">
+                                                    <c:forEach var="i" items="${requestScope.listlesson}">
+
+                                                        <c:if test="${listChap.chapter_id==i.chapter_id}">
+                                                            <div class="circle_per" style="text-align: center">
+                                                                <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </c:if>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
