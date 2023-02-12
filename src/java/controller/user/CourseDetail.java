@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Chapter;
 import model.Course;
+import model.Enroll;
 import model.Lesson;
 import model.Percentage;
 import model.User;
@@ -50,12 +51,12 @@ public class CourseDetail extends HttpServlet {
             request.setAttribute("course", c);
             List<Lesson> listlesson = d.listLesson1();
             
-//            HttpSession session = request.getSession();
-//            User user = (User) session.getAttribute("account");
-//            user_id =
-//            List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
-//            request.setAttribute("listcheckpercentage", listPercentage);
-
+        HttpSession session = request.getSession();
+        if (session.getAttribute("account") != null) {
+            User user = (User) session.getAttribute("account");
+            List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
+            request.setAttribute("listPercentage", listPercentage);
+        }
             List<Chapter> listChap = d.getChapterByCourseID(id);
             request.setAttribute("listChap", listChap);
             request.setAttribute("listlesson", listlesson);

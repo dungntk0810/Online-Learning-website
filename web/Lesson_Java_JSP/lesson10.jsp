@@ -6,10 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <link rel="stylesheet" href="../css_lesson/mynewstyle.css"/>  
+        <link rel="stylesheet" href="../css_lesson/mynewstyle.css"/>  
+        <link rel="stylesheet" href="../css_lesson/submit_button.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- jQuery library -->
@@ -23,11 +25,7 @@
         <div class="w3-col l10 m12" id="main">
 
             <h1>Java <span class="color_h1">Strings</span></h1>
-            <div class="w3-clear nextprev">
-                <a class="w3-left w3-btn" href="java_operators.asp">❮ Previous</a>
-                <a class="w3-right w3-btn" href="java_strings_concat.asp">Next ❯</a>
-            </div>
-            <hr>
+
 
             <h2>Java Strings</h2>
 
@@ -89,6 +87,17 @@
                 <p>The reference contains descriptions and examples of all string methods.</p>
             </div>
 
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
 
 
         </div>

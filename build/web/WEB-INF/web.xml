@@ -8,6 +8,10 @@
         <servlet-name>LessonServlet</servlet-name>
         <servlet-class>controller.user.LessonServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LessonPercentage</servlet-name>
+        <servlet-class>controller.user.LessonPercentage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CommentlLessonervlet</servlet-name>
         <url-pattern>/commentl</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LessonServlet</servlet-name>
         <url-pattern>/lesson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LessonPercentage</servlet-name>
+        <url-pattern>/lessonpercentage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

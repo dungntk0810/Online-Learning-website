@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -73,7 +74,18 @@
                 <p>In this tutorial, we will only use <code class="w3-codespan">println()</code> as it makes it easier to read the output of code.</p>
             </div>
             <hr>
-
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
+        
         </div>
     </body>
 </html>

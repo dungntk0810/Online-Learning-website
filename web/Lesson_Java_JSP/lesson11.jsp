@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -99,7 +100,17 @@
                 <p>For a complete reference of Math methods, go to our <a href="java_ref_math.asp">Java Math Methods Reference</a>.</p>
                 <!--<p>The reference contains descriptions and examples of all math methods.</p>-->
             </div>
-
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
         </div>
     </body>
 </html>

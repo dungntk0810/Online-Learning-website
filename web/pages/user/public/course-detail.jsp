@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -129,13 +130,36 @@
 
                                             <div class="f_circle" style="display: flex">
                                                 <c:forEach var="i" items="${requestScope.listlesson}">
-                                                    <c:if test="${listChap.chapter_id==i.chapter_id}">
-                                                        <div class="circle_per" style="text-align: center">
-                                                            <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
-                                                        </div>
+                                                      <% int c =0;%>
+                                                        <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
+                                                            <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
+                                                                <c:set var="var" value="1"/>
+                                                                <% c = 1;%>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    <c:if test="${listChap.chapter_id == i.chapter_id}"> 
+                                                        <% if (c == 0){ %>
+                                                                <div class="circle_per" style="text-align: center">
+                                                                    <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                                </div>                                                     
+                                                        <% }else{%>
+                                                        
+                                                                <div class="circle" style="text-align: center">
+                                                                    <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                                </div>
+                                                        <% }%>
                                                     </c:if>
                                                 </c:forEach>
+                                                <c:if test="${sessionScope.account==null}">
+                                                    <c:forEach var="i" items="${requestScope.listlesson}">
 
+                                                        <c:if test="${listChap.chapter_id==i.chapter_id}">
+                                                            <div class="circle_per" style="text-align: center">
+                                                                <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </c:if>
                                             </div>
 
                                         </div>

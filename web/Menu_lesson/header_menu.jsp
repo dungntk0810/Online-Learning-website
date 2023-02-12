@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="cl-header">   
-            <div class="task-button"><a href="../home">
+            <div class="task-button"><a href="home">
                     <i class="glyphicon glyphicon-menu-left"></i></a></div>            
             <div class="task-name" title="Class and Object : Bài tập C++ OOP: phương thức khởi tạo mặc định | Codelearn">Chapter 1:</div>       
             <div class="task-list-select">

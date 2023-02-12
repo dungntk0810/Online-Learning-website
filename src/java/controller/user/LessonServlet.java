@@ -5,16 +5,20 @@
 package controller.user;
 
 import dal.DAO;
+import dal.PercentageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Chapter;
 import model.Course;
 import model.Lesson;
+import model.Percentage;
+import model.User;
 
 /**
  *
@@ -39,8 +43,11 @@ public class LessonServlet extends HttpServlet {
         int id;
         try {
             id = Integer.parseInt(id_raw);
+            request.setAttribute("lid", id);
+            id = Integer.parseInt(id_raw);
             String c = d.getDetailByLessonId(id);
-            request.getRequestDispatcher("Lesson_Java_JSP/"+c).forward(request, response);
+
+            request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
         } catch (NumberFormatException e) {
             System.out.println(e);
 
@@ -73,7 +80,27 @@ public class LessonServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String id_raw = request.getParameter("id");
+        PercentageDAO pd = new PercentageDAO();
+        DAO d = new DAO();
+        int id;
+        try {
+            id = Integer.parseInt(id_raw);
+            String c = d.getDetailByLessonId(id);
+            request.setAttribute("lid", id);
+            HttpSession session = request.getSession();
+            if (session.getAttribute("account") != null) {
+                User user = (User) session.getAttribute("account");
+                if (pd.checkPercentageByUserID(id, user.getUser_id()) != 1) {
+                    pd.addPercentage(user.getUser_id(), id, 1);
+                }
+            }
+            
+            request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+
+        }
     }
 
     /**

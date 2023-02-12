@@ -20,7 +20,7 @@ public class PercentageDAO extends DBContext {
     public List<Percentage> getPercentageByUserID(int user_id) {
 
         List<Percentage> list = new ArrayList<>();
-        String sql = "SELECT percentage\n"
+        String sql = "SELECT *\n"
                 + "  FROM [SWP-Project].[dbo].[Percentage] where user_id =?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -36,17 +36,34 @@ public class PercentageDAO extends DBContext {
         return list;
     }
 
+    public int checkPercentageByUserID(int lessonId, int userId) {
+        int number = 0;
+        String sql = "SELECT percentage\n"
+                + "  FROM [SWP-Project].[dbo].[Percentage] where lesson_id =? and user_id =?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, lessonId);
+            st.setInt(2, userId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+               number = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return number;
+    }
+    public static void main(String[] args) {
+        PercentageDAO pd = new PercentageDAO();
+        System.out.println(pd.checkPercentageByUserID(2, 1));
+    }
     public void addPercentage(int userId, int lessonId, int percentage) {
-        String sql = "USE [SWP-Project]\n"
-                + "GO\n"
-                + "\n"
-                + "INSERT INTO [dbo].[Percentage]\n"
+        String sql = "INSERT INTO [dbo].[Percentage]\n"
                 + "           ([User_Id]\n"
                 + "           ,[lesson_id]\n"
                 + "           ,[percentage])\n"
                 + "     VALUES\n"
-                + "           (?,?,?)\n"
-                + "GO";
+                + "           (?,?,?)\n";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, userId);
@@ -56,4 +73,5 @@ public class PercentageDAO extends DBContext {
         } catch (SQLException e) {
         }
     }
+    
 }

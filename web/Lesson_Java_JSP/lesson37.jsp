@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -130,7 +131,18 @@
 <span class="token punctuation">}</span>
 <div aria-hidden="true" data-range="9" class=" line-highlight" data-start="9" style="top: 180px;"> 
 </div></code></pre>
-
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
+        
         </div>
     </body>
 </html>

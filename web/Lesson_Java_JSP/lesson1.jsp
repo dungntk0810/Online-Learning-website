@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +63,17 @@
             <img src="../img_lesson/lesson1/lesson1.jpg" alt="alt"/>
 
             <hr>
-
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
            
         </div>
     </body>
