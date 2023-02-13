@@ -166,7 +166,7 @@
                                         <a class="nav-link" href="profile" onclick="show()">Profile <span class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="change">Change Password</a>
+                                        <a class="nav-link" href="changepassword.jsp">Change Password</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="logout">Logout</a>
@@ -182,7 +182,7 @@
                                         <a class="nav-link" href="profile" onclick="show()">Profile <span class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="change">Change Password</a>
+                                        <a class="nav-link" href="changepassword.jsp">Change Password</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="logout">Logout</a>

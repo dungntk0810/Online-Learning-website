@@ -19,7 +19,7 @@ import model.User;
  *
  * @author User
  */
-@WebServlet(name = "ChangePassServlet", urlPatterns = {"/change"})
+@WebServlet(name = "ChangePassServlet", urlPatterns = {"/changepass"})
 public class ChangePassServlet extends HttpServlet {
 
     /**
@@ -61,28 +61,36 @@ public class ChangePassServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
+       response.setContentType("text/html;charset=UTF-8");
         String op = request.getParameter("oldpass");
         String pass = request.getParameter("newpass");
         String rpass = request.getParameter("rpass");
-        String name=request.getParameter("name");
+        String name = request.getParameter("name");
         DAO d = new DAO();
-
+        
         try {
-          
-            User a = d.check(name, op);
+            HttpSession session = request.getSession();
+            User u = (User) session.getAttribute("account");
+            String pass1 = pass.replaceAll("[^0123456789]", "");
+            if (pass.length() < 8 || pass1.length() == 0) {
+                String msg = "New pass length 8 character and contain number ";
+                request.setAttribute("ms", msg);
+                request.getRequestDispatcher("changepassword.jsp").forward(request, response);
+            }
 
-            if (a == null || rpass.equals(pass) == false) {
+            if (u == null || rpass.equals(pass) == false) {
                 //khong ton tai
                 String ms = "Old password is incorrect ";
                 request.setAttribute("ms", ms);
-                request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
+                 request.getRequestDispatcher("changepassword.jsp").forward(request, response);
             } else {
                 //nhap dung pass cu
-                User uNew = new User(a.getUser_id(), name, a.getUser_mail(), pass, a.getUser_role(), a.getUser_gender(), a.getUser_address(), a.getUser_phone(), a.getUser_avatar());
-                d.change(uNew);
-                HttpSession session = request.getSession();
-                session.setAttribute("account", uNew);
-                response.sendRedirect("home");
+              
+                d.changePass(u,pass);
+//               
+//                HttpSession session = request.getSession();
+//                session.setAttribute("account", uNew);
+                response.sendRedirect("logout");
             }
         } catch (NumberFormatException e) {
 

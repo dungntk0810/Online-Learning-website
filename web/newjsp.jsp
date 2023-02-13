@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <a href="Lesson_Java_JSP/lesson11.jsp">abc</a>
+        <a href="pages/user/auth/changePass.jsp">abc</a>
     </body>
 </html>
