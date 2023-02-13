@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <a href="Menu_lesson/header_menu.jsp">abc</a>
+        <a href="Lesson_Java_JSP/lesson11.jsp">abc</a>
     </body>
 </html>
