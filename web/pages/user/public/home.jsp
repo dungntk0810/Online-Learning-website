@@ -427,7 +427,7 @@
                                                 <c:if test="${sessionScope.account==null}">
                                                     <h5>Sale: ${listC.getCourse_price()} VND</h5>
                                                 </c:if>
-                                                <a href="buy?id=${p.getProductId()}&num=1">
+                                                <a href="enroll?course=${listC.getCourse_id()}">
                                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                     <g>
                                                     <g>

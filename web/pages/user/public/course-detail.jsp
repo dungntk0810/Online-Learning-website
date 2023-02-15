@@ -95,9 +95,12 @@
                                 <p>${course.getCourse_description()}</p>
                                 Number of tasks:${course.getCourse_number_lesson()}
                                 <br/>
-                                <a style="color: black" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
-                                <br>
-                                <br>
+                                <a style="color: blue" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
+                                <br/>
+                                <c:if test="${sessionScope.account!=null}">
+                                <h2><a style="color: blue" href="record?courseId=${course.getCourse_id()}">Practise </a></h2>
+                                <br/>
+                                </c:if>
                             </div>
                             <div class="courseDetail">
                                 <img src="${course.getCourse_image() }" width="180px" height="150px" alt="alt"/>

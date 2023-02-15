@@ -200,8 +200,8 @@ public class DAO extends DBContext {
 
     public static void main(String[] args) {
         DAO d = new DAO();
-        String c = d.getDetailByLessonId(1);
-        System.out.println(c);
+        System.out.println(d.listAllEnroll(2).size());
+
     }
 
     public int countCommentCourse(int id) {
