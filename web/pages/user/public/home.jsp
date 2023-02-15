@@ -414,16 +414,22 @@
                                                                                         </h6>-->
                                             <!--                                            <h6> So Luong: <input style="text-align: center" type="number" name="num" value="1" /></h6>-->
                                             <div class="options">
-                                                <c:forEach var="i" items="${requestScope.lister}">
+                                                <c:if test="${sessionScope.account!=null}">
+                                                    <c:set var="count" value="0"></c:set>
+                                                    <c:forEach var="i" items="${requestScope.lister}">
+                                                        <c:if test="${i.getCourse_id()==listC.getCourse_id()}">
+                                                            <c:set var="count" value="${count+1}"></c:set>
+                                                        </c:if>                                                          
+                                                    </c:forEach>
                                                     <c:choose>
-                                                        <c:when test="${i.getCourse_id()==listC.getCourse_id()}">
-                                                            <h5 style="color: red">Continue learning</h5>
-                                                        </c:when>
-                                                        <c:otherwise>
+                                                        <c:when test="${count==0}">
                                                             <h5>Sale: ${listC.getCourse_price()} VND</h5>
-                                                        </c:otherwise>
+                                                        </c:when>
+                                                        <c:when test="${count>0}">
+                                                            <h5 style="color: red">Continue learning</h5>
+                                                        </c:when>    
                                                     </c:choose>
-                                                </c:forEach>
+                                                </c:if>
                                                 <c:if test="${sessionScope.account==null}">
                                                     <h5>Sale: ${listC.getCourse_price()} VND</h5>
                                                 </c:if>

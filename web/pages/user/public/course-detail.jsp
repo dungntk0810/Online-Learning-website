@@ -153,16 +153,6 @@
                                                         <% }%>
                                                     </c:if>
                                                 </c:forEach>
-                                                <c:if test="${sessionScope.account==null}">
-                                                    <c:forEach var="i" items="${requestScope.listlesson}">
-
-                                                        <c:if test="${listChap.chapter_id==i.chapter_id}">
-                                                            <div class="circle_per" style="text-align: center">
-                                                                <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
-                                                            </div>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                </c:if>
                                             </div>
 
                                         </div>
