@@ -15,54 +15,59 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
-              
-                <div id="adngin-main_leaderboard-0"></div>
-                
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"> 
+                <h1>SQL <span class="color_h1">Hosting</span></h1>
 
-            </div>
-            <h1>SQL <span class="color_h1">Hosting</span></h1>
+                <hr>
+                <h2>SQL Hosting</h2>
+                <p>If you want your web site to be able to store and retrieve data from a 
+                    database, your web server should have access to a database-system that uses the 
+                    SQL language.</p>
+                <p>If your web server is hosted by an Internet Service Provider (ISP), you will have to look for SQL hosting plans.</p>
+                <p>The most common SQL hosting databases are MS SQL Server, Oracle, MySQL, and MS Access.</p>
+                <hr>
+                <h2>MS SQL Server</h2>
+                <p>Microsoft's SQL Server is a popular database software for  database-driven web sites 
+                    with high traffic.</p>
+                <p>SQL Server is a very powerful, robust and full featured SQL database system.</p>
+                <hr>
+                <h2>Oracle</h2>
+                <p>Oracle is also a popular database software for  database-driven web sites 
+                    with high traffic.</p>
+                <p>Oracle is a very powerful, robust and full featured SQL database system.</p>
+                <hr>
+                <h2>MySQL</h2>
+                <p>MySQL is also a popular database software for web sites.</p>
 
-            <hr>
-            <h2>SQL Hosting</h2>
-            <p>If you want your web site to be able to store and retrieve data from a 
-                database, your web server should have access to a database-system that uses the 
-                SQL language.</p>
-            <p>If your web server is hosted by an Internet Service Provider (ISP), you will have to look for SQL hosting plans.</p>
-            <p>The most common SQL hosting databases are MS SQL Server, Oracle, MySQL, and MS Access.</p>
-            <hr>
-            <h2>MS SQL Server</h2>
-            <p>Microsoft's SQL Server is a popular database software for  database-driven web sites 
-                with high traffic.</p>
-            <p>SQL Server is a very powerful, robust and full featured SQL database system.</p>
-            <hr>
-            <h2>Oracle</h2>
-            <p>Oracle is also a popular database software for  database-driven web sites 
-                with high traffic.</p>
-            <p>Oracle is a very powerful, robust and full featured SQL database system.</p>
-            <hr>
-            <h2>MySQL</h2>
-            <p>MySQL is also a popular database software for web sites.</p>
+                <p>MySQL is a very powerful, robust and full featured SQL database system.</p>
 
-            <p>MySQL is a very powerful, robust and full featured SQL database system.</p>
+                <p>MySQL is an inexpensive 
+                    alternative to the expensive Microsoft and Oracle solutions.</p>
 
-            <p>MySQL is an inexpensive 
-                alternative to the expensive Microsoft and Oracle solutions.</p>
-
-            <hr>
-            <h2>MS Access</h2>
-            <p>When a web site requires only a simple database, Microsoft Access can be a 
-                solution.</p>
-            <p>MS Access is not well suited for very high-traffic, and not as powerful as 
-                MySQL, SQL Server, or Oracle.</p>
+                <hr>
+                <h2>MS Access</h2>
+                <p>When a web site requires only a simple database, Microsoft Access can be a 
+                    solution.</p>
+                <p>MS Access is not well suited for very high-traffic, and not as powerful as 
+                    MySQL, SQL Server, or Oracle.</p>
 
 
-            <br>
-           
-            <div id="mypagediv2" style="position:relative;text-align:center;"></div>
-            <br>
+                <br>
 
+                <div id="mypagediv2" style="position:relative;text-align:center;"></div>
+                <br>
+                <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson" style="margin-top: 20px">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
         </div>
     </body>
 </html>

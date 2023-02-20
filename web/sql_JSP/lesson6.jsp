@@ -15,13 +15,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
-               
-                <div id="adngin-main_leaderboard-0"></div>
-               
-            </div>
-            <h1>SQL <span class="color_h1">WHERE</span> Clause</h1>
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"> <span class="color_h1">WHERE</span> Clause</h1>
 
             <hr>
             <h2>The SQL WHERE Clause</h2>
@@ -292,7 +287,17 @@
 
             <div id="mypagediv2" style="position:relative;text-align:center;"></div>
             <br>
-
-        </div>
-    </body>
+            <form action="lesson?id=${requestScope.lid}" method="post">
+            <div class="finish_lesson" style="margin-top: 20px">
+                <input style="color: white;
+                       margin-top: 20px;
+                       background: green;
+                       height: 50px;
+                       text-align: center;
+                       width: 100px;
+                       margin: 0 auto;" type="submit" value="Finish">        
+            </div>
+        </form>
+    </div>
+</body>
 </html>

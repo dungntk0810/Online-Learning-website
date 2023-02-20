@@ -15,15 +15,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
-           
-                <div id="adngin-main_leaderboard-0"></div>
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"
 
-            </div>
-            <section id="mainContent">
+
+
+                 <section id="mainContent">
                 <h1>Git <span class="color_h1">Pull from GitHub</span></h1>
-           
+
                 <hr>
                 <div id="remoteNameContent"><section><h2>Pulling to Keep up-to-date with Changes</h2>
                         <p>When working as a team on a project, it is important that everyone stays up to date.</p>
@@ -153,7 +152,7 @@ nothing to commit, working tree clean</code></pre>
                         <p><code class="w3-codespan">pull</code> is a combination of <code class="w3-codespan">fetch</code> and <code class="w3-codespan">merge</code>. It is used to pull all changes from 
                             a remote repository into the branch you are working on.</p>
                         <p>Make another change to the Readme.md file on GitHub.</p>
-                      
+
                         <p>Use <code class="w3-codespan">pull</code> to update our local Git:</p>
 
                         <div class="w3-example">
@@ -178,16 +177,26 @@ Fast-forward
 
                 <br>
 
-            </section>
-            <script src="https://www.w3schools.com/lib/w3.js"></script>
-            <script src="prism_coy.js" data-manual=""></script>
-            <script src="git_remote.js"></script>
-            <script>
-                updateParts("content", "title");
-            </script>
-            <div id="mypagediv2" style="position:relative;text-align:center;"></div>
-            <br>
-
+                </section>
+                <script src="https://www.w3schools.com/lib/w3.js"></script>
+                <script src="prism_coy.js" data-manual=""></script>
+                <script src="git_remote.js"></script>
+                <script>
+                    updateParts("content", "title");
+                </script>
+                <div id="mypagediv2" style="position:relative;text-align:center;"></div>
+                <br>
+                <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson" style="margin-top: 20px">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
         </div>
     </body>
 </html>

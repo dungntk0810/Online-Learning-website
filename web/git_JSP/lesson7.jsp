@@ -15,33 +15,33 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
-           [728,90][970,90][320,50][468,60]</pre>-->
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"
+                 <div id="mainLeaderboard" style="overflow:hidden;">
+
                 <div id="adngin-main_leaderboard-0"></div>
-            </div>
-            <section id="mainContent">
-                <h1>Git <span class="color_h1">Help</span></h1>
-                <hr>
-                <h2>Git Help</h2>
-                <p>If you are having trouble remembering commands or options for commands, you 
-                    can use Git <code class="w3-codespan">help</code>.</p>
-                <p>There are a couple of different ways you can use the
-                    <code class="w3-codespan">help</code> command in command line:</p>
-                <ul>
-                    <li><code class="w3-codespan">git <em>command</em> -help</code> -&nbsp; See 
-                        all the available options for the specific command</li>
-                    <li><code class="w3-codespan">git help --all</code> -&nbsp; See all possible 
-                        commands</li>
-                </ul>
-                <p>&nbsp;Let's go over the different commands.</p>
-                <hr>
-                <h2>Git -help See Options for a Specific Command</h2>
-                <p>Any time you need some help remembering the specific option for a 
-                    command, you can use <code class="w3-codespan">git <em>command</em> -help</code>:</p>
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-output="2-49" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> commit -help
+                <section id="mainContent">
+                    <h1>Git <span class="color_h1">Help</span></h1>
+                    <hr>
+                    <h2>Git Help</h2>
+                    <p>If you are having trouble remembering commands or options for commands, you 
+                        can use Git <code class="w3-codespan">help</code>.</p>
+                    <p>There are a couple of different ways you can use the
+                        <code class="w3-codespan">help</code> command in command line:</p>
+                    <ul>
+                        <li><code class="w3-codespan">git <em>command</em> -help</code> -&nbsp; See 
+                            all the available options for the specific command</li>
+                        <li><code class="w3-codespan">git help --all</code> -&nbsp; See all possible 
+                            commands</li>
+                    </ul>
+                    <p>&nbsp;Let's go over the different commands.</p>
+                    <hr>
+                    <h2>Git -help See Options for a Specific Command</h2>
+                    <p>Any time you need some help remembering the specific option for a 
+                        command, you can use <code class="w3-codespan">git <em>command</em> -help</code>:</p>
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-output="2-49" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> commit -help
 usage: git commit [<options>] [--] <pathspec>...
 
     -q, --quiet           suppress summary after successful commit
@@ -280,24 +280,34 @@ External commands
    credential-helper-selector
    flow
    lfs</code></pre>
-                </div>
-                <div class="w3-panel w3-note">
-                    <p><strong>Note:</strong> If you find yourself stuck in the list view, <code class="w3-codespan">SHIFT + G</code> to jump the end of the list, then <code class="w3-codespan">q</code> to exit the view.</p>
-                </div>
+                    </div>
+                    <div class="w3-panel w3-note">
+                        <p><strong>Note:</strong> If you find yourself stuck in the list view, <code class="w3-codespan">SHIFT + G</code> to jump the end of the list, then <code class="w3-codespan">q</code> to exit the view.</p>
+                    </div>
 
 
-                <hr>
+                    <hr>
+                    <br>
+                </section>
+                <script src="https://www.w3schools.com/lib/w3.js"></script>
+                <script src="prism_coy.js" data-manual=""></script>
+                <script src="git_remote.js"></script>
+                <script>
+                    updateParts();
+                </script>
+                <div id="mypagediv2" style="position:relative;text-align:center;"></div>
                 <br>
-            </section>
-            <script src="https://www.w3schools.com/lib/w3.js"></script>
-            <script src="prism_coy.js" data-manual=""></script>
-            <script src="git_remote.js"></script>
-            <script>
-                updateParts();
-            </script>
-            <div id="mypagediv2" style="position:relative;text-align:center;"></div>
-            <br>
-
+                <form action="lesson?id=${requestScope.lid}" method="post">
+                <div class="finish_lesson" style="margin-top: 20px">
+                    <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                </div>
+            </form>
         </div>
     </body>
 </html>

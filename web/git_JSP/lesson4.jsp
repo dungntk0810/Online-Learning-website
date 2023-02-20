@@ -15,49 +15,49 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"
+                 <div id="mainLeaderboard" style="overflow:hidden;">
 
                 <div id="adngin-main_leaderboard-0"></div>
-            </div>
-            <section id="mainContent">
-                <h1>Git <span class="color_h1">New Files</span></h1>
+                <section id="mainContent">
+                    <h1>Git <span class="color_h1">New Files</span></h1>
 
-                <hr>              
-                <h2>Git Adding New Files</h2>
-                <p>You just created your first local Git repo. But it is empty.</p>
-                <p>So let's add some files, or create a new file using your favourite text editor. Then save or move it to the folder you just created.</p>
-                <p>If you want to learn how to create a new file using a text editor, you can visit our HTML tutorial:<br>
-                    <a href="https://www.w3schools.com/html/html_editors.asp">HTML Editors</a></p>
-                <p>For this example, I am going to use a simple HTML file like this:</p>
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <div class="w3-code notranslate htmlHigh">
-                        <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
-                        <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>title<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/title<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
-                        <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello world!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>This is 
-                        the first file in my new Git Repo.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
-                        <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+                    <hr>              
+                    <h2>Git Adding New Files</h2>
+                    <p>You just created your first local Git repo. But it is empty.</p>
+                    <p>So let's add some files, or create a new file using your favourite text editor. Then save or move it to the folder you just created.</p>
+                    <p>If you want to learn how to create a new file using a text editor, you can visit our HTML tutorial:<br>
+                        <a href="https://www.w3schools.com/html/html_editors.asp">HTML Editors</a></p>
+                    <p>For this example, I am going to use a simple HTML file like this:</p>
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <div class="w3-code notranslate htmlHigh">
+                            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+                            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>title<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/title<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+                            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello world!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>This is 
+                            the first file in my new Git Repo.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+                            <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+                        </div>
                     </div>
-                </div>
 
-                <p>And save it to our new folder as <code class="w3-codespan">index.html</code>.</p>
-                <p>Let's go back to the terminal and list the files in our current working directory:</p>
+                    <p>And save it to our new folder as <code class="w3-codespan">index.html</code>.</p>
+                    <p>Let's go back to the terminal and list the files in our current working directory:</p>
 
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-output="2" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span></span><span class="token function">ls</span>
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-output="2" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span></span><span class="token function">ls</span>
 index.html</code></pre>
-                </div>
+                    </div>
 
-                <p><code class="w3-codespan">ls</code> will <strong>list</strong> the files in 
-                    the directory. We can see that <code class="w3-codespan">index.html</code> is there.</p>
+                    <p><code class="w3-codespan">ls</code> will <strong>list</strong> the files in 
+                        the directory. We can see that <code class="w3-codespan">index.html</code> is there.</p>
 
-                <p>Then we check the Git <code class="w3-codespan">status</code> and see if it is a part of our repo:</p>
+                    <p>Then we check the Git <code class="w3-codespan">status</code> and see if it is a part of our repo:</p>
 
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-output="2-10" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-output="2-10" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
 On branch master
 
 No commits yet
@@ -89,10 +89,20 @@ staging environment.</p>
             <script src="git_remote.js"></script>
             <script>
                 updateParts();
-            </script>
+                                </script>
             <div id="mypagediv2" style="position:relative;text-align:center;"></div>
             <br>
-
+                    <form action="lesson?id=${requestScope.lid}" method="post">
+                        <div class="finish_lesson" style="margin-top: 20px">
+                            <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                        </div>
+                    </form>
         </div>
     </body>
 </html>

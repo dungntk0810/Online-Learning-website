@@ -47,21 +47,27 @@ public class LessonServlet extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             request.setAttribute("lid", id);
-            id = Integer.parseInt(id_raw);
             String c = d.getDetailByLessonId(id);
-
+            int course_id = ld.findCourseIdByLessonId(id);
             HttpSession session = request.getSession();
             if (session.getAttribute("account") != null) {
                 User user = (User) session.getAttribute("account");
                 List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
                 request.setAttribute("listPercentage", listPercentage);
             }
-            
+
             int chapterId = ld.findChapterIdByLessonId(id);
             List<Lesson> listLesson = ld.FindAllLessonByChapterId(chapterId);
             request.setAttribute("listlesson", listLesson);
-            request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
-
+            if (course_id == 1) {
+                request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
+            }
+            if (course_id == 2) {
+                request.getRequestDispatcher("git_JSP/" + c).forward(request, response);
+            }
+            if (course_id == 3) {
+                request.getRequestDispatcher("sql_JSP/" + c).forward(request, response);
+            }
         } catch (NumberFormatException e) {
             System.out.println(e);
 

@@ -15,34 +15,35 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="w3-col l10 m12" id="main">
-            <div id="mainLeaderboard" style="overflow:hidden;">
-            </div>
-            <section id="mainContent">
-                <h1>Git <span class="color_h1">Staging Environment</span></h1>             
-                <hr>
-                <h2>Git Staging Environment</h2>
-                <p>One of the core functions of Git is the concepts of the Staging Environment, and the Commit.</p>
-                <p>As you are working, you may be adding, editing and removing files. But 
-                    whenever you hit a milestone or finish a part of the work, you should add the 
-                    files to a Staging Environment.</p>
-                <p><strong>Staged</strong> files are files that are ready to be <strong>
-                        committed</strong> to the 
-                    repository you are working on. You will learn more about 
-                    <code class="w3-codespan">commit</code> shortly.</p>
-                <p>For now, we are done working with <code class="w3-codespan">index.html</code>. 
-                    So we can add it to the Staging Environment:</p>
+        <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
+            <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px"
+                 <div id="mainLeaderboard" style="overflow:hidden;">
 
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span></span><span class="token function">git</span> <span class="token function">add</span> index.html</code></pre>
-                </div>
+                <div id="adngin-main_leaderboard-0"></div>            <section id="mainContent">
+                    <h1>Git <span class="color_h1">Staging Environment</span></h1>             
+                    <hr>
+                    <h2>Git Staging Environment</h2>
+                    <p>One of the core functions of Git is the concepts of the Staging Environment, and the Commit.</p>
+                    <p>As you are working, you may be adding, editing and removing files. But 
+                        whenever you hit a milestone or finish a part of the work, you should add the 
+                        files to a Staging Environment.</p>
+                    <p><strong>Staged</strong> files are files that are ready to be <strong>
+                            committed</strong> to the 
+                        repository you are working on. You will learn more about 
+                        <code class="w3-codespan">commit</code> shortly.</p>
+                    <p>For now, we are done working with <code class="w3-codespan">index.html</code>. 
+                        So we can add it to the Staging Environment:</p>
 
-                <p>The file should be <strong>Staged</strong>. Let's check the status::</p>
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span></span><span class="token function">git</span> <span class="token function">add</span> index.html</code></pre>
+                    </div>
 
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-output="2-8" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
+                    <p>The file should be <strong>Staged</strong>. Let's check the status::</p>
+
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-output="2-8" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
 On branch master
 
 No commits yet
@@ -91,14 +92,14 @@ repositories):</p>
 <div class="w3-example">
 <h3>Example</h3>
 <pre class="command-line language-shell" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span></span><span class="token function">git</span> <span class="token function">add</span> --all</code></pre>
-                </div>
+                    </div>
 
-                <p>Using <code class="w3-codespan">--all</code> instead of individual filenames 
-                    will <code class="w3-codespan">stage</code> all changes (new, modified, and deleted) files.</p>
+                    <p>Using <code class="w3-codespan">--all</code> instead of individual filenames 
+                        will <code class="w3-codespan">stage</code> all changes (new, modified, and deleted) files.</p>
 
-                <div class="w3-example">
-                    <h3>Example</h3>
-                    <pre class="command-line language-shell" data-output="2-10" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
+                    <div class="w3-example">
+                        <h3>Example</h3>
+                        <pre class="command-line language-shell" data-output="2-10" data-user="user" data-host="localhost"><code class=" language-shell"><span class="command-line-prompt"><span data-user="user" data-host="localhost"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="token function">git</span> status
 On branch master
 
 No commits yet
@@ -126,9 +127,20 @@ our first <code class="w3-codespan">commit</code>.</p>
             <script src="git_remote.js"></script>
             <script>
                 updateParts();
-            </script>
+                </script>
             <div id="mypagediv2" style="position:relative;text-align:center;"></div>
             <br>
+            <form action="lesson?id=${requestScope.lid}" method="post">
+                        <div class="finish_lesson" style="margin-top: 20px">
+                            <input style="color: white;
+                           margin-top: 20px;
+                           background: green;
+                           height: 50px;
+                           text-align: center;
+                           width: 100px;
+                           margin: 0 auto;" type="submit" value="Finish">        
+                        </div>
+                    </form>
         </div>
     </body>
 </html>

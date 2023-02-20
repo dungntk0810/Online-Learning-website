@@ -155,8 +155,14 @@ public class DAO extends DBContext {
         }
         return null;
     }
-
-    public List<Lesson> listLesson1() {
+    public static void main(String[] args) {
+        DAO d = new DAO();
+        List<Lesson> l = d.listLesson1(2);
+        for(int i =0 ; i < l.size();i++){
+            System.out.println(l.get(i).getLesson_number());
+        }
+    }
+    public List<Lesson> listLesson1(int course_id) {
 
         List<Lesson> list = new ArrayList<>();
         String sql = "SELECT [lesson_id]\n"
@@ -166,9 +172,10 @@ public class DAO extends DBContext {
                 + "      ,[image_id]\n"
                 + "      ,[lesson_content]\n"
                 + "      ,[lesson_number]\n"
-                + "  FROM [SWP-Project].[dbo].[Lesson]";
+                + "  FROM [SWP-Project].[dbo].[Lesson] where course_id = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, course_id);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Lesson l = new Lesson(rs.getInt(1), rs.getString(2),
@@ -182,11 +189,6 @@ public class DAO extends DBContext {
         return list;
     }
 
-    public static void main(String[] args) {
-        DAO d = new DAO();
-        String c = d.getDetailByLessonId(1);
-        System.out.println(c);
-    }
 
     public int countCommentCourse(int id) {
         int num = 0;

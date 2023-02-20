@@ -49,7 +49,7 @@ public class CourseDetail extends HttpServlet {
             id = Integer.parseInt(id_raw);
             Course c = d.getCourseById(id);
             request.setAttribute("course", c);
-            List<Lesson> listlesson = d.listLesson1();
+            List<Lesson> listlesson = d.listLesson1(id);
             
         HttpSession session = request.getSession();
         if (session.getAttribute("account") != null) {

@@ -69,4 +69,21 @@ public class LessonDAO extends DBContext {
         }
         return chapterId;
     }
+    public int findCourseIdByLessonId(int lessonId) {
+        int chapterId = 0;
+        try {
+            String sql = "SELECT course_id\n"
+                    + "  FROM [SWP-Project].[dbo].[Lesson] \n"
+                    + "  where lesson_id =?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, lessonId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+               return chapterId = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return chapterId;
+    }
 }

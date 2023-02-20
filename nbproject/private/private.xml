@@ -50,5 +50,10 @@
             <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson30.jsp</file>
             <file>file:/C:/Users/mylov/online-learning/web/Lesson_Java_JSP/lesson43.jsp</file>
         </group>
+        <group name="Group 20220907-07:38:23">
+            <file>file:/D:/git/Git/online-learning/src/java/controller/user/LessonServlet.java</file>
+            <file>file:/D:/git/Git/online-learning/src/java/dal/LessonDAO.java</file>
+            <file>file:/D:/git/Git/online-learning/src/java/controller/user/CourseDetail.java</file>
+        </group>
     </open-files>
 </project-private>
