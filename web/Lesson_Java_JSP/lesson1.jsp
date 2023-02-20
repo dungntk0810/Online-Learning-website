@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="../css_lesson/mystyle.css"/>
+        <link rel="stylesheet" href="css_lesson/mystyle.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- jQuery library -->
@@ -24,7 +24,7 @@
       
         <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
 
-        <div class="" class="main" style="margin-left: 240px;padding-top: 0px">
+        <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px">
         
 
             <hr>
@@ -60,11 +60,11 @@
             <hr>
             <h2>Get Started</h2>
             <p>It is not necessary to have any prior programming experience.</p>
-            <img src="../img_lesson/lesson1/lesson1.jpg" alt="alt"/>
+            <img src="img_lesson/lesson1/lesson1.jpg" alt="alt"/>
 
             <hr>
             <form action="lesson?id=${requestScope.lid}" method="post">
-                <div class="finish_lesson">
+            <div class="finish_lesson" style="margin-top: 20px">
                     <input style="color: white;
                            margin-top: 20px;
                            background: green;

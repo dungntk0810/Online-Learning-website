@@ -133,7 +133,7 @@
                                                       <% int c =0;%>
                                                         <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
                                                             <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
-                                                                <c:set var="var" value="1"/>
+
                                                                 <% c = 1;%>
                                                             </c:if>
                                                         </c:forEach>
