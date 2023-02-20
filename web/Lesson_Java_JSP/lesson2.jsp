@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css_lesson/mystyle.css"/>  
+        <link rel="stylesheet" href="css_lesson/mystyle.css"/>  
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -23,7 +23,7 @@
     <body>
         <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
             <h1>Java <span class="color_h1">Getting Started</span></h1>
-
+        <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px">
 
 
             <h2>Setup for Windows</h2>
@@ -48,35 +48,35 @@
             <!--            <button onclick="myAccFunction('DemoAcc')" class="w3-btn w3-block w3-left-align xx w3-border-bottom">Show how to install Java step-by-step with images »</button>-->
             <div id="DemoAcc" class="w3-hide ws-grey w3-padding-16 w3-container">
 
-                <img src="../img_lesson/lesson2/lesson2_3.jpg" class="w3-image">
+                <img src="img_lesson/lesson2/lesson2_3.jpg" class="w3-image">
             </div>
 
             <!--<button onclick="myAccFunction('DemoAcc2')" class="w3-btn w3-block w3-left-align xx w3-border-bottom">Step 2 »</button>-->
             <div id="DemoAcc2" class="w3-hide ws-grey w3-padding-16 w3-container">
 
-                <img src="../img_lesson/lesson2/lesson2_4.jpg" class="w3-image">
+                <img src="img_lesson/lesson2/lesson2_4.jpg" class="w3-image">
             </div>
             <!--<button onclick="myAccFunction('DemoAcc3')" class="w3-btn w3-block w3-left-align xx w3-border-bottom">Step 3 »</button>-->
             <div id="DemoAcc3" class="w3-hide ws-grey w3-padding-16 w3-container">
 
-                <img src="../img_lesson/lesson2/lesson2_5.jpg" class="w3-image">
+                <img src="img_lesson/lesson2/lesson2_5.jpg" class="w3-image">
             </div>
             <!--<button onclick="myAccFunction('DemoAcc4')" class="w3-btn w3-block w3-left-align xx w3-border-bottom">Step 4 »</button>-->
             <div id="DemoAcc4" class="w3-hide ws-grey w3-padding-16 w3-container">
 
-                <img src="../img_lesson/lesson2/lesson2_6.jpg" class="w3-image">
+                <img src="img_lesson/lesson2/lesson2_6.jpg" class="w3-image">
             </div>
             <!--<button onclick="myAccFunction('DemoAcc5')" class="w3-btn w3-block w3-left-align xx w3-border-bottom">Step 5 »</button>-->
             <div id="DemoAcc5" class="w3-hide w3-light-grey w3-padding-16 w3-container">
 
-                <img src="../img_lesson/lesson2/lesson2_7.jpg" class="w3-image">
+                <img src="img_lesson/lesson2/lesson2_7.jpg" class="w3-image">
 
             </div>
            
 
             <br>
             <form action="lesson?id=${requestScope.lid}" method="post">
-                <div class="finish_lesson">
+            <div class="finish_lesson" style="margin-top: 20px">
                     <input style="color: white;
                            margin-top: 20px;
                            background: green;

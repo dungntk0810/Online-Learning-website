@@ -29,12 +29,6 @@ public class Enroll {
         this.rate = rate;
     }
 
-    public Enroll(int user_id, int course_id) {
-        this.user_id = user_id;
-        this.course_id = course_id;
-    }
-    
-
     public int getEnroll_id() {
         return enroll_id;
     }

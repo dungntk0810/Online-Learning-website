@@ -45,60 +45,6 @@ public class UserDAO extends DBContext {
             
         }
     }
-    public void insertUser(User u) {
-        String sql = "INSERT INTO [dbo].[User]\n"
-                + "           ([user_name]\n"
-                + "           ,[user_mail]\n"
-                + "           ,[user_password]\n"
-                + "           ,[user_role]\n"
-                + "           ,[user_gender]\n"
-                + "           ,[user_address]\n"
-                + "           ,[user_phone]\n"
-                + "           ,[user_avatar])\n"
-                + "     VALUES\n"
-                + "           (?,?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, u.getUser_name());
-            st.setString(2, u.getUser_mail());
-            st.setString(3, u.getUser_password());
-            st.setInt(4, u.getUser_role());
-            st.setInt(5, u.getUser_gender());
-            st.setString(6, u.getUser_address());
-            st.setString(7, u.getUser_phone());
-            st.setString(8, u.getUser_avatar());
-            st.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
- public User checkUserGoogle(String username) {
-        String sql = "SELECT [User_Id]\n"
-                + "      ,[user_name]\n"
-                + "      ,[user_mail]\n"
-                + "      ,[user_password]\n"
-                + "      ,[user_role]\n"
-                + "      ,[user_gender]\n"
-                + "      ,[user_address]\n"
-                + "      ,[user_phone]\n"
-                + "      ,[user_avatar]\n"
-                + "  FROM [dbo].[User]\n"
-                + "  where user_name=?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, username);
+    
 
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                User u = new User(rs.getInt("User_Id"), username, rs.getString("user_password"),
-                        rs.getString("user_mail"), rs.getInt("user_role"),
-                        rs.getInt("user_gender"), rs.getString("user_address"),
-                        rs.getString("user_phone"), rs.getString("user_avatar"));
-                return u;
-            }
-        } catch (SQLException e) {
-
-        }
-        return null;
-    }
 }

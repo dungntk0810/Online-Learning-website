@@ -65,21 +65,6 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
     }
-     public void changePass(User a,String s ) {
-        String sql = "UPDATE [dbo].[User]\n"
-                + "   SET \n"
-                + "      [user_password] = ?\n"
-                + "      \n"
-                + " WHERE user_name=?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1,s);
-            st.setString(2, a.getUser_name());
-            st.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
 
     public List<Course> getAllCourse() {
 
@@ -181,7 +166,6 @@ public class DAO extends DBContext {
                 + "      ,[image_id]\n"
                 + "      ,[lesson_content]\n"
                 + "      ,[lesson_number]\n"
-                + "      ,[question_id]\n"
                 + "  FROM [SWP-Project].[dbo].[Lesson]";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -189,7 +173,7 @@ public class DAO extends DBContext {
             while (rs.next()) {
                 Lesson l = new Lesson(rs.getInt(1), rs.getString(2),
                         rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6),
-                        rs.getInt(7), rs.getInt(8));
+                        rs.getInt(7));
                 list.add(l);
             }
         } catch (SQLException e) {
@@ -200,8 +184,8 @@ public class DAO extends DBContext {
 
     public static void main(String[] args) {
         DAO d = new DAO();
-        System.out.println(d.listAllEnroll(2).size());
-
+        String c = d.getDetailByLessonId(1);
+        System.out.println(c);
     }
 
     public int countCommentCourse(int id) {

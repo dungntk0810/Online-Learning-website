@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css_lesson/mystyle.css"/>  
+        <link rel="stylesheet" href="css_lesson/mystyle.css"/>  
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- jQuery library -->
@@ -21,7 +21,7 @@
     </head>
     <body>
         <jsp:include page="../Menu_lesson/header_menu.jsp"></jsp:include>
-        <div class="w3-col l10 m12" id="main">
+        <div class="w3-col l10 m12" class="main" style="margin: 0 100px;padding-top: 0px">
 
             <hr>
 
@@ -125,7 +125,7 @@ myNum <span class="token operator">=</span> <span class="token number">20</span>
             </div>
 
             <form action="lesson?id=${requestScope.lid}" method="post">
-                <div class="finish_lesson">
+            <div class="finish_lesson" style="margin-top: 20px">
                     <input style="color: white;
                            margin-top: 20px;
                            background: green;

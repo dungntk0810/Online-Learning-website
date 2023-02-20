@@ -95,12 +95,9 @@
                                 <p>${course.getCourse_description()}</p>
                                 Number of tasks:${course.getCourse_number_lesson()}
                                 <br/>
-                                <a style="color: blue" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
-                                <br/>
-                                <c:if test="${sessionScope.account!=null}">
-                                <h2><a style="color: blue" href="record?courseId=${course.getCourse_id()}">Practise </a></h2>
-                                <br/>
-                                </c:if>
+                                <a style="color: black" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
+                                <br>
+                                <br>
                             </div>
                             <div class="courseDetail">
                                 <img src="${course.getCourse_image() }" width="180px" height="150px" alt="alt"/>
@@ -136,7 +133,7 @@
                                                       <% int c =0;%>
                                                         <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
                                                             <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
-                                                                <c:set var="var" value="1"/>
+
                                                                 <% c = 1;%>
                                                             </c:if>
                                                         </c:forEach>
@@ -153,6 +150,16 @@
                                                         <% }%>
                                                     </c:if>
                                                 </c:forEach>
+                                                <c:if test="${sessionScope.account==null}">
+                                                    <c:forEach var="i" items="${requestScope.listlesson}">
+
+                                                        <c:if test="${listChap.chapter_id==i.chapter_id}">
+                                                            <div class="circle_per" style="text-align: center">
+                                                                <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </c:if>
                                             </div>
 
                                         </div>

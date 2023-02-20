@@ -5,6 +5,7 @@
 package controller.user;
 
 import dal.DAO;
+import dal.LessonDAO;
 import dal.PercentageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,6 +40,8 @@ public class LessonServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String id_raw = request.getParameter("id");
+        LessonDAO ld = new LessonDAO();
+        PercentageDAO pd = new PercentageDAO();
         DAO d = new DAO();
         int id;
         try {
@@ -47,7 +50,18 @@ public class LessonServlet extends HttpServlet {
             id = Integer.parseInt(id_raw);
             String c = d.getDetailByLessonId(id);
 
+            HttpSession session = request.getSession();
+            if (session.getAttribute("account") != null) {
+                User user = (User) session.getAttribute("account");
+                List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
+                request.setAttribute("listPercentage", listPercentage);
+            }
+            
+            int chapterId = ld.findChapterIdByLessonId(id);
+            List<Lesson> listLesson = ld.FindAllLessonByChapterId(chapterId);
+            request.setAttribute("listlesson", listLesson);
             request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
+
         } catch (NumberFormatException e) {
             System.out.println(e);
 
@@ -95,7 +109,7 @@ public class LessonServlet extends HttpServlet {
                     pd.addPercentage(user.getUser_id(), id, 1);
                 }
             }
-            
+
             request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
         } catch (NumberFormatException e) {
             System.out.println(e);

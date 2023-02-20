@@ -1,4 +1,7 @@
-
+element.style {
+    margin-left: 240px;
+    padding-top: 0px;
+}
 
 .nextprev a.w3-right, .nextprev a.w3-left {
     background-color: #04AA6D;
@@ -217,3 +220,4 @@ cnx {
     height: 24px;
     width: 24px;
 }
+.

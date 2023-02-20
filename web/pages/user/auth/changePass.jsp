@@ -10,15 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>OL</title>
-        <link rel="stylesheet" href="css/login.css"/>
+        <link rel="stylesheet" href="./css/login.css"/>
 
     </head>
     <body>
-         <div class="login-wrap">
+
+        <div class="login-wrap">
             <div class="login-html">
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Change Password <br> <h3 style="color: red">${requestScope.ms}</h3> </label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Change Password</label>
                 <div class="login-form">
-                    <form action="changepass">
+                    <form action="change">
                         <h3 style="color: red">${requestScope.ms}</h3>
                         <div class="sign-up-htm">
                             

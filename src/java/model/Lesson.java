@@ -17,12 +17,12 @@ public class Lesson {
     private int image_id;
     private String lesson_content;
     private int lesson_number;
-    private int question_id;
+
 
     public Lesson() {
     }
 
-    public Lesson(int lesson_id, String lesson_video, String lesson_lever, int chapter_id, int image_id, String lesson_content, int lesson_number, int question_id) {
+    public Lesson(int lesson_id, String lesson_video, String lesson_lever, int chapter_id, int image_id, String lesson_content, int lesson_number) {
         this.lesson_id = lesson_id;
         this.lesson_video = lesson_video;
         this.lesson_level = lesson_lever;
@@ -30,7 +30,7 @@ public class Lesson {
         this.image_id = image_id;
         this.lesson_content = lesson_content;
         this.lesson_number = lesson_number;
-        this.question_id = question_id;
+
     }
 
     
@@ -93,12 +93,5 @@ public class Lesson {
         this.lesson_number = lesson_number;
     }
 
-    public int getQuestion_id() {
-        return question_id;
-    }
-
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
-    }
     
 }
