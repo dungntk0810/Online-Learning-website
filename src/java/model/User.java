@@ -40,12 +40,6 @@ public class User {
         this.user_password = user_password;
         this.user_role = user_role;
     }
-     public User( String user_name, String user_password, int user_role) {
-       
-        this.user_name = user_name;
-        this.user_password = user_password;
-        this.user_role = user_role;
-    }
 
     public User(int user_id, String user_name, String user_password, int user_role, String user_avatar) {
         this.user_id = user_id;

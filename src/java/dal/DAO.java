@@ -65,21 +65,6 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
     }
-     public void changePass(User a,String s ) {
-        String sql = "UPDATE [dbo].[User]\n"
-                + "   SET \n"
-                + "      [user_password] = ?\n"
-                + "      \n"
-                + " WHERE user_name=?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1,s);
-            st.setString(2, a.getUser_name());
-            st.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
 
     public List<Course> getAllCourse() {
 
@@ -200,8 +185,8 @@ public class DAO extends DBContext {
 
     public static void main(String[] args) {
         DAO d = new DAO();
-        System.out.println(d.listAllEnroll(2).size());
-
+        String c = d.getDetailByLessonId(1);
+        System.out.println(c);
     }
 
     public int countCommentCourse(int id) {

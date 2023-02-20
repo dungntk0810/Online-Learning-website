@@ -93,13 +93,15 @@ public class ALoginServlet extends HttpServlet {
         response.addCookie(cr);
         DAO d = new DAO();
         User a = d.check(user, pass);
+        PrintWriter out = response.getWriter();
+        out.print(a.getUser_name());
         HttpSession session = request.getSession();
 
         if (a == null) {
             //ko tim thay
             String error = "Username or password is incorrect!";
             request.setAttribute("ms", error);
-            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
+            request.getRequestDispatcher("alogin.jsp").forward(request, response);
         } else {
             session.setAttribute("account", a);
             response.sendRedirect("home");
