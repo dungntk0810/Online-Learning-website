@@ -45,7 +45,7 @@ public class UserDAO extends DBContext {
             
         }
     }
-<<<<<<< HEAD
+
     public void insertUser(User u) {
         String sql = "INSERT INTO [dbo].[User]\n"
                 + "           ([user_name]\n"
@@ -102,9 +102,5 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-
-=======
->>>>>>> 75f922a24f96e083e598d383ddf22c125a232b7a
-    
 
 }
