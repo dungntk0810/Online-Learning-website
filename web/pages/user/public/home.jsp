@@ -414,20 +414,42 @@
                                                                                         </h6>-->
                                             <!--                                            <h6> So Luong: <input style="text-align: center" type="number" name="num" value="1" /></h6>-->
                                             <div class="options">
-                                                <c:forEach var="i" items="${requestScope.lister}">
+                                                <c:if test="${sessionScope.account!=null}">
+                                                    <c:set var="count" value="0"></c:set>
+                                                    <c:forEach var="i" items="${requestScope.lister}">
+                                                        <c:if test="${i.getCourse_id()==listC.getCourse_id()}">
+                                                            <c:set var="count" value="${count+1}"></c:set>
+                                                        </c:if>                                                          
+                                                    </c:forEach>
                                                     <c:choose>
-                                                        <c:when test="${i.getCourse_id()==listC.getCourse_id()}">
-                                                            <h5 style="color: red">Continue learning</h5>
+                                                        <c:when test="${count==0}">
+                                                            <c:choose >
+                                                                <c:when test="${listC.getCourse_price()==0}">
+                                                                    <h5>FREE</h5>
+                                                                </c:when>
+                                                                <c:when test="${listC.getCourse_price()!=0}">
+                                                                    <h5>Sale: ${listC.getCourse_price()} VND</h5>
+                                                                </c:when> 
+                                                            </c:choose>
                                                         </c:when>
-                                                        <c:otherwise>
-                                                            <h5>Sale: ${listC.getCourse_price()} VND</h5>
-                                                        </c:otherwise>
+                                                        <c:when test="${count>0}">
+                                                            <h5 style="color: red">Continue learning</h5>
+                                                        </c:when>    
                                                     </c:choose>
-                                                </c:forEach>
-                                                <c:if test="${sessionScope.account==null}">
-                                                    <h5>Sale: ${listC.getCourse_price()} VND</h5>
                                                 </c:if>
-                                                <a href="buy?id=${p.getProductId()}&num=1">
+                                                <c:if test="${sessionScope.account==null}">
+                                                    <c:choose >
+                                                        <c:when test="${listC.getCourse_price()==0}">
+                                                            <h5>FREE</h5>
+                                                        </c:when>
+                                                        <c:when test="${listC.getCourse_price()!=0}">
+                                                            <h5>Sale: ${listC.getCourse_price()} VND</h5>
+                                                        </c:when> 
+                                                    </c:choose>
+                                                </c:if>
+
+                                                <a href="enroll?course=${listC.getCourse_id()}">
+
                                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                     <g>
                                                     <g>
