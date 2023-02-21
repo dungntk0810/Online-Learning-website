@@ -58,7 +58,7 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/pages/user/auth/signup.jsp").forward(request, response);
+//        request.getRequestDispatcher("/pages/user/auth/signup.jsp").forward(request, response);
     }
 
     /**
@@ -78,14 +78,15 @@ public class SignupServlet extends HttpServlet {
         UserDAO dao = new UserDAO();
         if (!pass.equals(rpass)) {
             request.setAttribute("message", "2 password are not the same");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
         }
         if (dao.checkUser(user)) {
             request.setAttribute("message", "This user's name has been used");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
         } else {
+            dao.addUser(user, pass);
             request.setAttribute("message", "Your account has been created successfully");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
         }
     }
 
