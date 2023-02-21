@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 package model;
+=======
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model;
+
+/**
+ *
+ * @author Admin
+ */
+>>>>>>> 75f922a24f96e083e598d383ddf22c125a232b7a
 public class User {
     private int user_id ;
     private String user_name ;
@@ -31,12 +44,15 @@ public class User {
         this.user_password = user_password;
         this.user_role = user_role;
     }
+<<<<<<< HEAD
      public User( String user_name, String user_password, int user_role) {
        
         this.user_name = user_name;
         this.user_password = user_password;
         this.user_role = user_role;
     }
+=======
+>>>>>>> 75f922a24f96e083e598d383ddf22c125a232b7a
 
     public User(int user_id, String user_name, String user_password, int user_role, String user_avatar) {
         this.user_id = user_id;
@@ -126,4 +142,7 @@ public class User {
     }
     
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 75f922a24f96e083e598d383ddf22c125a232b7a

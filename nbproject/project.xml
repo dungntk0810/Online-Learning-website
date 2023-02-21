@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>Online-Learning</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
+<<<<<<< HEAD
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.commons-logging-1.2.jar}</file>
@@ -39,6 +40,9 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
+=======
+            <web-module-libraries/>
+>>>>>>> 75f922a24f96e083e598d383ddf22c125a232b7a
             <web-module-additional-libraries/>
             <source-roots>
                 <root id="src.dir" name="Source Packages"/>
