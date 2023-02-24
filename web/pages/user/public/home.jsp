@@ -134,9 +134,9 @@
                         <div class="wrap-site-logo">
                             <a title="Home" href="home">
                                 <img alt="Home" class="site-logo"
-                                     src="themes/codelearn-logo.png">
+                                     src="themes/logo2.png">
                                 <img alt="Home" class="site-logo-mobile"
-                                     src="themes/codelearn-logo.png">
+                                     src="themes/logo2.png">
                             </a>
                         </div>
                         <div class="wrap-right-header">
@@ -319,7 +319,7 @@
                                                                 <c:when test="${count>0}">
                                                                     <div class="view-content-footer">
                                                                         <div class="course-footer-left">
-                                                                            <c:set var="value" value="50"></c:set>
+                                                                            <c:set var="value" value="100"></c:set>
                                                                             <div class="progress-circle progress-${value}"><span>${value}</span></div>
                                                                         </div>
                                                                         <div class="course-footer-right">

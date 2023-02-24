@@ -4,6 +4,7 @@
  */
 package controller.user;
 
+import dal.CommentCourseDAO;
 import dal.DAO;
 import dal.PercentageDAO;
 import java.io.IOException;
@@ -14,8 +15,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import model.Chapter;
+import model.CommentCourse;
 import model.Course;
 import model.Enroll;
 import model.Lesson;
@@ -66,6 +69,7 @@ public class CourseDetail extends HttpServlet {
             System.out.println(e);
 
         }
+//        request.getRequestDispatcher("/pages/user/public/course-detail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -80,6 +84,15 @@ public class CourseDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String courseId_raw = request.getParameter("id");
+            int courseID = Integer.parseInt(courseId_raw);
+            List<CommentCourse> list = new ArrayList<>();
+            CommentCourseDAO dao = new CommentCourseDAO();
+            list = dao.getCommentCourse(courseID);
+            List<CommentCourse> list2 = new ArrayList<>();
+            list2 = dao.getReplyCommentCourse(courseID);
+            request.setAttribute("commentcourse", list);
+            request.setAttribute("replycommentcourse", list2);
         processRequest(request, response);
     }
 

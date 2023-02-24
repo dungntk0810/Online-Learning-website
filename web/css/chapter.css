@@ -1,798 +1,608 @@
-.slick-slider {
+body {
+    background-color: #fff !important;
+}
+
+.breadcrumb {
+    background-color: #ebebeb !important;
+}
+
+.course-head {
+    background: url("../themes/backgroung-course.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 80px;
+    margin-top: -61px;
     position: relative;
-    display: block;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent
 }
 
-.slick-list {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    margin: 0;
-    padding: 0
+.course-head>.container {
+    padding: 0;
 }
 
-.slick-list:focus {
-    outline: none
-}
-
-.slick-list.dragging {
-    cursor: pointer;
-    cursor: hand
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0)
-}
-
-.slick-track {
-    position: relative;
+.course-head .overlay {
+    position: absolute;
     top: 0;
     left: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
-.slick-track:before,
-.slick-track:after {
-    display: table;
-    content: ''
-}
-
-.slick-track:after {
-    clear: both
-}
-
-.slick-loading .slick-track {
-    visibility: hidden
-}
-
-.slick-slide {
-    display: none;
-    float: left;
-    height: 100%;
-    min-height: 1px
-}
-
-[dir='rtl'] .slick-slide {
-    float: right
-}
-
-.slick-slide img {
-    display: block
-}
-
-.slick-slide.slick-loading img {
-    display: none
-}
-
-.slick-slide.dragging img {
-    pointer-events: none
-}
-
-.slick-initialized .slick-slide {
-    display: block
-}
-
-.slick-loading .slick-slide {
-    visibility: hidden
-}
-
-.slick-vertical .slick-slide {
-    display: block;
-    height: auto;
-    border: 1px solid transparent
-}
-
-.slick-arrow.slick-hidden {
-    display: none
-}
-
-:root {
-    --box-shadow-color: rgba(188, 188, 188, .5);
-    --title-block-color: #3b3c54;
-    --title-color: #3b3c54;
-    --title-color-hover: #2c31cf;
-    --featured-color: #fff;
-    --accent-color: #3d6cae;
-    --white-color: #fff;
-}
-
-#list {
-    min-height: 500px;
-}
-
-#search input {
-    padding-left: 30px;
-}
-
-#search .input-group .glyphicon-search {
-    left: 0 !important;
-    z-index: 5 !important;
-}
-
-.course-thumb {
-    position: relative;
-}
-
-.course-thumb .is-sale {
-    position: absolute;
-    top: 17px;
-    right: 17px;
-    width: 45px;
-    height: 45px;
-    color: #8b4612;
-    font-size: 10px;
-    background: url("../../../Images/home-v2/sale-banner.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-.course-thumb .is-sale .is-sale-number {
-    display: block;
-    width: 100%;
-}
-
-.course-thumb .is-sale .is-sale-number>span {
-    display: block;
-}
-
-.course-thumb .is-sale .is-sale-only {
-    text-transform: uppercase;
-}
-
-.course-thumb a {
-    display: block;
-}
-
-.course-thumb a>img {
-    width: 100%;
-    transform: none !important;
-    display: block;
-    border-radius: 5px 5px 0 0;
-    object-fit: cover;
-    background: #ddd;
-}
-
-.list-courses {
-    margin-bottom: 20px;
-}
-
-.list-courses:last-child {
-    margin-bottom: 0;
-}
-
-.list-courses .row {
-    flex-wrap: wrap;
-    display: flex;
-    width: calc(100% + 30px);
-}
-
-.list-courses .item {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.list-courses .btn-carousel {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 10px 0 rgba(188, 188, 188, .8);
-    border-radius: 50%;
-    position: absolute;
-    top: calc(50% - 35px);
-    background: var(--white);
-    color: #434b56;
-    cursor: pointer;
-    font-size: 2rem;
-    transition: all 300ms;
-}
-
-.list-courses .btn-carousel:hover {
-    color: var(--white);
-    background: var(--accent-color);
-}
-
-.list-courses .btn-carousel.slick-next {
-    right: -35px;
-}
-
-.list-courses .btn-carousel.slick-prev {
-    left: -35px;
-}
-
-.list-courses .btn-carousel[aria-disabled*="true"] {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.list-courses .container-circle {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-}
-
-.list-courses .prec {
-    font-size: 12px;
-    color: #fff;
-}
-
-.list-courses .circle {
     width: 100%;
     height: 100%;
-    border-radius: 100%;
-    background-color: #565151;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #1e2a55;
+    opacity: .75;
 }
 
-.list-courses .active-border {
-    padding: 1px;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.on-tour .course-head-content {
+    position: unset;
 }
 
-.list-courses .timeCouter {
-    border-radius: 3px;
-    background: rgba(0, 0, 0, .3);
-    display: inline-block;
-    padding: 1px 10px;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
+.on-tour .course-head .overlay {
+    z-index: -1;
 }
 
-.list-courses .timeCouter .time {
-    color: #fff;
-    font-size: 11px;
-    line-height: 13px;
-    text-align: center;
+.on-tour #course-detail #exTab1 .nav {
+    background: #1e2a55;
 }
 
-.list-courses #no-data {
-    padding: 15px;
-    background-color: #fff;
-    text-align: center;
+.on-tour #not-auth {
+    pointer-events: none;
 }
 
-.list-courses #no-data img {
-    width: 350px;
-    max-width: 100%;
-}
-
-.list-courses #no-data h2 {
-    font-size: 18px;
-    color: #000;
-    margin-bottom: 0;
-}
-
-.view-content {
-    padding: 15px;
-    min-height: 220px;
-    position: relative;
-}
-
-.view-content .course-author {
-    margin-bottom: 15px;
-    display: block;
-    font-size: 13px;
-    color: #42526e;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.view-content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: -40px -15px 0;
-    position: relative;
-    background: #fff;
-    padding: 15px 15px 7px;
-    border-top-right-radius: 30px;
-}
-
-.view-content-header__img-top {
-    display: none !important;
-}
-
-.view-content-header .course-type {
-    padding: 4px 6px 3px;
-    font-size: 10px;
-    color: var(--white-color);
-    border-radius: 13px;
-}
-
-.view-content-header .course-type.online {
-    background: #ffab00;
-}
-
-.view-content-header .course-type.offline {
-    background: #869ffd;
-}
-
-.view-content-header .course-type.on-or-off {
-    background: #09d0da;
-}
-
-.view-content-footer {
-    width: calc(100% - 30px);
-    padding: 7px 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    border-top: 1px solid #dcdff1;
-    position: absolute;
-    bottom: 0;
-    color: #42526e;
-    font-weight: 600;
-}
-
-.view-content-footer .course-footer-left .sale-price .current-unit,
-.view-content-footer .course-footer-left .old-price .current-unit {
-    font-size: 10px;
-}
-
-.view-content-footer .course-footer-left .sale-price {
-    display: inline-block;
-    margin-right: 5px;
-    font-size: 14px;
-    padding: 6px 12px;
-    color: #fff;
-    background: #4c5eff;
-    border-radius: 15px;
-}
-
-.view-content-footer .course-footer-left .old-price {
-    position: relative;
-    font-size: 13px;
-}
-
-.view-content-footer .course-footer-left .old-price::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background: #42526e;
-    bottom: 7px;
-    left: 0;
-}
-
-.view-content-footer .course-footer-left {
-    height: 40px;
-    display: flex;
-    align-items: center;
-}
-
-.view-content-footer .course-footer-right .is-competed {
-    color: #a5adba;
-    font-weight: normal;
-}
-
-.view-content-footer .course-footer-right .btn-continue-study {
-    text-decoration: none;
-    padding: 6px 13px;
-    font-size: 14px;
-    background: #36b37e;
-    color: var(--white-color);
-    border-radius: 15px;
-}
-
-.course-item .wrap-course-item.is-combo {
-    background: #4c5eff;
-}
-
-.course-item .wrap-course-item.is-combo .view-content .view-content-header {
-    background: #4c5eff;
-    border-radius: unset;
-}
-
-.course-item .wrap-course-item.is-combo .view-content .view-content-header__img-top {
-    display: block !important;
-    position: absolute;
-    top: -27px;
-    left: 0;
-    width: 100%;
-    height: 28px;
-}
-
-.course-item .wrap-course-item.is-combo .course-title a {
-    color: var(--white-color);
-}
-
-.course-item .wrap-course-item.is-combo .view-content .course-author {
-    color: var(--white-color);
-    opacity: .5;
-}
-
-.course-item .wrap-course-item.is-combo .view-content .course-description {
-    color: var(--white-color);
-}
-
-.course-item .wrap-course-item.is-combo .view-content-footer {
-    border-color: rgba(255, 255, 255, .15);
-}
-
-.course-item .wrap-course-item.is-combo .view-content-footer .course-footer-left .sale-price {
-    background: #fa6400;
-}
-
-.course-item .wrap-course-item.is-combo .view-content-footer .course-footer-left .old-price {
-    color: var(--white-color);
-}
-
-.course-item .wrap-course-item.is-combo .view-content-footer .course-footer-left .old-price::after {
-    background: var(--white-color);
-}
-
-.course-item .wrap-course-item.is-combo .course-type-footer {
-    color: var(--white-color);
-}
-
-.course-item .wrap-course-item.is-combo .course-type-footer.is-competed {
-    opacity: .7;
-}
-
-.wrap-course-item {
-    position: relative;
-}
-
-.wrap-course-item:hover .popover-course {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-}
-
-.free-text {
-    font-size: 16px;
-    color: #4c5eff;
-    font-weight: 600;
-}
-
-.is-combo .free-text {
-    font-size: 16px;
-    color: var(--white-color);
-}
-
-.popover-course {
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    background: #fff;
-    width: 360px;
-    z-index: 2;
-    box-shadow: 0 5px 15px 0 rgba(133, 142, 176, .5);
-    height: 100%;
-    padding: 25px 30px;
-    transform: translateY(15px);
-    opacity: 0;
-    visibility: hidden;
-    transition: 300ms ease-out;
-}
-
-.popover-course.arrow-left::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: -13px;
-    width: 0;
-    height: 0;
-    border-right: 13px solid var(--white-color);
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-}
-
-.popover-course.arrow-right::after {
-    position: absolute;
-    content: '';
-    top: 50%;
-    right: -13px;
-    width: 0;
-    height: 0;
-    border-left: 13px solid var(--white-color);
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-}
-
-.popover-course__title {
-    font-size: 22px;
-    margin-top: 0;
-    color: #1e2a55;
-    line-height: 1.2;
-    display: inline-block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    white-space: normal;
-}
-
-.popover-course__title:hover {
-    text-decoration: none;
-}
-
-.popover-course__sum {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #dcdff1;
-}
-
-.popover-course__sum .author {
-    display: flex;
-    align-items: center;
-}
-
-.popover-course__sum .author img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.popover-course__sum .author .user-name {
-    font-size: 13px;
-    color: #4c5eff;
-    white-space: nowrap;
-    display: inline-block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 125px;
-}
-
-.popover-course__sum .rate-wrap {
-    font-size: 13px;
-}
-
-.popover-course__sum .rate-wrap .avg-rate {
-    color: #202842;
-}
-
-.popover-course__sum .rate-wrap .total-rate {
-    color: #a5adba;
-}
-
-.popover-course__detail-infor {
-    list-style: none;
-    padding-left: 0;
-    padding-bottom: 10px;
-}
-
-.popover-course__detail-infor li {
-    color: #202842;
-}
-
-.popover-course__detail-infor li>p>i {
-    color: #4c5eff;
-    width: 20px;
-    margin-right: 10px;
-}
-
-.popover-course__btn-buy-now {
-    position: absolute;
-    bottom: 25px;
-    transform: translateX(-50%);
-    left: 50%;
-    text-align: center;
-    display: inline-block;
-    background: #ec5252;
-    color: var(--white-color);
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: calc(100% - 50px);
-    border-radius: 5px;
-    padding: 12px 40px 12px;
-    transition: 300ms all;
-    border: 1px solid #ec5252;
-    cursor: pointer;
-}
-
-.popover-course__btn-buy-now:hover {
-    background: var(-\2dwhite-color);
-    color: #ec5252;
-    text-decoration: none;
-}
-
-@media(max-width:768px) {
-    .wrap-course-item:hover .popover-course {
-        display: none;
-    }
-}
-
-.view-content .course-description {
-    margin-bottom: 20px;
-    color: #42526e;
-    line-height: 1.5;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    min-height: 44px;
-    max-height: 3em;
-}
-
-.span-percent {
-    height: 21px;
-    width: 34px;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 21px;
-    text-align: center;
-}
-
-.owner-profile :hover {
-    cursor: pointer;
-}
-
-.img-total-lesson {
-    width: 18px;
-}
-
-.span-total-lesson {
-    margin-left: 3px;
-    color: #626d7d;
-    line-height: 16px;
-    margin-right: 20px;
-}
-
-.span-img-total {
-    float: left;
-    margin-top: 4px;
-    margin-left: 40%;
-}
-
-.user-class-name {
-    color: #4d96ff;
-    margin-left: 10px;
-    margin-right: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.task-creator-label {
-    padding: 0 5px;
-    position: relative;
-    display: flex;
-}
-
-.avatars {
-    position: absolute;
-    display: inline-block;
-    margin-top: -10px;
-    bottom: -10px;
-    right: 10px;
-}
-
-.title {
-    margin-top: 0;
-}
-
-.title a {
-    color: #000;
-    font-size: 16px;
-    line-height: 19px;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-}
-
-.number-student,
-.span-total-lesson {
-    color: #6e6e6e;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.list-courses {
-    width: 100%;
-    display: inline-block;
-}
-
-.list-courses .row:before,
-.list-courses .row:after {
-    display: none;
-}
-
-.list-courses .course-item {
-    margin-bottom: 30px;
-}
-
-.list-courses .wrap-course-item {
-    background: var(--white-color);
+.course-head-content {
+    background: #1e2a55;
     box-shadow: 0 5px 15px 0 rgba(133, 142, 176, .15);
-    border-radius: 5px;
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: -100px;
+    z-index: 5;
+    padding: 0 0 52px;
+    color: var(--white);
 }
 
-.list-courses .user-rating {
-    color: #6e6e6e;
+.course-head-content .head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-right: 30px;
+    margin-bottom: 15px;
 }
 
-.list-courses .course-info {
+.course-head-content .head .title {
+    padding-left: 30px;
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 0;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.course-head-content .head .actions {
+    flex: 0 0 300px;
+    text-align: right;
+}
+
+.course-head-content .head .actions a {
+    margin-left: 15px;
+    font-size: 16px !important;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.course-head-content .main-content {
+    padding: 0 30px 30px;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2e3d75;
+}
+
+.course-head-content .main-content .title-wrap {
+    color: var(--white);
+    height: 100%;
+    flex: 0 50%;
+    padding-right: 15px;
+}
+
+.course-head-content .main-content .title-wrap__rate-and-author {
     display: flex;
     align-items: center;
 }
 
-.list-courses .course-info i {
-    margin-right: 5px;
-    font-size: 17px;
-}
-
-.list-courses .course-info span {
+.course-head-content .main-content .title-wrap__rate-and-author .author {
     display: flex;
     align-items: center;
-}
-
-.list-courses .lession-count {
     margin-right: 15px;
 }
 
-.course-title {
-    margin-top: 0;
-    font-size: 20px;
+.course-head-content .main-content .title-wrap__rate-and-author .author img {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.course-head-content .main-content .title-wrap__rate-and-author .author a {
+    max-width: 135px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 13px;
+    color: #a5adba;
+}
+
+.course-head-content .main-content .title-wrap__rate-and-author .enroll-students {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #a5adba;
+}
+
+.course-head-content .main-content .title-wrap__rate-and-author .enroll-students i {
+    min-width: 20px;
+}
+
+.course-head-content .main-content .title-wrap__desc {
+    line-height: 22px;
+    margin-top: 20px;
+    margin-bottom: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-head-content .main-content .infor-wrap {
+    border-right: 1px solid #2e3d75;
+    border-left: 1px solid #2e3d75;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: var(--white);
+    flex: 0 0 30%;
+}
+
+.course-head-content .main-content .infor-wrap__item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-head-content .main-content .infor-wrap__item .left {
+    color: #a5adba;
+    display: flex;
+    align-items: center;
+}
+
+.course-head-content .main-content .infor-wrap__item .left .icon-wrap {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #a5adba;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.course-head-content .main-content .infor-wrap__item .right {
+    font-weight: 600;
+}
+
+.course-head-content .main-content .actions-wrap {
+    padding-left: 15px;
+    flex: 0 0 20%;
+    text-align: center;
+}
+
+.course-head-content .main-content .actions-wrap .text-price {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #24ddff;
+    margin-bottom: 15px;
+}
+
+.course-head-content .main-content .actions-wrap .text-price.free {
+    color: #24ddff;
+}
+
+.course-head-content .main-content .actions-wrap .buy-now {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 5px;
+    color: var(--white);
+    background: #ec5252;
+    border-radius: 5px;
+    border: 1px solid #ec5252;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px 0 #122154;
+    transition: 300ms all;
+    text-decoration: none;
+}
+
+.course-head-content .main-content .actions-wrap .buy-now:hover,
+.course-head-content .main-content .actions-wrap .buy-now:focus,
+.course-head-content .main-content .actions-wrap .buy-now:active {
+    text-decoration: none;
+}
+
+.course-head-content .main-content .actions-wrap .buy-now.btn-enter-code {
+    background: #4c5eff;
+    color: var(--white);
+    border-color: #4c5eff;
+}
+
+.course-head-content .main-content .actions-wrap .buy-now.btn-enter-code:hover,
+.course-head-content .main-content .actions-wrap .buy-now.btn-enter-code:focus {
+    background: var(--white);
+    color: #4c5eff;
+    border-color: #4c5eff;
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap {
+    text-align: center;
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap .progress-circle {
+    width: 100px;
+    height: 100px;
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap .progress-circle span {
+    padding: 0;
+    font-size: 24px;
+    color: #42526e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap .progress-circle span::after {
+    color: #fff;
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap .progress-circle.progress-100 span {
+    background: var(--white-color);
+}
+
+.course-head-content .main-content .actions-wrap .process-wrap .progress-circle span {
+    color: #fff;
+    background: #1e2a55;
+    width: 92px;
+    height: 92px;
+    left: 4px;
+    top: 4px;
+    font-weight: 600;
+}
+
+@media(max-width:1200px) {
+    .course-head-content .main-content .title-wrap {
+        flex: 0 0 45%;
+    }
+
+    .course-head-content .main-content .infor-wrap {
+        flex: 0 0 35%;
+    }
+
+    .course-head-content .main-content .actions-wrap {
+        flex: 0 0 20%;
+    }
+
+    .course-head-content .main-content .title-wrap__rate-and-author {
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width:992px) {
+    .course-head-content .main-content {
+        flex-wrap: wrap;
+    }
+
+    .course-head-content .main-content .title-wrap {
+        flex: 0 0 55%;
+    }
+
+    .course-head-content .main-content .infor-wrap {
+        flex: 0 0 45%;
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .course-head-content .main-content .actions-wrap {
+        flex: 0 0 100%;
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:768px) {
+    .course-head-content .head {
+        flex-wrap: wrap;
+    }
+
+    .course-head-content .head .actions {
+        flex: 0 0 100%;
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    .course-head-content .head .title {
+        flex: 0 0 100%;
+    }
+
+    .course-head-content .main-content .title-wrap {
+        flex: 0 0 100%;
+    }
+
+    .course-head-content .main-content .infor-wrap {
+        flex: 0 0 100%;
+        padding-left: 0;
+        border-left: 0;
+        margin-top: 15px;
+    }
+
+    .course-head-content .main-content .actions-wrap {
+        flex: 0 0 100%;
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    #container-rate .star-rating {
+        margin-left: 17px;
+        margin-top: 0;
+    }
+}
+
+@media(max-width:576px) {
+    #container-rate .star-rating {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.info-course {
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 rgba(188, 188, 188, .5);
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 5;
+}
+
+.info-course>img {
+    width: 100%;
+    min-height: 253px;
+    max-height: 253px;
+    object-fit: cover;
+}
+
+.info-course-main {
+    padding: 15px;
+}
+
+.info-course-main .fee {
+    display: inline-block;
+    float: left;
+    color: #4d96ff;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 12px;
+}
+
+.info-course-main .register {
+    float: right;
+    margin-top: -3px;
+}
+
+.info-course-main .register a {
+    color: #f00;
+    display: block;
+    margin-top: 15px;
+}
+
+.info-course-main .register .course-register {
+    border-radius: 3px;
+    background-color: #7bc043;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    border: none;
+    margin-top: 5px;
+}
+
+.info-course-main .register .course-register:hover {
+    background: #4d96ff;
+    color: #fff;
+}
+
+.info-course-main .main-info {
+    display: inline-block;
+    width: 100%;
+}
+
+.info-course-main .main-info .title-course {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 19px;
     margin-bottom: 10px;
 }
 
-.course-title a {
-    color: #172b4d;
+.info-course-main .main-info .item {
+    width: 50%;
+    float: left;
+    color: #333;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 10px;
 }
 
-.course-title a:hover {
-    color: var(--title-color-hover);
-    text-decoration: none;
+.detail-course {
+    padding-top: 15px;
+}
+
+.detail-course .title a {
+    color: #fff;
+    font-size: 28px;
+    line-height: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-course .title a i {
+    font-size: 95%;
+}
+
+#objective {
+    padding-top: 30px;
+    text-align: justify;
+}
+
+#not-auth {
+    font-size: 14px;
+    font-weight: normal;
+    color: #ff2700;
+    display: block;
+    transition: 300ms all;
+    z-index: 99999;
+}
+
+#not-auth:hover {
+    text-decoration: underline;
+}
+
+#course-detail .container {
+    margin-top: 20px;
+    padding: 0;
+}
+
+#course-detail #course-img {
+    padding: 0;
+}
+
+#course-detail #img-icon {
+    width: 100%;
+    border-radius: 5px;
+    position: static;
+}
+
+#course-detail #progress {
+    box-sizing: border-box;
+    height: 61px;
+    width: 61px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .3);
+    margin: 0 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #f69046;
+}
+
+#course-detail #progress span {
+    color: #fff;
+    font-size: 16px;
+    opacity: 30;
+}
+
+.tmp {
+    clear: both;
+}
+
+.course {
+    display: inline;
+}
+
+#course-information {
+    display: inline-block;
+    margin-top: 25px;
+}
+
+#course-progress {
+    top: 170px;
+    position: absolute;
+    left: 10px;
+}
+
+#course-detail #course-info {
+    margin-left: 25px;
+    position: absolute;
+    top: 0;
+    margin-top: 15px;
+}
+
+#course-detail #course-title {
+    float: left;
+    word-wrap: break-word;
+    color: #fff;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 44px;
+    flex-basis: 90%;
+}
+
+#course-information .user-rating img {
+    margin-bottom: 5px;
+    height: 16px;
+    width: 12px;
+    display: inline-block;
+}
+
+#course-detail .user-rating i.fa-star {
+    color: #f6bc46;
+}
+
+#course-detail .user-rating i.fa-star-o {
+    color: #f6bc46;
+}
+
+#course-detail #total-rating {
+    color: #fff;
+    margin-left: 7px;
+    font-size: 13px;
+}
+
+#course-detail #course-description {
+    clear: both;
+    height: 66px;
+}
+
+#course-detail #course-description p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail-course .ion-md-star {
+    font-size: 14px;
+    margin-right: 4px;
 }
 
 .star-rating {
     position: relative;
+    margin: 0;
+    display: inline-block;
+    line-height: 1;
     top: -2px;
 }
 
 .star-rating:before,
-.star-rating span:before {
+.star-rating>span:not(.vote-rate):before {
     font-family: "codelearn-font";
     content: '';
     display: inline-block;
@@ -803,361 +613,660 @@
     color: #c8c8c8;
 }
 
-.star-rating span {
+.star-rating>span {
     position: absolute;
     left: 0;
     top: 0;
     overflow: hidden;
 }
 
-.star-rating span:before {
-    color: #f9bf08;
+.star-rating>span:not(.vote-rate):before {
+    color: #ff9f00;
 }
 
-.course-item .user-rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.star-rating .vote-rate {
+    opacity: 0;
+    display: inline-block;
+    width: 100%;
 }
 
-.course-info {
+.star-rating .star {
+    float: left;
+    display: block;
+    width: 1em;
+    height: auto;
+    line-height: 1;
+}
+
+#container-rate.view-only {
+    cursor: default;
+    pointer-events: none;
+}
+
+#container-rate .star {
+    cursor: pointer;
+}
+
+#course-detail .star:hover {
+    cursor: pointer;
+}
+
+#course-detail #task-complete {
+    float: left;
+    margin-top: 15px;
+}
+
+#course-detail span.task-info {
+    margin-left: 5px;
+}
+
+#course-detail #user-owner {
+    display: inline;
+}
+
+#owner {
+    margin: 0 !important;
+    height: 40px !important;
+    position: relative;
+}
+
+#owner a {
+    text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
+    margin-top: 10px;
+    left: 59px;
+    color: #b5b5b5;
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 90px;
 }
 
-.fee {
-    display: none;
+#course-detail {
+    position: relative;
+    padding: 0;
 }
 
-#search.block-top-head {
+#course-detail .user-info {
+    padding: 0;
+}
+
+#course-detail .user-info div {
+    color: #fff;
+    font-size: 16px;
+    line-height: 14px;
+    display: inline-block;
+    word-break: break-word;
+    margin-left: 3px;
+    margin-top: 5px;
+}
+
+#course-detail .user-info div a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 14px;
+    margin-left: 0;
+}
+
+#course-detail .user-info div a.owner {
+    margin-left: 6px !important;
+}
+
+#course-detail .user-info div.user-enrolled a {
+    margin-left: 3px !important;
+}
+
+#course-detail .user-register,
+#course-detail .course-action {
+    background-color: #7bc043;
+    margin-top: 15px;
+    margin-left: -30px;
+    border: none;
+    height: 45px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 14px;
+    min-width: 160px;
+    height: 45px;
+    font-weight: bold;
+}
+
+#course-detail .course-registered {
+    background-color: #7bc043;
+    box-shadow: 0 10px 10px 0 #d8f8bf;
+    color: #fff;
+    margin-top: 10px;
+}
+
+#course-detail .user-register span {
+    height: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+#course-detail #exTab1 {
+    margin: -20px 0 0 0;
+    clear: left;
+    position: relative;
+}
+
+#course-detail #exTab1 .nav {
+    display: inline-block;
+    z-index: 5;
+    top: 49px;
+    padding-left: 15px;
+}
+
+#exTab1 .nav-pills>li>a {
+    padding: 16px;
+    color: #b6b6b6;
+    font-size: 14px;
+    line-height: 16px;
+    font-size: 15px;
+    line-height: 19px;
+    text-align: center;
+    position: relative;
+    transition: all ease 1s;
+    -webkit-transition: background 2s;
+    -moz-transition: background 2s;
+    -o-transition: background 2s;
+    transition: background 2s;
+}
+
+#exTab1 .nav-pills>li.active>a,
+#exTab1 .nav-pills>li:hover>a {
+    color: var(--white);
+    border: none;
+}
+
+#exTab1 .nav-pills>li.active>a {
+    font-weight: bold;
+    position: relative;
+}
+
+#exTab1 .nav-pills>li.active>a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 3px solid var(--white);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+#exTab1 .nav-pills>li>a {
+    background: transparent;
+}
+
+.tab-content {
     margin-bottom: 50px;
 }
 
-#search.block-top-head .input-group {
-    max-width: 100%;
+.tab-content:not(:first-child) {
+    background-color: #fff;
+    padding: 95px 5px 0 5px;
+    clear: both;
+}
+
+.tab-content>.active.list-task {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.tab-content>.active.list-task:before,
+.tab-content>.active.list-task:after {
+    display: none !important;
+}
+
+.list-task:before,
+.list-task:after {
+    display: none !important;
+}
+
+.list-task .course-name {
+    border-radius: 5px;
+    box-shadow: 0 5px 10px 0 rgba(178, 178, 178, .5);
+    padding-bottom: 15px;
+    background-color: #fff;
+    margin-top: 30px;
+    height: calc(100% - 30px);
+}
+
+.list-task .course-name .lession {
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    height: 135px;
+}
+
+.list-task .course-name img {
+    position: static;
+    width: 100%;
+    height: 100%;
+}
+
+.list-task .course-name .title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
     margin: 0;
 }
 
-#search.block-top-head .form-inline {
+.list-task .course-name h3 {
+    margin: 0 auto;
+    border-radius: 32px;
+    font-size: 18px;
+    line-height: 21px;
+    word-break: break-word;
+    max-width: 80%;
+    padding: 15px 30px;
+    display: inline-block;
+}
+
+.list-task .course-name .active {
+    font-weight: 600;
+    background-color: #fff;
+    color: #3b3c54;
+    box-shadow: 0 2px 4px 0 rgba(9, 30, 66, .3);
+}
+
+.list-task .course-name .notActive {
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+div.contain-task {
     margin-top: 20px;
+    text-align: center;
 }
 
-.title-block {
-    margin: 0 0 25px;
-    font-size: 28px;
-    color: var(--title-block-color);
+div.contain-task a {
+    transition: all 300ms;
 }
 
-.featured-courses {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.featured-courses:before,
-.featured-courses:after {
-    position: absolute;
-}
-
-.featured-courses .wrap-course-item {
-    display: flex;
-    flex-direction: column;
-    background: #e9b021 url("../../../Images/course/featured-course-bg-1.jpg") top right/cover no-repeat;
-    justify-content: flex-end;
-    padding: 30% 20px 25px;
-    height: 100%;
+div.contain-task a:hover {
     text-decoration: none;
-    color: var(--featured-color);
-    border-radius: 3px;
-    overflow: hidden;
-    box-shadow: 0 0 10px -5px var(-\2d box-shadow-color);
+    background: #8a96ff;
+    color: #fff;
+    border-color: #8a96ff;
 }
 
-.featured-courses .wrap-course-item img {
-    max-width: 70px;
+a.circle {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #fff;
+    border: 1px solid #8291a3;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    padding: 6px 3px;
 }
 
-.featured-courses .course-item {
-    margin-bottom: 30px;
+a.allow-active {
+    border-color: #f69046;
+    border-width: 1px;
+    color: #f69046;
 }
 
-.featured-courses .course-item:nth-child(2) .wrap-course-item {
-    background: #eb7359 url("../../../Images/course/featured-course-bg-2.jpg") top right/cover no-repeat;
+a.not-allowed {
+    background: #8a96ff;
+    color: #fff;
+    cursor: not-allowed;
 }
 
-.featured-courses .course-item:nth-child(3) .wrap-course-item {
-    background: #01a7b4 url("../../../Images/course/featured-course-bg-3.jpg") top right/cover no-repeat;
+a.resolve {
+    background-color: #4d96ff;
+    border: 1px solid #4d96ff;
 }
 
-.featured-courses .course-item:nth-child(4) .wrap-course-item {
-    background: #5e44ae url("../../../Images/course/featured-course-bg-4.jpg") top right/cover no-repeat;
-}
-
-.featured-courses .course-title {
-    text-transform: uppercase;
-    color: var(--featured-color);
-    font-size: 26px;
-    line-height: 1.26;
-    margin-bottom: 30px;
-    height: 4em;
-    overflow: hidden;
-}
-
-.featured-courses .course-info {
-    width: 100%;
-    display: flex;
+a.resolve span {
     font-size: 15px;
 }
 
-.featured-courses .course-info>span {
-    width: 50%;
-    display: flex;
-    align-items: center;
+a.not-resolve {
+    box-sizing: border-box;
+    border: 1px solid #c8c8c8;
+    color: #c8c8c8;
 }
 
-.featured-courses .course-info>span.student-count {
-    justify-content: flex-end;
+a.not-next-step:hover {
+    cursor: not-allowed;
 }
 
-.featured-courses .course-info i {
-    margin-right: 3px;
-    font-size: 22px;
+a.not-pass {
+    background-color: #fff;
+    border: 1px dashed #4d96ff;
+    color: #4d96ff;
 }
 
-.featured-courses .course-info .student-count {
-    text-align: right;
+.nav-pills>li.extab {
+    margin-left: 0;
 }
 
-@media(max-width:576.98px) {
-    #featured-courses .col-xs-6 {
-        width: 100%;
-    }
-
-    .list-courses .course-item {
-        width: 100%;
-    }
-
-    .course-thumb>a>img {
-        height: 290px;
-    }
-}
-
-@media(min-width:576.98px) {
-    .course-thumb>a>img {
-        height: 245px;
-    }
-}
-
-@media(min-width:768.98px) {
-    .course-thumb>a>img {
-        height: 245px;
-    }
-}
-
-@media(min-width:992.98px) {
-    #search.block-top-head .input-group {
-        max-width: 380px;
-    }
-
-    #search.block-top-head .form-inline {
-        margin: 0;
-        text-align: right;
-    }
-}
-
-@media(min-width:1024.98px) {
-    .course-thumb>a>img {
-        height: 240px;
-    }
-}
-
-@media(min-width:1200.98px) {
-    .course-thumb>a>img {
-        height: 220px;
-    }
-}
-
-.head-course {
-    padding: 3% 5%;
-    background: url("../themes/home.jpg");
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: center;
-    margin-bottom: 30px;
-    padding: 30px;
-}
-
-.head-course h2 {
-    font-size: 28px;
-    color: var(--white);
-}
-
-.head-course h1,
-.head-course h2 {
-    margin: 0;
-}
-
-.head-course #search {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 30px;
-}
-
-.head-course #search .btn {
-    height: 45px;
-    background-color: #ec5252;
-    padding: 10px 15px;
-    line-height: 28px;
-    margin-left: 15px;
-    transition: all 300ms;
-    border: none !important;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-}
-
-.head-course #search .btn i {
-    font-size: 22px;
-    margin-right: 5px;
-}
-
-.head-course #search .btn::before {
-    content: none;
-}
-
-.head-course #search .input-group {
-    font-size: 0;
-    display: inline-block;
-}
-
-.head-course #form-search {
+.banner {
+    opacity: .95;
+    background-color: #264b7f;
+    height: 266px;
     position: relative;
-    display: inline-block;
-    width: 100%;
-    background: var(--white);
-    border-radius: 3px;
 }
 
-.head-course #form-search span {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: #65656d;
-    font-size: 24px;
+.title {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.user-info {
+    width: 22%;
+    float: left;
+}
+
+.title-review {
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 2px;
+}
+
+.star-rating {
+    margin-left: 17px;
+    margin-top: -10px;
+}
+
+.user-enrolled {
+    display: inline;
+}
+
+.edit {
+    font-size: 14px !important;
+}
+
+a.edit:hover {
+    text-decoration: underline;
+}
+
+.folder {
+    color: #4d96ff;
+    float: left;
+    font-size: 18px;
+}
+
+.user-info>.cate-title {
+    padding-left: 2px;
+    margin-top: 6px;
+}
+
+.star {
+    height: 12px;
+    width: 12px;
+    color: #ff9f00;
+}
+
+.star-empty {
+    height: 12px;
+    width: 12px;
+    color: #c8c8c8;
+}
+
+.circles {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: #565151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circles .prec {
+    font-size: 14px;
+    color: #fff;
+}
+
+.container-circle {
+    float: right;
+    margin-right: 30px;
+}
+
+.container-circle>.active-border {
+    padding: 2px;
     width: 45px;
     height: 45px;
+    border-radius: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.head-course #form-search span:hover {
+.category {
+    margin-top: 4px;
+}
+
+.course-edit {
+    display: flex;
+}
+
+.edit-button {
+    flex-basis: 10%;
+}
+
+.create {
     color: #fff;
+    font-style: inherit;
 }
 
-.head-course #form-search span.input-group-addon {
-    background-color: transparent;
+.cate-p {
+    padding-left: 3px;
+    padding-top: 23px;
 }
 
-.head-course #form-search span.input-group-addon i {
-    margin-right: 0;
-    color: var(--accent-color);
+.user-avatars {
+    height: 34px !important;
+    width: 34px !important;
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-left: 3px;
 }
 
-.head-course #form-search span.input-group-addon:hover {
-    background-color: var(--accent-color);
+.text-rate {
+    color: #b5b5b5;
+    font-size: 13px;
+    line-height: 11px;
+    margin-left: 5px;
 }
 
-.head-course #form-search span.input-group-addon:hover i {
-    color: #fff;
-}
-
-.head-course #form-search .form-control {
-    height: 45px;
-    padding-right: 45px;
-    padding-left: 10px;
-    background: none;
-    position: relative;
-}
-
-.head-course #form-search .form-control:-webkit-autofill,
-.head-course #form-search .form-control:-webkit-autofill:hover,
-.head-course #form-search .form-control:-webkit-autofill:focus,
-.head-course #form-search .form-control:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-.cl-badge {
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
-    position: absolute;
-    top: -5px;
-    left: -5px;
-}
-
-.cl-badge::before,
-.cl-badge::after {
-    position: absolute;
-    z-index: -1;
-    content: '';
-    display: block;
-    border: 10px solid #10138c;
-    border-top-color: transparent;
-    border-left-color: transparent;
-}
-
-.cl-badge::before {
-    top: 0;
-    right: 6px;
-    transform: rotate(-35deg);
-}
-
-.cl-badge::after {
-    bottom: 6px;
-    transform: rotate(35deg);
-    left: 0;
-}
-
-.cl-badge span {
-    position: absolute;
-    display: block;
-    width: 120px;
-    padding: 2px 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-    color: #fff;
-    text-align: center;
-    right: -10px;
-    font-weight: 600;
-    font-size: 10px;
-    top: 20px;
-    transform: rotate(-45deg);
-    background: var(--accent-color);
-}
-
-.cl-badge.hot span {
-    background: #e8505b;
-}
-
-.cl-badge.hot::before,
-.cl-badge.hot::after {
-    border: 10px solid #cd3e46;
-    border-top-color: transparent;
-    border-left-color: transparent;
-}
-
-.cl-progress-bar {
+.description {
+    display: inline-block;
     width: 100%;
-    height: 5px;
-    background: rgba(10, 208, 218, .3);
+    margin-top: 30px;
+    color: #b5b5b5;
+    line-height: 20px;
+}
+
+.description p {
+    line-height: 1.5;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+}
+
+#owner.admin {
+    width: 42px;
     position: relative;
 }
 
-.cl-progress-bar span {
-    background: #0ad0da;
+#owner.contributor {
+    width: 42px;
+    height: 42px;
+}
+
+.create-class {
+    color: #4d96ff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.lock {
+    color: #dadada;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.owner {
+    top: 0;
+    position: absolute;
+    margin-top: 2px;
+}
+
+.owner-title {
+    margin-top: -17px;
+    margin-left: 43px;
+}
+
+#course-detail .user-register:hover {
+    background-color: #5c8e34;
+}
+
+.create:hover {
+    color: #b3b3b3;
+}
+
+#course-notice {
+    padding: 12px 12px !important;
+    margin: 0;
+    border: 1px solid transparent !important;
+    color: #f95d5d !important;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    top: 102px;
+    text-align: center;
+}
+
+.tab-pane>.total-comments-section {
+    padding-top: 15px;
+}
+
+.cate-student {
+    margin-left: 22px !important;
+}
+
+.avatars {
+    position: relative;
+    width: 40px;
+}
+
+.level-avatar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-49%, -41%);
+    width: 100%;
+}
+
+.btn-download-cert {
+    margin-top: 10px;
+}
+
+.buttons-sharing {
+    margin-top: 20px;
+}
+
+.wrapper-cert {
+    text-align: center;
+}
+
+.wrapper-cert h3 {
+    color: #2c31cf;
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.wrapper-cert p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+#svg-container {
+    width: 880px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#svg-container svg {
+    max-width: 100%;
+    height: auto;
+}
+
+#svg-container .current-progress-value {
+    background: var(--accent-color);
+    color: var(--white);
+    font-size: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 100%;
+    bottom: calc(100% + 10px);
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+#svg-container .current-progress-value:before {
+    content: '';
+    border-top: 8px solid var(--accent-color);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    top: calc(100% - 3px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#svg-container .progress {
+    height: 10px;
+    border-radius: 0;
+    background: #acbfec;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: visible;
+}
+
+#svg-container .progress span.current-progress {
+    background: linear-gradient(270deg, #079cd0 0%, #29ee48 100%);
+    border-radius: 8px;
+}
+
+#svg-container .progress span {
     position: absolute;
     left: 0;
     top: 0;
@@ -1165,55 +1274,1511 @@
     height: 100%;
 }
 
-.learning.site-body #layout-main {
-    padding-bottom: 55px;
+#svg-container .progress span.required-progress {
+    border-right: 2px solid #f1646c;
 }
 
-@media(min-width:1500px) {
-    .learning .course-thumb>a>img {
-        height: 220px;
+.alert-danger {
+    background-color: #fff !important;
+}
+
+@media only screen and (max-width:990px) {
+    #course-detail #exTab1 {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .banner {
+        height: 300px;
+        overflow-x: hidden;
     }
 
-    .learning .container {
-        max-width: 1600px;
+    #courseinfo {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    #course-progress {
+        float: right;
+    }
+
+    #course-detail .container {
         width: 100%;
-        padding-left: 80px;
-        padding-right: 80px;
+    }
+
+    #course-detail #img-icon {
+        width: 100%;
+        height: 100%;
+    }
+
+    .owner-title {
+        margin-top: -10px;
+    }
+
+    #course-detail #course-description p {
+        white-space: normal;
+    }
+
+    #course-detail #course-description {
+        height: auto;
+        width: auto;
+    }
+
+    #course-detail #course-info {
+        margin-left: 0;
+    }
+
+    #button-register {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cate-p {
+        padding-top: 5px;
+    }
+
+    #course-information {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #user-owner {
+        min-width: 130px;
     }
 }
 
-.slick-track {
-    padding-top: 7px;
+@media only screen and (max-width:990px) {
+    .banner {
+        height: 440px;
+    }
 }
 
-ul.slick-dots {
-    padding: 0;
-    margin: 0 0 20px;
+@media only screen and (max-width:520px) {
+    .banner {
+        height: 440px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    #course-detail #exTab1 .nav {
+        top: 79px;
+        padding-left: 0;
+    }
+
+    #exTab1 .nav-pills>li.active>a,
+    #exTab1 .nav-pills>li:hover>a {
+        background: #337ab7;
+        border-radius: unset;
+    }
+
+    #exTab1 .nav-pills>li.active>a::before,
+    #exTab1 .nav-pills>li:hover>a::before {
+        display: none;
+    }
+
+    .banner {
+        height: 580px;
+    }
+
+    .user-info {
+        width: 100%;
+    }
+
+    #course-information .user-rating {
+        padding-left: 0;
+    }
+
+    #exTab1 .nav-pills {
+        padding-right: 0;
+    }
+
+    #exTab1 .nav-pills li {
+        margin-left: 0;
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .banner {
+        height: 620px;
+    }
+}
+
+@media only screen and (max-width:430px) {
+    .banner {
+        height: 640px;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .info-course {
+        margin-bottom: 0;
+    }
+
+    #exTab1 .nav-pills>li>a {
+        margin: 0 auto;
+    }
+
+    #course-notice {
+        line-height: 16px;
+        top: 100px;
+    }
+}
+
+@media(max-width:576.98px) {
+    .wrapper-cert {
+        padding: 30px 0;
+    }
+
+    #container-rate {
+        width: 100%;
+        display: inline-block;
+    }
+
+    #container-rate .star-rating {
+        margin: 0;
+    }
+}
+
+@media(max-width:480px) {
+    #course-notice {
+        z-index: 6;
+        top: 41px;
+        border-radius: unset;
+    }
+}
+
+.share-block {
     text-align: center;
-    width: 100%;
-    display: inline-block;
 }
 
-ul.slick-dots li {
-    padding: 0;
-    width: 12px;
-    height: 12px;
+.share-block .share-btn {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 5px;
+    color: var(--white);
+    background: var(--accent-color);
     transition: all 300ms;
-    border-radius: 50%;
-    background: #b3b4c9;
+    margin: 0 10px;
+    padding: 13px 25px;
     cursor: pointer;
-    margin: 0 7px;
-    list-style: none;
-    display: inline-block;
 }
 
-ul.slick-dots li button {
+.share-block .share-btn:hover {
+    background: var(--main-color);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.share-block input {
+    margin: 10px auto;
+    max-width: 450px;
+}
+
+.on-progress {
+    position: relative;
+}
+
+.on-progress #svg-container svg {
+    filter: grayscale(80);
+}
+
+.on-progress .share-block .share-btn {
+    cursor: not-allowed;
+    background: #6e6e6e;
+}
+
+:root {
+    --tour-bg: rgba(0, 0, 0, .8);
+    --tour-color: #fff;
+    --tour-btn-bg: #4d96ff;
+    --tour-btn-color: #fff;
+    --tour-btn-hv-color: #3d6cae;
+}
+
+.wrap-start-tour-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--tour-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    color: var(--tour-color);
+    justify-content: center;
+}
+
+.wrap-start-tour-block .tour-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-start-tour-block .tour-buttons .tour-btn {
+    margin: 0;
+}
+
+.wrap-start-tour-block .tour-btn.cancel-tour-btn {
+    position: static;
+    order: -1;
+    margin-right: 20px;
+}
+
+.tour-heading,
+.cl-tour .popover-title {
+    font-size: 36px;
+    margin: 0 0 15px;
+}
+
+.tour-des,
+.cl-tour .popover-content {
+    font-size: 22px;
+    margin: 0 0 25px;
+}
+
+.tour-buttons {
+    display: inline-block;
+    width: 100%;
+}
+
+.tour-btn {
+    display: inline-block;
+    margin: 0 20px 10px 0;
+    padding: 10px 25px;
+    border-radius: 22px;
+    background: var(--tour-btn-bg);
+    color: var(--tour-btn-color);
+    border: 2px solid var(--tour-btn-bg);
+    transition: all 300ms;
+    outline: none !important;
+    float: none !important;
+}
+
+.tour-btn:last-child {
+    margin-right: 0;
+}
+
+.tour-btn.disabled {
     display: none;
 }
 
-ul.slick-dots li.slick-active,
-ul.slick-dots li:hover {
+.tour-btn:hover,
+.tour-btn:focus,
+.tour-btn:active {
+    text-decoration: none;
+    background: var(--tour-btn-hv-color);
+    border-color: var(--tour-btn-hv-color);
+    color: var(--tour-btn-color);
+}
+
+.tour-btn.cancel-tour-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 130px;
+    margin: 0;
+}
+
+.tour-btn.cancel-tour-btn,
+.tour-btn.sec-tour-btn {
+    background: none;
+    color: var(--tour-btn-bg);
+}
+
+.tour-btn.cancel-tour-btn:hover,
+.tour-btn.sec-tour-btn:hover {
+    background: var(--tour-btn-hv-color);
+    color: var(--tour-btn-color);
+}
+
+.open-tour {
+    --tour-btn-color: #2c31cf;
+    --tour-btn-hv-color: #2c31cf;
+    padding: 10px 25px;
+    border-radius: 22px;
+    background: #fff;
+    color: var(--tour-btn-color);
+    border: 2px solid var(--tour-btn-color);
+    transition: all 300ms;
+    outline: none !important;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    font-weight: 600;
+    z-index: 5;
+}
+
+.open-tour:hover,
+.open-tour:focus,
+.open-tour:active {
+    text-decoration: none;
+    background: var(--tour-btn-hv-color);
+    border-color: var(--tour-btn-hv-color);
+    color: #fff;
+}
+
+.popover.tour-tour {
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.cl-tour {
+    color: var(--tour-color);
+}
+
+.cl-tour.popover {
+    max-width: 50vw;
+}
+
+.cl-tour.popover.right {
+    padding-left: 185px;
+    background: url(../../../Images/tour-arrows/tour-arrow-left.png) 10px 10px no-repeat;
+}
+
+.cl-tour.popover.left {
+    padding-right: 185px;
+    background: url(../../../Images/tour-arrows/tour-arrow-right.png) 10px 10px no-repeat;
+}
+
+.cl-tour .popover-title {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    white-space: nowrap;
+    font-size: 22px;
+}
+
+.cl-tour .popover-content {
+    padding: 0;
+}
+
+.cl-tour .popover-content:empty {
+    display: none;
+}
+
+.cl-tour .popover-content p {
+    margin: 0;
+}
+
+.cl-tour .popover-navigation {
+    padding: 0 !important;
+    margin-top: 30px;
+}
+
+.on-tour:before {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1111;
+    position: absolute;
+}
+
+.on-tour .cl-tour.popover[class*="tour-"] {
+    z-index: 2222;
+}
+
+.on-tour #login-header {
+    background: #8379f2;
+}
+
+.on-tour .info-course {
+    z-index: unset;
+}
+
+@media(max-width:992.98px) {
+    .open-tour {
+        top: 70px;
+        right: 15px;
+        bottom: unset !important;
+    }
+
+    .cl-tour.popover {
+        max-width: 100vw;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .cl-tour.popover .popover-navigation {
+        margin-top: 20px;
+    }
+
+    .cl-tour.popover .popover-title {
+        white-space: pre-wrap;
+    }
+}
+
+#objective img,
+#document img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tag:empty {
+    display: none;
+}
+
+:root {
+    --tour-bg: rgba(0, 0, 0, .85);
+    --tour-color: #fff;
+    --tour-btn-bg: #2c31cf;
+    --tour-btn-color: #fff;
+    --tour-btn-hv-color: #3d6cae;
+}
+
+.wrap-start-tour-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--tour-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    color: var(--tour-color);
+    justify-content: center;
+}
+
+.wrap-start-tour-block .tour-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-start-tour-block .tour-buttons .tour-btn {
+    margin: 0;
+}
+
+.wrap-start-tour-block .tour-btn.cancel-tour-btn {
+    position: static;
+    order: -1;
+    margin-right: 20px;
+}
+
+.tour-backdrop {
+    opacity: .9;
+}
+
+.tour-heading,
+.cl-tour .popover-title {
+    font-size: 36px;
+    margin: 0 0 15px;
+}
+
+.tour-des,
+.cl-tour .popover-content {
+    font-size: 22px;
+    margin: 0 0 25px;
+}
+
+.tour-buttons {
+    display: inline-block;
+    width: 100%;
+}
+
+.tour-btn {
+    display: inline-block;
+    margin: 0 20px 10px 0;
+    padding: 10px 25px;
+    border-radius: 22px;
+    background: var(--tour-btn-bg);
+    color: var(--tour-btn-color);
+    border: 1px solid var(--tour-btn-bg);
+    transition: all 300ms;
+    outline: none !important;
+    float: none !important;
+    font-weight: 600;
+}
+
+.tour-btn:last-child {
+    margin-right: 0;
+}
+
+.tour-btn.disabled {
+    display: none;
+}
+
+.tour-btn:hover {
+    text-decoration: none;
+    background: var(--tour-btn-hv-color);
+    border-color: var(--tour-btn-hv-color);
+    color: var(--tour-btn-color);
+}
+
+.tour-btn:focus,
+.tour-btn:active {
+    text-decoration: none;
+}
+
+.tour-btn.cancel-tour-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    margin: 0;
+    border-color: #6eff00;
+    color: #6eff00;
+}
+
+.tour-btn.sec-tour-btn {
+    color: var(--tour-btn-color);
+}
+
+.tour-btn.cancel-tour-btn,
+.tour-btn.sec-tour-btn {
+    background: none;
+}
+
+.tour-btn.cancel-tour-btn:hover,
+.tour-btn.sec-tour-btn:hover {
     background: var(--accent-color);
+    color: var(--white);
+    border-color: var(--accent-color);
+}
+
+.open-tour:not(.btn-important) {
+    --tour-btn-color: #2c31cf;
+    --tour-btn-hv-color: #2c31cf;
+    padding: 10px 25px;
+    border-radius: 22px;
+    background: #fff;
+    color: var(--tour-btn-color);
+    border: 2px solid var(--tour-btn-color);
+    transition: all 300ms;
+    outline: none !important;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    font-weight: 600;
+}
+
+.open-tour:not(.btn-important):hover {
+    text-decoration: none;
+    background: var(--tour-btn-hv-color);
+    border-color: var(--tour-btn-hv-color);
+    color: #fff;
+}
+
+.open-tour:not(.btn-important):focus,
+.open-tour:not(.btn-important):active {
+    text-decoration: none;
+}
+
+.popover.tour-tour {
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.cl-tour {
+    color: var(--tour-color);
+}
+
+.cl-tour.popover {
+    max-width: 50vw;
+    font-family: inherit;
+}
+
+.cl-tour.popover.right {
+    padding-left: 185px;
+    background: url(../../../Images/tour-arrows/tour-arrow-left.png) 10px 10px no-repeat;
+}
+
+.cl-tour.popover.left {
+    padding-right: 185px;
+    background: url(../../../Images/tour-arrows/tour-arrow-right.png) top 10px right 10px no-repeat;
+}
+
+.cl-tour.popover.top {
+    padding-left: 75px;
+    padding-bottom: 20px;
+    background: url(../../../Images/tour-arrows/tour-arrow-top.png) left 0 bottom 20px no-repeat;
+}
+
+.cl-tour.popover.bottom {
+    padding-left: 75px;
+    padding-top: 30px;
+    background: url(../../../Images/tour-arrows/tour-arrow-bottom.png) 0 10px no-repeat;
+}
+
+.cl-tour .popover-title {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    font-size: 22px;
+    line-height: 1.35;
+    max-width: 480px;
+    font-weight: 600;
+}
+
+.cl-tour .popover-content {
+    padding: 0;
+}
+
+.cl-tour .popover-content:empty {
+    display: none;
+}
+
+.cl-tour .popover-content p {
+    margin: 0;
+}
+
+.cl-tour .popover-navigation {
+    padding: 0 !important;
+    margin-top: 30px;
+}
+
+.reward-block.tour-step-backdrop {
+    padding-left: 20px;
+}
+
+.on-tour:before {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1111;
+    position: absolute;
+}
+
+.on-tour .popover[class*="tour-"] {
+    z-index: 1112;
+}
+
+@media(max-width:992.98px) {
+    .open-tour {
+        top: auto;
+        bottom: 50px;
+    }
+
+    .cl-tour.popover {
+        max-width: 100vw;
+        text-align: center;
+        padding: 15px !important;
+        background: none !important;
+    }
+
+    .cl-tour.popover .popover-navigation {
+        margin-top: 20px;
+    }
+
+    .cl-tour.popover .popover-title {
+        white-space: pre-wrap;
+    }
+
+    .tour-btn.cancel-tour-btn {
+        right: 15px;
+    }
+}
+
+@media(max-width:556px) {
+    .tour-btn.cancel-tour-btn {
+        bottom: 30px;
+        left: 30px;
+        right: auto;
+    }
+
+    .cl-tour.popover.list-task {
+        max-width: calc(100vw- 100px);
+    }
+
+    .on-tour .cl-tabs-control {
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        z-index: 1200;
+        background: none;
+        box-shadow: none;
+    }
+
+    .on-tour .cl-tabs-control li:not(.tour-step-backdrop) {
+        opacity: 0;
+    }
+}
+
+.cl-tour.popover.left {
+    top: 310px !important;
+}
+
+.comment-block {
+    width: 100%;
+    display: flex;
+    float: left
+}
+
+.comment-user {
+    color: #4d96ff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 15px
+}
+
+.comment-user>.modified-time {
+    color: #898989;
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 500
+}
+
+.comment-user>.href-user {
+    height: 19px;
+    width: 92px;
+    color: #4d96ff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px
+}
+
+.user-avatar {
+    width: 55px;
+    display: inline-block;
+    float: left
+}
+
+.user-avatar img:last-child {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    vertical-align: top
+}
+
+.user-avatar .avatars {
+    position: relative;
+    display: inline-block
+}
+
+.user-avatar .avatars>.level-avatar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40.5%);
+    width: 130%
+}
+
+.comment-main {
+    width: calc(100% - 55px);
+    float: left
+}
+
+.comment-main .replies {
+    display: inline-block;
+    width: 100%
+}
+
+.comment-main .replies:empty {
+    display: none
+}
+
+.comment-content {
+    min-height: 1em;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-left: 15px
+}
+
+.comment-content[contenteditable] {
+    padding: 5px
+}
+
+.comment-footer {
+    color: #898989;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    min-height: 1em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d8d8d8;
+    overflow: auto;
+    margin-left: 15px
+}
+
+.left-parts {
+    float: left
+}
+
+.right-parts {
+    float: right
+}
+
+.right-parts>span {
+    color: #4d96ff;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer
+}
+
+.comment-block:hover>.comment-main>.comment-footer>.right-parts {
+    display: block
+}
+
+.comment-content.overflown+.view-more {
+    display: block
+}
+
+.view-more {
+    display: none;
+    color: #898989;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+    margin-bottom: 5px
+}
+
+.comment-content.overflown {
+    position: relative;
+    max-height: 4.1em
+}
+
+.comment-content.overflown::before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3em;
+    height: 1em;
+    padding-right: 1.7em;
+    line-height: 1em;
+    background: linear-gradient(to right, transparent, #fff 50%);
+    text-align: right
+}
+
+.reply-box {
+    height: auto
+}
+
+.reply-box>.with-placeholder {
+    width: calc(100% - 0);
+    resize: none;
+    margin-bottom: 10px
+}
+
+.footer-button {
+    cursor: pointer
+}
+
+.footer-button:hover {
+    color: #4d96ff;
+    text-decoration: underline
+}
+
+.hide-message {
+    display: none;
+    font-size: 14px;
+    color: #333
+}
+
+.comment-block.private>.comment-main>.comment-content,
+.comment-block.deleted>.comment-main>.comment-content,
+.comment-block.private>.comment-main>.comment-user,
+.comment-block.deleted>.comment-main>.comment-user {
+    color: #898989;
+    font-style: italic
+}
+
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.footer-button,
+.comment-block.deleted>.comment-main>.comment-footer>.left-parts>.footer-button,
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.big-dot,
+.comment-block.deleted>.comment-main>.comment-footer>.left-parts>.big-dot,
+.comment-block.private>.comment-main>.comment-user>.modified-time,
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.likeButton,
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.disLikeButton,
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.count-vote,
+.comment-block.deleted>.comment-main>.comment-user>.modified-time {
+    display: none
+}
+
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.hide-button {
+    display: inline-block;
+    margin-left: 5px;
+    color: #4d96ff
+}
+
+.comment-block.private>.comment-main>.comment-footer>.left-parts>.hide-message {
+    display: inline-block
+}
+
+.comment-block.private>.comment-main>.replies,
+.comment-block.deleted>.comment-main>.replies {
+    display: none
+}
+
+.comment-block.private .user-action-buttons,
+.comment-block.deleted .user-action-buttons {
+    display: none
+}
+
+.top-level-comment-input {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 0
+}
+
+.comment-box {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: right
+}
+
+.comment-box>div {
+    text-align: left
+}
+
+.comment-box #comment-box {
+    margin-bottom: 15px
+}
+
+a.submit-cmmt {
+    font-weight: 600;
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: var(--white);
+    transition: all 300ms
+}
+
+a.submit-cmmt:hover,
+a.submit-cmmt:active,
+a.submit-cmmt:focus {
+    text-decoration: none;
+    background: var(--main-color);
+    color: var(--white)
+}
+
+.top-level-comment-input.with-no-comment .comment-box {
+    border-bottom: none
+}
+
+.edit-box>div:first-child,
+.edit-box>.with-placeholder {
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background: #fafafa;
+    min-height: 84px;
+    min-width: 100%
+}
+
+.edit-box[style*='display: none']+.comment-message {
+    display: none
+}
+
+.comment-box>div:first-child {
+    width: 100%;
+    margin: 0;
+    position: relative
+}
+
+.comment-add-button {
+    display: table-cell;
+    vertical-align: top;
+    width: 118px
+}
+
+.comment-add-button.waiting {
+    opacity: .6
+}
+
+.comment-add-button>button {
+    height: 37px;
+    width: 100%;
+    border: 1px solid #4d96ff;
+    border-radius: 3px;
+    background-color: #4d96ff;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 37px
+}
+
+div.with-placeholder:empty:before {
+    content: attr(placeholder);
+    color: #898989;
+    font-size: 14px;
+    position: absolute;
+    left: 10px;
+    top: 7px
+}
+
+.edit-box {
+    position: relative;
+    width: calc(100% - 55px)
+}
+
+.edit-box.reply-box {
+    width: 100%;
+    text-align: right
+}
+
+.edit-box.reply-box>div {
+    text-align: left
+}
+
+.edit-box.reply-box .submit-cmmt {
+    margin-bottom: 10px
+}
+
+.edit-box>.waiting-indicator {
+    display: none;
+    background: #fff
+}
+
+.edit-box.waiting>.waiting-indicator {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .6
+}
+
+.comment-block:last-child:not(.has-replies)>.comment-main>.comment-footer {
+    border-bottom: none
+}
+
+.big-dot {
+    color: #d8d8d8;
+    margin: 0 10px
+}
+
+.first-reply>.user-avatar,
+.first-reply>.comment-user {
+    display: inline-block
+}
+
+.first-reply>* {
+    vertical-align: middle
+}
+
+.first-reply>.user-avatar {
+    display: inline-block;
+    width: auto
+}
+
+.first-reply {
+    color: #4d96ff;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center
+}
+
+.first-reply .comment-info {
+    width: calc(100% - 40px);
+    padding-left: 20px
+}
+
+.first-reply .comment-info .comment-user {
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis
+}
+
+.expand-replies {
+    cursor: pointer
+}
+
+.view-more-comments-button-container {
+    width: 100%;
+    text-align: center
+}
+
+.view-more-comments-button {
+    position: relative
+}
+
+.view-more-comments-button.as-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #00f;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 14px
+}
+
+.view-more-comments-button.as-link:hover {
+    text-decoration: underline
+}
+
+.loaded-all>.view-more-comments-button-container,
+.loaded-all>.view-more-comments-button {
+    display: none
+}
+
+.view-more-comments-button.loading,
+.view-more-comments-button:hover.loading {
+    border: none
+}
+
+.view-more-comments-button.loading>.view-more-text {
+    visibility: hidden
+}
+
+.view-more-comments-button>.glyphicon-refresh {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #008000
+}
+
+.view-more-comments-button.loading>.glyphicon-refresh {
+    display: inline-block;
+    animation: cycling .6s linear infinite
+}
+
+.comments-loading {
+    display: none
+}
+
+.comments-loading>.glyphicon-refresh {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.loading>.comments-loading {
+    display: inline-block
+}
+
+.loading>.comments-loading>.glyphicon-refresh {
+    animation: cycling2 .3s linear infinite
+}
+
+@media(min-width:576.98px) {
+    .first-reply .comment-info .comment-user {
+        margin: 0;
+        width: auto;
+        display: inline-block
+    }
+}
+
+@media(max-width:576.98px) {
+    .comment-user>a {
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100% !important;
+        display: inline-block
+    }
+
+    .comment-user>.modified-time {
+        margin: 0;
+        width: 100%
+    }
+}
+
+.waiting-indicator>span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #006400;
+    transform: translate(-50%, -50%);
+    animation: cycling .5s linear infinite
+}
+
+.comment-box>.waiting-indicator>span {
+    transform: translate(-50%, -50%) translateY(-10px);
+    animation: cycling2 .5s linear infinite
+}
+
+.comment-message.error {
+    color: #f00;
+    margin: 0 0 25px
+}
+
+.permission-required-msg {
+    padding-bottom: 10px
+}
+
+@keyframes cycling {
+    0% {
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(0) rotate(360deg)
+    }
+}
+
+@keyframes cycling2 {
+    0% {
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(-10px) rotate(360deg)
+    }
+}
+
+.contest-tabs {
+    margin-top: 30px;
+    padding-top: 5px;
+    background: #fff
+}
+
+.total-comments-section {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #898989;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    clear: both;
+    padding-bottom: 10px
+}
+
+.container-background {
+    background: #fff;
+    padding: 0 20px
+}
+
+.tabs-container {
+    margin-top: 20px;
+    padding-bottom: 60px
+}
+
+.comment-block>.comment-main>.mce-tinymce.mce-container.mce-panel {
+    margin-top: 15px
+}
+
+.comment-block>.comment-main>.reply-box>.mce-tinymce.mce-container.mce-panel {
+    margin-bottom: 10px
+}
+
+.right-parts>.save-button {
+    min-width: 118px
+}
+
+.comment-block>.comment-main>.reply-box>.reply-post-button {
+    float: right
+}
+
+.left-parts {
+    margin-top: 7px
+}
+
+.up-down-button {
+    display: table-cell;
+    width: 25px
+}
+
+.count-vote {
+    margin-right: 10px;
+    height: 16px;
+    width: 45px;
+    color: #898989;
+    font-size: 14px;
+    line-height: 16px
+}
+
+.likeButton>.up {
+    margin-top: -5px;
+    height: 17px;
+    width: 17px
+}
+
+.disLikeButton>.down {
+    margin-top: 4px;
+    height: 17px;
+    width: 17px
+}
+
+.vote-button-img {
+    height: 13px;
+    width: auto
+}
+
+.vote-number {
+    height: 16px;
+    color: #4d96ff;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 30px
+}
+
+.vote-number.footer-button {
+    display: inline;
+    width: 16px
+}
+
+.none-vote-number {
+    height: 16px;
+    width: 30px;
+    color: #898989;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center
+}
+
+.vote-div {
+    margin-top: 65%
+}
+
+.reply-img {
+    height: 14px;
+    width: 16px;
+    color: #898989;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    margin-right: 4px
+}
+
+.likeButton {
+    cursor: pointer
+}
+
+.likeButton i {
+    font-size: 17px;
+    position: relative;
+    top: -3px
+}
+
+.likeButton i.cl-icon-thumbs-up-1 {
+    color: #898989
+}
+
+.likeButton i.cl-icon-thumbs-up-full {
+    color: #4d96ff
+}
+
+.disLikeButton {
+    cursor: pointer
+}
+
+.disLikeButton i {
+    font-size: 17px;
+    position: relative;
+    top: 4px
+}
+
+.disLikeButton i.cl-icon-thumbs-down-1 {
+    color: #898989
+}
+
+.disLikeButton i.cl-icon-thumbs-down-full {
+    color: #4d96ff
+}
+
+#forum-top-level-input .avatars {
+    display: inline-block
+}
+
+.action-buttons .user-action-buttons {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px
+}
+
+@media(min-width:576.98px) {
+    .action-buttons .user-action-buttons {
+        width: auto;
+        margin-bottom: 0
+    }
+}
+
+.table.mat-ai .user-avatar {
+    float: none
+}
+
+#posts>.comment-block {
+    float: none;
+    display: inline-block !important
+}
+
+.tour-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: #000;
+    opacity: .8;
+    filter: alpha(opacity=80)
+}
+
+.tour-step-backdrop {
+    position: relative;
+    z-index: 1101
+}
+
+.tour-step-backdrop>td {
+    position: relative;
+    z-index: 1101
+}
+
+.tour-step-background {
+    position: absolute !important;
+    z-index: 1100;
+    background: inherit;
+    border-radius: 6px
+}
+
+.popover[class*=tour-] {
+    z-index: 1102
+}
+
+.popover[class*=tour-] .popover-navigation {
+    padding: 9px 14px;
+    overflow: hidden
+}
+
+.popover[class*=tour-] .popover-navigation *[data-role=end] {
+    float: right
+}
+
+.popover[class*=tour-] .popover-navigation *[data-role=prev],
+.popover[class*=tour-] .popover-navigation *[data-role=next],
+.popover[class*=tour-] .popover-navigation *[data-role=end] {
+    cursor: pointer
+}
+
+.popover[class*=tour-] .popover-navigation *[data-role=prev].disabled,
+.popover[class*=tour-] .popover-navigation *[data-role=next].disabled,
+.popover[class*=tour-] .popover-navigation *[data-role=end].disabled {
+    cursor: default
+}
+
+.popover[class*=tour-].orphan {
+    position: fixed;
+    margin-top: 0
+}
+
+.popover[class*=tour-].orphan .arrow {
+    display: none
 }
 
 .progress-circle {
@@ -1222,7 +2787,7 @@ ul.slick-dots li:hover {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ebebeb;
+    background-color: #ebebeb
 }
 
 .progress-circle:after {
@@ -1232,7 +2797,7 @@ ul.slick-dots li:hover {
     height: 100%;
     border-radius: 50%;
     -webkit-animation: colorload 2s;
-    animation: colorload 2s;
+    animation: colorload 2s
 }
 
 .progress-circle span {
@@ -1248,489 +2813,437 @@ ul.slick-dots li:hover {
     text-align: center;
     border-radius: 50%;
     background: #fff;
-    z-index: 1;
+    z-index: 1
 }
 
 .progress-circle span:after {
     content: "%";
     font-weight: 600;
-    color: #36b37e;
+    color: #36b37e
 }
 
 .progress-circle.progress-0:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(90deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(90deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-1:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(93.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(93.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-2:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(97.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(97.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-3:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(100.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(100.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-4:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(104.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(104.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-5:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(108deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(108deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-6:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(111.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(111.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-7:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(115.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(115.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-8:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(118.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(118.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-9:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(122.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(122.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-10:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(126deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(126deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-11:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(129.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(129.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-12:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(133.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(133.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-13:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(136.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(136.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-14:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(140.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(140.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-15:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(129.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(129.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-16:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(133.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(133.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-17:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(136.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(136.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-18:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(140.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(140.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-19:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(144deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(144deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-20:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(151.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(151.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-21:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(158.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(158.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-22:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(161.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(161.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-23:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(165.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(165.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-24:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(169.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(169.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-25:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(180deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(180deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-26:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(183.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(183.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-27:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(187.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(187.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-28:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(190.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(190.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-29:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(194.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(194.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-30:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(198deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(198deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-31:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(201.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(201.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-32:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(205.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(205.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-33:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(208.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(208.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-34:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(212.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(212.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-35:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(216deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(216deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-40:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(234deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(234deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-36:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(219.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(219.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-37:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(223.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(223.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-38:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(226.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(226.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-39:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(230.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(230.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-41:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(237.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(237.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-42:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(241.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(241.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-43:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(244.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(244.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-44:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(248.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(248.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-45:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(252deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(252deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-46:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(255.6deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(255.6deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-47:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(259.2deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(259.2deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-48:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(262.8deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(262.8deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-49:after {
-    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(266.4deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(90deg, #ebebeb 50%, transparent 50%, transparent), linear-gradient(266.4deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-50:after {
-    background-image: linear-gradient(-90deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-90deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-51:after {
-    background-image: linear-gradient(-86.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-86.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-52:after {
-    background-image: linear-gradient(-82.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-82.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-53:after {
-    background-image: linear-gradient(-79.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-79.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-54:after {
-    background-image: linear-gradient(-75.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-75.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-55:after {
-    background-image: linear-gradient(-72deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-72deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-56:after {
-    background-image: linear-gradient(-68.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-68.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-57:after {
-    background-image: linear-gradient(-64.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-64.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-58:after {
-    background-image: linear-gradient(-61.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-61.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-59:after {
-    background-image: linear-gradient(-57.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-57.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-60:after {
-    background-image: linear-gradient(-54deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-54deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-61:after {
-    background-image: linear-gradient(-50.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-50.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-62:after {
-    background-image: linear-gradient(-46.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-46.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-63:after {
-    background-image: linear-gradient(-43.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-43.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-64:after {
-    background-image: linear-gradient(-39.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-39.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-65:after {
-    background-image: linear-gradient(-36deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-36deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-66:after {
-    background-image: linear-gradient(-32.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-32.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-67:after {
-    background-image: linear-gradient(-28.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-28.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-68:after {
-    background-image: linear-gradient(-25.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-25.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-69:after {
-    background-image: linear-gradient(-21.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-21.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-70:after {
-    background-image: linear-gradient(-18deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-18deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-71:after {
-    background-image: linear-gradient(-14.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-14.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-72:after {
-    background-image: linear-gradient(-10.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-10.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-73:after {
-    background-image: linear-gradient(-7.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-7.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-74:after {
-    background-image: linear-gradient(-3.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(-3.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-75:after {
-    background-image: linear-gradient(0deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(0deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-76:after {
-    background-image: linear-gradient(3.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(3.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-77:after {
-    background-image: linear-gradient(7.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(7.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-78:after {
-    background-image: linear-gradient(10.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(10.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-79:after {
-    background-image: linear-gradient(14.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(14.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-80:after {
-    background-image: linear-gradient(18deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(18deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-81:after {
-    background-image: linear-gradient(21.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(21.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-82:after {
-    background-image: linear-gradient(25.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(25.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-83:after {
-    background-image: linear-gradient(28.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(28.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-84:after {
-    background-image: linear-gradient(32.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(32.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-85:after {
-    background-image: linear-gradient(36deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(36deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-86:after {
-    background-image: linear-gradient(39.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(39.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-87:after {
-    background-image: linear-gradient(43.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(43.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-88:after {
-    background-image: linear-gradient(46.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(46.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-89:after {
-    background-image: linear-gradient(50.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(50.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-90:after {
-    background-image: linear-gradient(54deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(54deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-91:after {
-    background-image: linear-gradient(57.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(57.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-92:after {
-    background-image: linear-gradient(61.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(61.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-93:after {
-    background-image: linear-gradient(64.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(64.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-94:after {
-    background-image: linear-gradient(68.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(68.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-95:after {
-    background-image: linear-gradient(72deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(72deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-96:after {
-    background-image: linear-gradient(75.6deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(75.6deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-97:after {
-    background-image: linear-gradient(79.2deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(79.2deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-98:after {
-    background-image: linear-gradient(82.8deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(82.8deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-99:after {
-    background-image: linear-gradient(86.4deg, #36b37e 50%, transparent 50%, transparent), linear-gradient(270deg, #36b37e 50%, #ebebeb 50%, #ebebeb);
+    background-image: linear-gradient(86.4deg, #36B37E 50%, transparent 50%, transparent), linear-gradient(270deg, #36B37E 50%, #ebebeb 50%, #ebebeb)
 }
 
 .progress-circle.progress-100:after {
-    background: #36b37e;
+    background: #36b37e
 }
 
 .progress-circle.progress-100 span {
     background: #36b37e;
-    color: #fff;
+    color: #fff
 }
 
 .progress-circle.progress-100 span::after {
-    color: #fff;
+    color: #fff
 }
 
 @-webkit-keyframes colorload {
     0% {
         opacity: 0;
-        transform: rotate(0deg);
+        transform: rotate(0deg)
     }
 
     100% {
         opacity: 1;
-        transform: rotate(360deg);
-    }
-}
-
-#search input,
-#search select {
-    height: 35px;
-    border: none !important;
-    border-radius: 3px !important;
-    background-color: #fff;
-    z-index: 0
-}
-
-#search .input-group {
-    width: 100%
-}
-
-#search .input-group i {
-    color: #4d96ff;
-    z-index: 0
-}
-
-#search .input-group i.fa {
-    line-height: 34px
-}
-
-::-webkit-input-placeholder {
-    font-style: italic
-}
-
-:-ms-input-placeholder {
-    font-style: italic
-}
-
-#search .input-group {
-    margin-right: 10px
-}
-
-#search .label-search {
-    margin: 0 5px;
-    font-size: 16px
-}
-
-#search label {
-    color: #3e3e3e;
-    font-weight: normal
-}
-
-@media(max-width:1200px) {
-
-    #gr-search .form-inline,
-    #can-create {
-        display: flex
+        transform: rotate(360deg)
     }
 }
 
@@ -6289,6 +7802,7 @@ tbody.collapse.in {
     border-top: 0;
     border-bottom: 4px dashed;
     border-bottom: 4px solid\9
+
 }
 
 .dropup .dropdown-menu,
@@ -12718,7 +14232,7 @@ h6 {
 }
 
 .wrap-site-logo {
-    padding-right: 10px;
+    padding-right: 20px;
     min-width: 145px;
 }
 

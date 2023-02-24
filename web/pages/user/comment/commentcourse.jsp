@@ -22,7 +22,7 @@
                 <c:if test="${sessionScope.account !=null}"> 
                     <div class="panel">
                         <div class="panel-body">
-                            <form action="commentc" method="post" enctype="multipart/form-data">
+                            <form action="commentc" method="post" >
                                 <textarea class="form-control" rows="2" placeholder="Write your comment" name="commentc"></textarea>
                                 <input class="form-control" type="file" name="upFilec" >
                                 <div class="mar-top clearfix">

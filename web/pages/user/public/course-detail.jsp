@@ -12,189 +12,748 @@
 <html>
 
     <head>
-        <!-- Basic -->
-
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Site Metas -->
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <!--<link rel="shortcut icon" href="images/OL.jpg" type="">-->
-
-        <title> OL</title>
-
-        <!-- bootstrap core css -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-        <!--owl slider stylesheet -->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-        <!-- nice select  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-        <!-- font awesome style -->
-        <link href="css/font-awesome.min.css" rel="stylesheet" />
-        <link href="css/course_detail.css" rel="stylesheet" />
-        <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet" />
-        <link rel="stylesheet" href=""/>
-        <!-- responsive style -->
-        <link href="css/responsive.css" rel="stylesheet" />
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <meta name="description"
+              content="Object-Oriented-Programming (Object-Oriented-Programming) is an object-based programming method to find out the nature of the problem. This course helps programmers learn programming techniques that all logic and practical requirements are built around objects. Understanding how OOP works in C++ will simplify maintenance and scalability in software development." />
+        <meta name="author" content="CodeLearn" />
+        <link rel="shortcut icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
+        <link rel="apple-touch-icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
+        <link rel="canonical" href="/learning/object-oriented-programming-in-cpp" />
+        <link rel="alternate" hreflang="vi" href="https://codelearn.io/learning/object-oriented-programming-in-cpp" />
+        <link rel="alternate" hreflang="en-US" href="https://codelearn.io/learning/object-oriented-programming-in-cpp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
+        <title>Online Learning</title>
 
         <script>
-            $(document).ready(function () {
-                // Activate tooltip
-                $('[data-toggle="tooltip"]').tooltip();
+            var isGetNotification = true;
+            var isNotCountComment = false;
 
-                // Select/Deselect checkboxes
-                var checkbox = $('table tbody input[type="checkbox"]');
-                $("#selectAll").click(function () {
-                    if (this.checked) {
-                        checkbox.each(function () {
-                            this.checked = true;
-                        });
-                    } else {
-                        checkbox.each(function () {
-                            this.checked = false;
-                        });
+            var s3Storage = '';
+            var resourcePath = '';
+            var strAuthen = '';
+            var faceId = '540883753774783';
+            var isLoadedFacebook = 'False';
+            if (strAuthen == '') {
+                var googleId = '16523143533-ovv9lj8c7i8sv36sv3lguom0msmdk8ah.apps.googleusercontent.com';
+            }
+
+            if (strAuthen == '') {
+                var LOGIN_VALIDATOR, SIGNUP_VALIDATOR;
+                function openModal(tab) {
+
+                    $('#loginModal a[data-target="#' + tab + '"]').tab('show');
+                    switch (tab) {
+                        case 'login':
+                            $(".btn--facebook").attr('title', 'Login with Facebook');
+                            $(".btn--google").attr('title', 'Login with Google');
+                            $("#loginModal .header-card").text('Login your account');
+                            SIGNUP_VALIDATOR && SIGNUP_VALIDATOR.resetForm();
+                            break;
+                        case 'signup':
+                            $(".btn--facebook").attr('title', 'Continue with Facebook');
+                            $(".btn--google").attr('title', 'Continue with Google');
+                            $("#loginModal .header-card").text('Register new account');
+                            LOGIN_VALIDATOR && LOGIN_VALIDATOR.resetForm();
+                            break;
                     }
+                }
+            }
+
+            if ('https://codelearn.io' == location.origin.toLocaleLowerCase()) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+                gtag('config', 'UA-141685371-1');
+                gtag('config', 'USER_MANAGEMENT');
+                gtag('set', {'user_id': 'ducnguyen11042002@gmail.com'});
+
+                // Measure Google Ads conversions
+                gtag('event', 'conversion', {
+                    'send_to': 'USER_MANAGEMENT/ducnguyen11042002@gmail.com',
                 });
-                checkbox.click(function () {
-                    if (!this.checked) {
-                        $("#selectAll").prop("checked", false);
-                    }
+
+                window['GoogleAnalyticsObject'] = 'ga';
+                window['ga'] = window['ga'] || function () {
+                    (window['ga'].q = window['ga'].q || []).push(arguments)
+                };
+                ga('set', 'userId', 'ducnguyen11042002@gmail.com');
+            }
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: faceId,
+                    xfbml: true,
+                    version: 'v11.0'
                 });
-            });
-        </script>       
+                FB.AppEvents.logPageView();
+                isLoadedFacebook = true;
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+        </script>
+
+        <link href="css/chapter.css" rel="stylesheet" type="text/css" />
+        <script src="js/account1.js" type="text/javascript"></script>
+        <script src="js/account2.js" type="text/javascript"></script>
+        <script src="js/account3.js" type="text/javascript"></script>
+        <script src="js/account4.js" type="text/javascript"></script>
+        <script src="js/account5.js" type="text/javascript"></script>
+        <script src="js/account6.js" type="text/javascript"></script>
+        <script src="js/account7.js" type="text/javascript"></script> 
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
     </head>
 
-    <body>
+    <body class="hold-transition site-body skin-sku-light layout-top-nav learning ">
 
-
-
-        <section >
-            <div class="offer_container">
-
-                <div class="container " style="background: #c69500 border-box " >
-                    <c:set var="course" value="${requestScope.course}"/>
-                    <form  >
-                        <div class="course" style="display: flex">
-                            <div class="courseDetail">
-                                <h1 style="color: red">${course.getCourse_name()}</h1>                      
-                                <p>${course.getCourse_description()}</p>
-                                Number of tasks:${course.getCourse_number_lesson()}
-                                <br/>
-                                <a style="color: black" href="commentc?courseId=${course.getCourse_id()}">Comment(${course.getNumbercomment()})</a>
-                                <br>
-                                <c:if test="${sessionScope.account!=null}">
-                                    <h2><a style="color: blue" href="record?courseId=${course.getCourse_id()}">Practise </a></h2>
-                                    <br/>
-                                </c:if>
-                                <br>
-                            </div>
-                            <div class="courseDetail">
-                                <img src="${course.getCourse_image() }" width="180px" height="150px" alt="alt"/>
-                            </div>
+        <div id="layout-navigation" class="group ">
+            <div class="zone zone-navigation">
+                <article class="widget-navigation widget-menu-widget widget">
+                    <header class="navbar site-header">
+                        <div class="wrap-site-logo">
+                            <a title="Home" href="home.html">
+                                <img alt="Home" class="site-logo" src="themes/logo2.png">
+                                <img alt="Home" class="site-logo-mobile" src="">
+                            </a>
                         </div>
-                    </form>
-                </div>
+                        <div class="wrap-right-header">
+                            <input type="checkbox" id="mobile-menu-cb" name="mobile-menu-cb" />
+                            <label class="hamburger-button" for="mobile-menu-cb">
+                                <span class="hamburger-icon"></span>
+                            </label>
+                            <label class="hamburger-menu-mask" for="mobile-menu-cb"></label>
+                            <nav class="site-menu">
+                                <ul class="menu menu-main-menu">
+                                    <li><a href="learn.html">Learning</a>
+                                    </li>
+                                    <li><a href="/training">Training</a>
+                                    </li>
+                                    <li><a href="discussion.html">Discussion</a>
+                                    </li>
+                                    <li><a href="/game">Contact</a>
+                                    </li>
+                                </ul>
+                                <div class="dropdown dropdown-language">
+                                    <a href="#" class="dropdown-toggle btn-dark btn--language " data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false" title="English">
+                                        <img alt="English" class="button-language btn-img flag"
+                                             src="themes/en.png" />
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span class="change-lang"
+                                                  data-link="/language/setLanguageLocal?name=en&redirectUrl=">
+                                                <img alt="en" class="icon-language"
+                                                     src="themes/en.png">
+                                                English
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="change-lang"
+                                                  data-link="/language/setLanguageLocal?name=vn&redirectUrl=">
+                                                <img alt="vn" class="icon-language"
+                                                     src="themes/vn.png">
+                                                Tiếng Việt
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <c:if test="${sessionScope.account==null}">
+                                <ul class="site-user-menu">
+                                    <li>
+                                        <button id="login-header" class="btn btn-login" data-toggle="modal"
+                                                data-target="#loginModal" onclick="openModal('login')">Login</button>
+                                        <button class="btn" data-toggle="modal" data-target="#loginModal"
+                                                onclick="openModal('signup')">Register</button>
+                                    </li>
+                                </ul>
+                            </c:if>
+                            <c:if test="${(sessionScope.account!=null)}">
+                                <ul class="site-user-menu">
+                                    <li class="dropdown notify">
+                                        <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
+                                           data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="cl-icon-bell-1"></i>
+                                            <span id="notification-count" class="label label-warning"></span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul id="list-notify">
+                                                <li class="header">Notifications</li>
+                                            </ul>
+                                            <div id="view-all-notify"><a href="/notification">View all</a></div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown header-user-profile">
+                                        <a href="#" class="dropdown-toggle btn--profile" title="Info">
+                                            <img alt="" class="btn--img"
+                                                 src="">
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-user">
+                                            <li><a href="">My information</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="">My profile</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a id="cick-logoff" href="logout">Sign out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </c:if>
+                        </div>
+                    </header>
+                </article>
+                <article class="widget-navigation widget-bread-cumps-widget widget">
+                    <nav aria-label="breadcrumb">
+                        <div class="container">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a
+                                        href="/learning/object-oriented-programming-in-cpp">Learning</a></li>
+                            </ol>
+                        </div>
+                    </nav>
+
+                    <div class="fb-customerchat" attribution=setup_tool page_id="2254662768188202"
+                         greeting_dialog_display="hide">
+                    </div>
+                </article>
             </div>
-        </section>         
+        </div>
+        <c:set var="course" value="${requestScope.course}"/>
+        <main id="layout-main" class="group">
+            <div id="layout-content" class="group">
+                <div id="content" class="group">
+                    <div class="zone zone-content">
+                        <div class="course-head">
+                            <div class="overlay"></div>
+                            <div class="container">
+                                <div class="course-head-content">
+                                    <div class="head">
+                                        <h1 class="title">
+                                            ${course.getCourse_name()}
+                                        </h1>
+                                        <div class="actions">
+                                        </div>
+                                    </div>
+                                    <div class="main-content">
+                                        <div class="title-wrap">
+                                            <div class="title-wrap__rate-and-author">
 
+                                                <div class="enroll-students">
+                                                    <i style="font-size: 13px" class="cl-icon-users-alt"></i>
+                                                    47746 students
+                                                </div>
 
-        <section class="food_section layout_padding-bottom">
-            <div class="container">
-
-
-
-
-                <input type="hidden" name="num" value="1">
-                <div class="filters-content">                        
-                    <div class="row grid">                            
-                        <c:forEach items="${requestScope.listChap}" var="listChap">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="box">
-                                    <div>
-
-                                        <div class="detail-box">                                           
-                                            <p>
-                                                ${listChap.getChapter_name()}
-                                            </p>
-
-                                            <div class="f_circle" style="display: flex">
-                                                <c:forEach var="i" items="${requestScope.listlesson}">
-                                                    <% int c =0;%>
-                                                    <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
-                                                        <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
-
-                                                            <% c = 1;%>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                    <c:if test="${listChap.chapter_id == i.chapter_id}"> 
-                                                        <% if (c == 0){ %>
-                                                        <div class="circle_per" style="text-align: center">
-                                                            <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
-                                                        </div>                                                     
-                                                        <% }else{%>
-
-                                                        <div class="circle" style="text-align: center">
-                                                            <a href="lesson?id=${i.lesson_id} " target="target">${i.lesson_number}</a>
-                                                        </div>
-                                                        <% }%>
-                                                    </c:if>
-                                                </c:forEach>
-
+                                                <div id="container-rate" class="rate ">
+                                                    <span class="star-rating">
+                                                        <span style="width:90.0%"></span>
+                                                        <span class="vote-rate">
+                                                            <span value="1" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="2" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="3" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="4" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="5" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="text-rate">
+                                                        4.5 (200 votes)
+                                                    </span>
+                                                </div>
                                             </div>
-
+                                            <p class="title-wrap__desc"
+                                               title="${course.getCourse_description()}">
+                                                ${course.getCourse_description()}</p>
+                                        </div>
+                                        <div class="infor-wrap">
+                                            <div class="infor-wrap__item">
+                                                <span class="left">
+                                                    <span class="icon-wrap"><i class="cl-icon-clock"></i></span>
+                                                    Time
+                                                </span>
+                                                <span class="right">
+                                                    40 hours
+                                                </span>
+                                            </div>
+                                            <div class="infor-wrap__item">
+                                                <span class="left">
+                                                    <span class="icon-wrap"><i class="cl-icon-layer-group"></i></span>
+                                                    Number of tasks
+                                                </span>
+                                                <span class="right">
+                                                    ${course.getCourse_number_lesson()}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="actions-wrap">
+                                            <span class="text-price free">Free</span>
+                                            <div class="register" id="button-register">
+                                                <a id="course-register" href="javascript:void(0)"
+                                                   class="buy-now course-register">Register Now</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div id="course-detail" class="container">
+                            <div class="container">
+                                <div class="tmp">
+                                </div>
+                                <div id="exTab1" class="">
+                                    <ul class="nav nav-pills col-sm-12">
+                                        <li class="hide extab course-lesson">
+                                            <a href="#course-lesson" data-toggle="tab">Lecture/Video</a>
+                                        </li>
+                                        <li class="active extab">
+                                            <a href="#1a" data-toggle="tab">Tasks</a>
+                                        </li>
+                                        <c:if test="${(sessionScope.account!=null)}">
+                                            <li class="extab">
+                                                <a id="course-objective" href="#2a" data-toggle="tab">Practice</a>
+                                            </li>
+                                        </c:if>
+                                        <li class="extab">
+                                            <a style="" href="#3a" id="comments-tab" data-toggle="tab" id="comment-display">
+                                                Comments (${course.getNumbercomment()})</a>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content clearfix">
+                                        <div class="tab-pane hide list-task row" id="course-lesson">
+                                        </div>
+                                        <div class="tab-pane hide list-task row" id="course-practice">
+                                        </div>
+                                        <div class="tab-pane active list-task row" id="1a" >
+                                            <c:forEach items="${requestScope.listChap}" var="listChap">
+                                                <div class="group-detail-course-item col-md-6">
+                                                    <div class="course-name">
+                                                        <div class="lession">
+                                                            <img
+                                                                src="themes/bg-Lesson.png">
+                                                            <div class="title">
+                                                                <h3 class="active" title="${listChap.getChapter_name()}">${listChap.getChapter_name()}
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                        <div class="contain-task">
+                                                            <c:forEach var="i" items="${requestScope.listlesson}">
+                                                                <% int c =0;%>
+                                                                <c:forEach var="lesson_per" items="${requestScope.listPercentage}">
+                                                                    <c:if test="${i.lesson_id == lesson_per.lessonId && lesson_per.percentage == 1}">
+
+                                                                        <% c = 1;%>
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                                <c:if test="${listChap.chapter_id == i.chapter_id}"> 
+                                                                    <% if (c == 0){ %>
+                                                                    <a title="Lập tr&#236;nh hướng đối tượng trong C++ | Codelearn"
+                                                                       href="lesson?id=${i.lesson_id}"
+                                                                       class="circle allow-active  ">${i.lesson_number}</a>                                                     
+                                                                    <% }else{%>
+
+                                                                    <a title="Lập tr&#236;nh hướng đối tượng trong C++ | Codelearn"
+                                                                       href="lesson?id=${i.lesson_id}"
+                                                                       class="circle resolve  ">${i.lesson_number}</a>  
+                                                                    <% }%>
+                                                                </c:if>
+
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                        <div class="tab-pane" id="2a" ></div>
+                                        <div class="tab-pane " id="3a" >
+                                            <div class="total-comments-section"><span id="total-comments">${course.getNumbercomment()}</span> comments</div>
+                                            <c:if test="${sessionScope.account !=null}">
+                                                <form action="commentc" method="post">
+                                                    <div class="top-level-comment-input">
+                                                        <div class="user-avatar">
+                                                            <div class="avatars"> <img
+                                                                    src="themes/en.png"> </div>
+                                                        </div>
+                                                        <div class="edit-box comment-box">
+                                                            <input type="text" class="with-placeholder" name="commentcourse"
+                                                                   id="comment-box" placeholder="Write your comment">
+                                                            <input type="submit" class="submit-cmmt btn" title="Post" value="Post" style="color: white;font-size:150%;background-color: #0062cc" >
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </c:if>
+                                            <c:forEach items="${requestScope.commentcourse}" var="i" >
+                                                <div class="comment-block has-replies" style="display: block;">
+                                                    <div class="user-avatar">
+                                                        <div class="avatars"> <img src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                    </div>
+                                                    <div class="comment-main">
+                                                        <div class="comment-user"><a href="/profile/16742109" class="href-user">${i.user.getUser_name()}</a> <span
+                                                                class="modified-time">${i.timediff}</span></div>
+                                                        <div class="comment-content">${i.commentc_detail}</div>
+                                                        <div class="comment-message for-edit"></div>
+                                                        <div class="view-more">View more</div>
+                                                        <div class="comment-footer">
+                                                            <div class="left-parts action-buttons"><span class="hide-message">This comment has been hidden. </span>
+                                                                <div class="user-action-buttons"><span class="likeButton"><i class="cl-icon-thumbs-up-1 up"
+                                                                                                                             id="img_16875376"></i> <span id="countVoteLike_16875376" class="count-vote">
+                                                                            ${i.commentc_like}</span></span>
+                                                                            <c:if test="${sessionScope.account !=null}">
+                                                                        <span class="footer-button reply-button" id="btn${i.commentc_id}"><i
+                                                                                class="cl-icon-reply-full reply-img"></i>Reply
+                                                                        </span>
+                                                                    </c:if>
+                                                                </div>
+                                                            </div>
+                                                            <div class="right-parts"><button class="btn btn-success standard-button save-button"
+                                                                                             style="display: none;">Save</button> </div>
+                                                        </div>
+                                                        <div class="replies loaded-all">
+                                                            <c:forEach items="${requestScope.replycommentcourse}" var="j">
+                                                                <c:if test="${j.commentc_reply== i.commentc_id}">
+                                                                    <div class="comment-block " style="display: block;">
+                                                                        <div class="user-avatar">
+                                                                            <div class="avatars"><img src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                                        </div>
+                                                                        <div class="comment-main">
+                                                                            <div class="comment-user"><a href="/profile/17219477"
+                                                                                                         class="href-user">${j.user.getUser_name()}</a> <span class="modified-time">${j.timediff}</span></div>
+                                                                            <div class="comment-content">${j.commentc_detail}</div>
+                                                                            <div class="comment-message for-edit"></div>
+                                                                            <div class="view-more">View more</div>
+                                                                            <div class="comment-footer">
+                                                                                <div class="left-parts action-buttons"><span class="hide-message">This comment has been
+                                                                                        hidden. </span>
+                                                                                    <div class="user-action-buttons">
+                                                                                        <span class="likeButton"><a href="discussion"><i id="img_17317684" class="cl-icon-thumbs-up-1"></i></a> 
+                                                                                            <span id="countVoteLike_17317684" class="count-vote"> ${j.commentc_like}</span></span>
+                                                                                            <c:if test="${sessionScope.account !=null}">
+                                                                                            <span class="footer-button reply-button" ><i
+                                                                                                    class="cl-icon-reply-full reply-img"></i>Reply
+                                                                                            </span>
+                                                                                        </c:if>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="right-parts"><button class="btn btn-success standard-button save-button"
+                                                                                                                 style="display: none;">Save</button> </div>
+                                                                            </div>
+                                                                            <div class="replies"></div>
+                                                                            <div class="edit-box reply-box" style="display: none;">
+                                                                                <div placeholder="Write your comment" class="with-placeholder" id="comment-box"
+                                                                                     contenteditable=""></div>
+                                                                                <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div><a
+                                                                                    href="#" class="submit-cmmt btn" title="Post"> Post</a>
+                                                                            </div>
+                                                                            <div class="comment-message"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </c:if>
+                                                            </c:forEach>
+
+                                                            <div class="view-more-comments-button as-link"><span class="view-more-text">View more</span><span
+                                                                    class="glyphicon glyphicon-refresh"></span></div>
+                                                        </div>
+                                                                            <div class="edit-box reply-box  " id="${i.commentc_id}" style="display: none">
+                                                            <div placeholder="Write your comment" class="with-placeholder" id="comment-box" contenteditable="">
+                                                            </div>
+                                                            <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div>
+                                                            <a href="#" class="submit-cmmt btn" title="Post"> Post</a>
+                                                        </div>
+                                                        <div class="comment-message"></div>
+                                                    </div>
+                                                </div>
+
+                                            </c:forEach>
+                                            <div class="view-more-comments-button-container">
+                                                <div class="view-more-comments-button btn btn-default"><span class="view-more-text">View more</span><span
+                                                        class="glyphicon glyphicon-refresh"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <c:forEach items="${requestScope.commentcourse}" var="i" >
+                            <script language="javascript">
+
+                                document.getElementById("btn${i.commentc_id}").onclick = function () {
+                                    document.getElementById("${i.commentc_id}").style.display = 'block';
+                                };
+
+                            </script>
                         </c:forEach>
+
+                        <div class="modal fade" id="buy-now-support" role="dialog">
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"></button>
+                                        <h4 class="modal-title">Support Codelearn</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please contact email: <a
+                                                href="/cdn-cgi/l/email-protection#9be8eeebebf4e9efdbf8f4fffef7fefae9f5b5f2f4"><span
+                                                    class="__cf_email__"
+                                                    data-cfemail="45363035352a373105262a2120292024372b6b2c2a">[email&#160;protected]</span></a>
+                                            for support.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>               
+        </main>
+        <footer id="footer" class="group codecamp-footer">
+            <div class="zone zone-footer">
+                <div class=" main-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 introduction footer-column">
+                                <div class="logo-codelearn">
+                                    <img src="/Themes/TheCodeCampPro/Resources/Images/new-header/codelearn-logo.svg"
+                                         alt="CodeLearn" />
+                                </div>
+                                <p>
+                                    CodeLearn is an online platform that helps users to learn, practice coding skills and
+                                    join the online coding contests.
+                                </p>
+                                <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"
+                                   class="social-button">
+                                    <i class="cl-icon-facebook-f"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCpt3dSDGk5fC7uU9OeFG5ig" title="Youtube"
+                                   target="_blank" class="social-button">
+                                    <i class="cl-icon-youtube"></i>
+                                </a>
+                                <a href="https://twitter.com/codelearn_io" title="Twitter" target="_blank"
+                                   class="social-button">
+                                    <i class="cl-icon-twitter-full"></i>
+                                </a>
+                                <a href="https://www.instagram.com/codelearn.io/" title="Instagram" target="_blank"
+                                   class="social-button">
+                                    <i class="cl-icon-instagram"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-2 links footer-column">
+                                <h4>Links</h4>
+                                <p><a href="/learning" class="link-menu" title="Learning">Learning</a></p>
+                                <p><a href="/training" class="link-menu" title="Training">Training</a></p>
+                                <p><a href="/fights" class="link-menu" title="Fights">Fights</a></p>
+                                <p><a href="/game/index" class="link-menu" title="Game">Game</a></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-2 about footer-column">
+                                <h4>Information</h4>
+                                <p><a href="/aboutus" title="About Us">About Us</a></p>
+                                <p><a href="/terms" title="Terms of Use">Terms of Use</a></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-2 help footer-column">
+                                <h4>Help</h4>
+                                <p><a href="/help" title="Help">Help</a></p>
+                                <p><a href="/discussion" title="Discussion">Discussion</a></p>
+                                <p><a href="/cdn-cgi/l/email-protection#becdcbceced1cccafeddd1dadbd2dbdfccd090d7d1"
+                                      title="Contact us">Contact us</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 right-reserved">
+                    <span class="powerby">
+                        <img src="/Themes/TheCodeCampPro/Resources/Images/logo-fpt-footer.svg" alt="Fpt software"
+                             class="fpt-logo">
+                        Powered by <a href="/">CodeLearn</a>
+                    </span>
+                    <span class="copyright">&#169; 2023.</span>
+                    <span>All Rights Reserved. rev 11/12/2022 11:15:53 AM</span>
+                </div>
+            </div>
+        </footer>
 
-        <!--end food section--> 
+        <script type="text/javascript">
+            $(function () {
 
-
-
-
-
-
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <!-- popper js -->
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                var loadCommentsTrigger = {};
+                $("#comments-tab").on("shown.bs.tab", function () {
+                    loadCommentsTrigger.loadComments();
+                });
+                $.UseCommentModule({
+                    containerSelector: "#3a",
+                    headerCountSelector: "#total-comments-count",
+                    contentId: courseId,
+                    loadCommentsUri: "/CodeCamp/Comment/GetComments",
+                    postCommentUri: "/CodeCamp/Comment/PostComment",
+                    toggleCommentUri: "/CodeCamp/Comment/ToggleCommentVisibility",
+                    postLikeCommentUri: "/Discussion/LikeCommentUri",
+                    trigger: loadCommentsTrigger
+                });
+            });
         </script>
-        <!-- bootstrap js -->
-        <script src="js/bootstrap.js"></script>
-        <!-- owl slider -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        <script type="application/ld+json">
+            {
+            "@context": "http://schema.org/",
+            "@type": "Product",
+            "name": "Object Oriented-Programming in C++" ,
+            "image" : "/CodeCamp/CodeCamp/Upload/Course/fa2bdb40f4e449dca4514de8c8bca52d.jpg" ,
+            "url" : "https://codelearn.io/learning/" ,
+            "description" : "Object-Oriented-Programming (Object-Oriented-Programming) is an object-based programming method to find out the nature of the problem. This course helps programmers learn programming techniques that all logic and practical requirements are built around objects. Understanding how OOP works in C++ will simplify maintenance and scalability in software development.)" ,
+            "aggregateRating" : {
+            "@type" : "AggregateRating" ,
+            "ratingValue" : "4.5" ,
+            "reviewCount" : "200" ,
+            "worstRating" : 3,
+            "bestRating" : 5
+            },
+            "offers" : {
+            "@type" : "Offer" ,
+            "priceCurrency" : "USD" ,
+            "price" : "0" ,
+            "seller" : {
+            "@type" : "Organization" ,
+            "name" : "Codelearn"
+            },
+            "url" : "https://codelearn.io/learning/object-oriented-programming-in-cpp"
+            }
+            }
         </script>
-        <!-- isotope js -->
-        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-        <!-- nice select -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-        <!-- custom js -->
-        <script src="js/custom.js"></script>
-        <!-- Google Map -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-        </script>
-        <!-- End Google Map -->
+
+        <div id="fb-root"></div>
+
+        <div class="modal fade modal-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body login-modal">
+                        <div>
+
+                            <ul class="nav nav-tabs nav-fill" role="tablist">
+                                <li role="presentation" class="nav-item">
+                                    <a class="nav-link" data-target="#login" aria-controls="login" role="tab"
+                                       data-toggle="tab" onclick="openModal('login')">Login</a>
+                                </li>
+                                <li role="presentation" class="nav-item active">
+                                    <a class="nav-link" data-target="#signup" aria-controls="signup" role="tab"
+                                       data-toggle="tab" onclick="openModal('signup')">Register</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <h4 class="header-card">with your social network</h4>
+                                <div class="signin-options">
+                                    <button class="btn btn-default btn-block btn--microsoft icon-left"
+                                            onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
+                                            title="Login to FSoft account via Microsoft">
+                                        <i class="cl-icon-windows" aria-hidden="true"></i>
+                                        <span>Microsoft</span>
+                                    </button>
+                                    <button class="btn btn-default btn-block btn--facebook icon-left"
+                                            onclick="facebookSignIn()">
+                                        <i class="cl-icon-facebook-f" aria-hidden="true"></i>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
+                                        <i class="cl-icon-google-full" aria-hidden="true"></i>
+                                        <span>Google</span>
+                                    </button>
+                                </div>
+                                <p class="label-or text-center">OR</p>
+                                <div role="tabpanel" class="tab-pane " id="login">
+                                    <c:set var="cookie" value="${pageContext.request.cookies}"></c:set>
+                                        <form id="frmLogin" action="alogin" method="post">
+                                            <div class="form-group">
+                                                <input name="user" type="text" class="form-control" placeholder="User name"
+                                                       value="${cookie.cuser.value}" />
+                                            <a href="/resend-email" title="Resend activation email"
+                                               class="resend-email hidden">Resend activation email</a>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 30px;">
+                                            <input name="pass" type="password" class="form-control"
+                                                   placeholder="Please enter password" value="${cookie.cpass.value}" />
+                                        </div>
+                                        <div class="form-button">
+                                            <button type="submit"
+                                                    class="btn btn-default btn-block btn-blue btn-login">Login</button>
+                                        </div>
+                                        <div class="col-md-12 registered-forgot" role="tablist">
+                                            <div class="col-md-6 text-left">
+                                                <input type="checkbox" ${cookie.crem!=null?'checked':''} name="remember" id="remember" value="${cookie.crem.value}">
+                                                <label for="remember">Remember me</label>
+                                            </div>
+                                            <div class="col-md-6 text-right">
+                                                <a href="/forgot-password">I can't rememeber my password</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 terms-of-use">
+                                            This site is protected by reCAPTCHA and <a href="/terms" target="_blank">Terms
+                                                of Use</a> apply.
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane active" id="signup">
+                                    <form id="frmSignup" action="signup" method="post">
+                                        <div class="form-group">
+                                            <input name="suser" type="text" class="form-control" placeholder="User name"
+                                                   required />
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="spass" type="password" class="form-control" placeholder="Enter your Password"
+                                                   required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="re-pass" type="password" class="form-control"
+                                                   placeholder="Confirm your password" required />
+                                        </div>
+                                        <!--                                        <div class="form-check">
+                                                                                    <div class="checkbox-area">
+                                                                                        <input name="cbAgree" type="checkbox" value="1" class="form-check-input"
+                                                                                               id="cbAgree" data-error="#cbAgree-error" />
+                                                                                        <label class="form-check-label" for="cbAgree">
+                                                                                            I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>
+                                                                                            of CodeLearn
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div id="cbAgree-error"></div>
+                                                                                </div>-->
+                                        <button type="submit"
+                                                class="btn btn-default btn-block btn-blue btn-signup">Register</button>
+                                        <div class="col-md-12 registered-forgot" style="margin-bottom: 0;">
+                                            <div class="col-md-6 text-left">
+                                                <a data-target="#login" aria-controls="login" role="tab" data-toggle="tab"
+                                                   onclick="openModal('login')">
+                                                    Already registered? Login
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
+
 
 </html>
 

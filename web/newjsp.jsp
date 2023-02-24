@@ -11,17 +11,16 @@
     <head>
         <meta charset="utf-8" />
         <meta name="description"
-              content="Free online courses with certification. CodeLearn has several courses with the most popular programming language such as Python, C#, Java, etc." />
+              content="Object-Oriented-Programming (Object-Oriented-Programming) is an object-based programming method to find out the nature of the problem. This course helps programmers learn programming techniques that all logic and practical requirements are built around objects. Understanding how OOP works in C++ will simplify maintenance and scalability in software development." />
         <meta name="author" content="CodeLearn" />
         <link rel="shortcut icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
         <link rel="apple-touch-icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
-        <link rel="canonical" href="/learning" />
-        <link rel="alternate" hreflang="vi" href="https://codelearn.io/learning" />
-        <link rel="alternate" hreflang="en-US" href="https://codelearn.io/learning" />
+        <link rel="canonical" href="/learning/object-oriented-programming-in-cpp" />
+        <link rel="alternate" hreflang="vi" href="https://codelearn.io/learning/object-oriented-programming-in-cpp" />
+        <link rel="alternate" hreflang="en-US" href="https://codelearn.io/learning/object-oriented-programming-in-cpp" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
-        <title>Learn to code with different courses from basic to advanced</title>
+        <title>Object Oriented-Programming in C++</title>
 
-        <script async src="/js/account.js"></script>
         <script>
             var isGetNotification = true;
             var isNotCountComment = false;
@@ -29,42 +28,100 @@
             var s3Storage = '';
             var resourcePath = '';
             var strAuthen = '';
-            var faceId = '';
+            var faceId = '540883753774783';
             var isLoadedFacebook = 'False';
+            if (strAuthen == '') {
+                var googleId = '16523143533-ovv9lj8c7i8sv36sv3lguom0msmdk8ah.apps.googleusercontent.com';
+            }
+
+            if (strAuthen == '') {
+                var LOGIN_VALIDATOR, SIGNUP_VALIDATOR;
+                function openModal(tab) {
+
+                    $('#loginModal a[data-target="#' + tab + '"]').tab('show');
+                    switch (tab) {
+                        case 'login':
+                            $(".btn--facebook").attr('title', 'Login with Facebook');
+                            $(".btn--google").attr('title', 'Login with Google');
+                            $("#loginModal .header-card").text('Login your account');
+                            SIGNUP_VALIDATOR && SIGNUP_VALIDATOR.resetForm();
+                            break;
+                        case 'signup':
+                            $(".btn--facebook").attr('title', 'Continue with Facebook');
+                            $(".btn--google").attr('title', 'Continue with Google');
+                            $("#loginModal .header-card").text('Register new account');
+                            LOGIN_VALIDATOR && LOGIN_VALIDATOR.resetForm();
+                            break;
+                    }
+                }
+            }
+
+            if ('https://codelearn.io' == location.origin.toLocaleLowerCase()) {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+                gtag('config', 'UA-141685371-1');
+                gtag('config', 'USER_MANAGEMENT');
+                gtag('set', {'user_id': 'ducnguyen11042002@gmail.com'});
+
+                // Measure Google Ads conversions
+                gtag('event', 'conversion', {
+                    'send_to': 'USER_MANAGEMENT/ducnguyen11042002@gmail.com',
+                });
+
+                window['GoogleAnalyticsObject'] = 'ga';
+                window['ga'] = window['ga'] || function () {
+                    (window['ga'].q = window['ga'].q || []).push(arguments)
+                };
+                ga('set', 'userId', 'ducnguyen11042002@gmail.com');
+            }
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: faceId,
+                    xfbml: true,
+                    version: 'v11.0'
+                });
+                FB.AppEvents.logPageView();
+                isLoadedFacebook = true;
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
         </script>
 
-        <link href="css/learn.css" rel="stylesheet" type="text/css" />
-
+        <link href="css/chapter.css" rel="stylesheet" type="text/css" />
         <script src="js/account1.js" type="text/javascript"></script>
         <script src="js/account2.js" type="text/javascript"></script>
         <script src="js/account3.js" type="text/javascript"></script>
         <script src="js/account4.js" type="text/javascript"></script>
         <script src="js/account5.js" type="text/javascript"></script>
         <script src="js/account6.js" type="text/javascript"></script>
-        <script src="js/account7.js" type="text/javascript"></script> 
+        <script src="js/account7.js" type="text/javascript"></script>
     </head>
 
     <body class="hold-transition site-body skin-sku-light layout-top-nav learning ">
-        <script>
-                //<![CDATA[
-                var LANG_CURRENT = "en";
-                const CurrentUserId = 11606613;
-                const NOTTIFY_USER_ACCESSKEY = 'nottifyAccessKey';
-                const IS_ADMIN = false;
 
-                PKLService.init({strVersion: '1937254220', strLangCode: 'en', IsHasLogin: true, url: location.origin});
-                //]]>
-        </script>
         <div id="layout-navigation" class="group ">
             <div class="zone zone-navigation">
                 <article class="widget-navigation widget-menu-widget widget">
                     <header class="navbar site-header">
                         <div class="wrap-site-logo">
-                            <a title="Home" href="home">
-                                <img alt="Home" class="site-logo"
-                                     src="themes/codelearn-logo.png">
-                                <img alt="Home" class="site-logo-mobile"
-                                     src="themes/codelearn-logo.png">
+                            <a title="Home" href="home.html">
+                                <img alt="Home" class="site-logo" src="themes/logo2.png">
+                                <img alt="Home" class="site-logo-mobile" src="">
                             </a>
                         </div>
                         <div class="wrap-right-header">
@@ -75,7 +132,7 @@
                             <label class="hamburger-menu-mask" for="mobile-menu-cb"></label>
                             <nav class="site-menu">
                                 <ul class="menu menu-main-menu">
-                                    <li><a href="home">Learning</a>
+                                    <li><a href="learn.html">Learning</a>
                                     </li>
                                     <li><a href="/training">Training</a>
                                     </li>
@@ -128,8 +185,7 @@
                                 </li>
                                 <li class="dropdown header-user-profile">
                                     <a href="#" class="dropdown-toggle btn--profile" title="Info">
-                                        <img alt="" class="btn--img"
-                                             src="">
+                                        <img alt="" class="btn--img" src="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-user">
                                         <li><a href="profile.html">My information</a></li>
@@ -148,6 +204,11 @@
                 <article class="widget-navigation widget-bread-cumps-widget widget">
                     <nav aria-label="breadcrumb">
                         <div class="container">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a
+                                        href="/learning/object-oriented-programming-in-cpp">Learning</a></li>
+                            </ol>
                         </div>
                     </nav>
 
@@ -161,118 +222,287 @@
             <div id="layout-content" class="group">
                 <div id="content" class="group">
                     <div class="zone zone-content">
-                        <div class="head-course">
+                        <div class="course-head">
+                            <div class="overlay"></div>
                             <div class="container">
-                                <h2>Learning code online. Let's start with your first course!</h2>
-                                <div id="search" class="block-top-head">
-                                    <div class="input-group">
-                                        <form id="form-search" action="/learning?">
-                                            <input Name="name" id="search-course" type="text" class="form-control"
-                                                   placeholder="Search...">
-                                            <span class="input-group-addon btn"><i class="cl-icon-search"></i></span>
-                                        </form>
+                                <div class="course-head-content">
+                                    <div class="head">
+                                        <h1 class="title">
+                                            Object Oriented-Programming in C++
+                                        </h1>
+                                        <div class="actions">
+                                        </div>
+                                    </div>
+                                    <div class="main-content">
+                                        <div class="title-wrap">
+                                            <div class="title-wrap__rate-and-author">
+                                                <div class="author">
+                                                    <img src="/CodeCamp/CodeCamp/Upload/Avatar/a76638850ecc4722b76d255e9cdd462f.jpg"
+                                                         alt="TuanLQ7" />
+                                                    <a href="/profile/3488" title="TuanLQ7">TuanLQ7</a>
+                                                </div>
+                                                <div class="enroll-students">
+                                                    <i style="font-size: 13px" class="cl-icon-users-alt"></i>
+                                                    47746 students
+                                                </div>
+
+                                                <div id="container-rate" class="rate ">
+                                                    <span class="star-rating">
+                                                        <span style="width:90.0%"></span>
+                                                        <span class="vote-rate">
+                                                            <span value="1" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="2" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="3" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="4" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                            <span value="5" class="star"><i
+                                                                    class="cl-icon-favorite-full"></i></span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="text-rate">
+                                                        4.5 (200 votes)
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <p class="title-wrap__desc"
+                                               title="-Oriented-Programming (Object-Oriented-Programming) is an object-based programming method to find out the nature of the problem. This course helps programmers learn programming techniques that all logic and practical requirements are built around objects. Understanding how OOP works in C++ will simplify maintenance and scalability in software development.">
+                                                Object-Oriented-Programming (Object-Oriented-Programming) is an object-based
+                                                programming method to find out the nature of the problem. This course helps
+                                                programmers learn programming techniques that all logic and practical
+                                                requirements are built around objects. Understanding how OOP works in C++
+                                                will simplify maintenance and scalability in software development.</p>
+                                        </div>
+                                        <div class="infor-wrap">
+                                            <div class="infor-wrap__item">
+                                                <span class="left">
+                                                    <span class="icon-wrap"><i class="cl-icon-clock"></i></span>
+                                                    Time
+                                                </span>
+                                                <span class="right">
+                                                    40 hours
+                                                </span>
+                                            </div>
+                                            <div class="infor-wrap__item">
+                                                <span class="left">
+                                                    <span class="icon-wrap"><i class="cl-icon-layer-group"></i></span>
+                                                    Number of tasks
+                                                </span>
+                                                <span class="right">
+                                                    80
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="actions-wrap">
+                                            <span class="text-price free">Free</span>
+                                            <div class="register" id="button-register">
+                                                <a id="course-register" href="javascript:void(0)"
+                                                   class="buy-now course-register">Register Now</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
-                            <div id="list">
-                                <section class="list-courses">
-                                    <h2 class="title-block">Basic knowledge</h2>
-                                    <div class="row">
-                                        <article class="course-item col-12 col-md-4 col-lg-3">
-                                            <div class="wrap-course-item ">
-                                                <div class="course-thumb">
-                                                    <a href="chapter.html"
-                                                       title="Object Oriented-Programming in C++">
-                                                        <img src="/CodeCamp/CodeCamp/Upload/Course/fa2bdb40f4e449dca4514de8c8bca52d.jpg"
-                                                             alt="Object Oriented-Programming in C++">
-                                                    </a>
-                                                    <div class="cl-badge hot"><span>Hot</span></div>
-                                                </div>
-                                                <div class="view-content">
-
-                                                    <div class="view-content-header">
-                                                        <img class="view-content-header__img-top"
-                                                             src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
-                                                             alt="course top img" />
-                                                        <span class="star-rating"><span style="width:90.0%"></span></span>
-                                                        <span class="course-type online">
-                                                            Online
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="course-title"><a title="Object Oriented-Programming in C++"
-                                                                                href="chapter.html">Object
-                                                            Oriented-Programming in C++</a></h3>
-                                                    <a href="/profile/3488" title="TuanLQ7"
-                                                       class="course-author">TuanLQ7</a>
-                                                    <p class="course-description">Object-Oriented-Programming
-                                                        (Object-Oriented-Programming) is an object-based programming method
-                                                        to find out the nature of the problem. This course helps programmers
-                                                        learn programming techniques that all logic and practical
-                                                        requirements are built around objects. Understanding how OOP works
-                                                        in C++ will simplify maintenance and scalability in software
-                                                        development.</p>
-                                                    <div class="view-content-footer">
-                                                        <div class="course-footer-left">
-                                                            <span class="free-text">Free</span>
-                                                        </div>
-                                                        <div class="course-footer-right">
+                        <div id="course-detail" class="container">
+                            <div class="container">
+                                <div class="tmp">
+                                </div>
+                                <div id="exTab1" class="">
+                                    <ul class="nav nav-pills col-sm-12">
+                                        <li class="hide extab course-lesson">
+                                            <a href="#course-lesson" data-toggle="tab">Lecture/Video</a>
+                                        </li>
+                                        <li class="active extab">
+                                            <a href="#1a" data-toggle="tab">Tasks</a>
+                                        </li>
+                                        <li class="hide extab course-practice">
+                                            <a href="#course-practice" data-toggle="tab">Exam</a>
+                                        </li>
+                                        <li class="extab">
+                                            <a id="course-objective" href="#2a" data-toggle="tab">Objective</a>
+                                        </li>
+                                        <li class="extab">
+                                            <a style="" href="#3a" id="comments-tab" data-toggle="tab">Comments (<span
+                                                    id="total-comments-count"></span>)</a>
+                                        </li>
+                                        <li class="extab">
+                                            <a id="course-certification" href="#4a" data-toggle="tab">Certificate</a>
+                                        </li>
+                                    </ul>
+                                    <a href="" class="create-class pull-right hidden">+ CREATE CLASS</a>
+                                    <div class="tab-content clearfix">
+                                        <div class="tab-pane hide list-task row" id="course-lesson">
+                                        </div>
+                                        <div class="tab-pane hide list-task row" id="course-practice">
+                                        </div>
+                                        <div class="tab-pane active list-task row" id="1a">
+                                            <div class="group-detail-course-item col-md-6">
+                                                <div class="course-name">
+                                                    <div class="lession">
+                                                        <img
+                                                            src="themes/bg-Lesson.png">
+                                                        <div class="title">
+                                                            <h3 class="active" title="Class and Object">Class and Object
+                                                            </h3>
                                                         </div>
                                                     </div>
+                                                    <div class="contain-task">
+                                                        <a title="Lập tr&#236;nh hướng đối tượng trong C++ | Codelearn"
+                                                           href="/learning/object-oriented-programming-in-cpp/3536303"
+                                                           class="circle allow-active  ">1</a>
+                                                        <a title="Lập tr&#236;nh hướng đối tượng trong C++ | Codelearn"
+                                                           href="/learning/object-oriented-programming-in-cpp/3536303"
+                                                           class="circle resolve  ">2</a>
+
+                                                    </div>
+
+
                                                 </div>
-
-
                                             </div>
-                                        </article>
-                                    </div>
-                                </section>
-                                <section class="list-courses">
-                                    <h2 class="title-block">Basic programming</h2>
-                                    <div class="row">
-                                        <article class="course-item col-12 col-md-4 col-lg-3">
-                                            <div class="wrap-course-item ">
-                                                <div class="course-thumb">
-                                                    <a href="/learning/c-for-beginners" title="C for Beginners">
-                                                        <img src="/CodeCamp/CodeCamp/Upload/Course/eab2e064afab4d8aa5f0b0d408cef9e0.jpg"
-                                                             alt="C for Beginners">
-                                                    </a>
-                                                    <div class="cl-badge hot"><span>Hot</span></div>
-                                                </div>
-                                                <div class="view-content">
 
-                                                    <div class="view-content-header">
-                                                        <img class="view-content-header__img-top"
-                                                             src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
-                                                             alt="course top img" />
-                                                        <span class="star-rating"><span style="width:92.0%"></span></span>
-                                                        <span class="course-type online">
-                                                            Online
-                                                        </span>
-                                                    </div>
-                                                    <h3 class="course-title"><a title="C for Beginners"
-                                                                                href="/learning/c-for-beginners">C for Beginners</a></h3>
-                                                    <a href="/profile/3488" title="TuanLQ7"
-                                                       class="course-author">TuanLQ7</a>
-                                                    <p class="course-description">The complete C Programing Course for
-                                                        Beginners, this course teaches you the fundamentals of a programing
-                                                        language. After completed, you will be able to move from the basics
-                                                        to more advanced course.</p>
-                                                    <div class="view-content-footer">
-                                                        <div class="course-footer-left">
-                                                            <c:set var="value" value="50"></c:set>
-                                                            <div class="progress-circle progress-${value}"><span>${value}</span></div>
-                                                        </div>
-                                                        <div class="course-footer-right">
-                                                            <a class="btn-continue-study"
-                                                               href="/learning/c-for-beginners">Continue learning<i
-                                                                    class="cl-icon-arrow-right"></i></a>
-                                                        </div>
-                                                    </div>
+                                        </div>
+
+                                        <div class="tab-pane active" id="3a">
+                                            <div class="total-comments-section"><span id="total-comments">98</span> comments</div>
+                                            <div class="top-level-comment-input">
+                                                <div class="user-avatar">
+                                                    <div class="avatars"> <img class="level-avatar"
+                                                                               src="/Themes/TheCodeCampPro/Resources/Images/level-avatars/User-07.svg?v=3"> <img
+                                                                               src="/CodeCamp/CodeCamp/Upload/Avatar/0ba05149201d44deb8fbc2d3f8b3dd3e.jpg"> </div>
                                                 </div>
-                                        </article>
+                                                <div class="edit-box comment-box">
+                                                    <div placeholder="Write your comment" class="with-placeholder" id="comment-box" contenteditable=""></div>
+                                                    <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div>
+                                                    <div class="comment-message" id="top-comment-message"></div> <a href="#" class="submit-cmmt btn"
+                                                                                                                    title="Post">Post</a>
+                                                </div>
+                                            </div>
+                 
+                                            <div class="comment-block has-replies" style="display: block;">
+                                                <div class="user-avatar">
+                                                    <div class="avatars"> <img class="level-avatar"
+                                                                               src="/Themes/TheCodeCampPro/Resources/Images/level-avatars/User-04.svg?v=3"> <img
+                                                                               src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                </div>
+                                                <div class="comment-main">
+                                                    <div class="comment-user"><a href="/profile/16742109" class="href-user">quangtruong0420@gmail.com</a> <span
+                                                            class="modified-time">Jun 19, 2022</span></div>
+                                                    <div class="comment-content">học xong khóa cơ bản rồi là học tiếp khóa hướng đối tượng hay khóa nâng cao vậy
+                                                        mn</div>
+                                                    <div class="comment-message for-edit"></div>
+                                                    <div class="view-more">View more</div>
+                                                    <div class="comment-footer">
+                                                        <div class="left-parts action-buttons"><span class="hide-message">This comment has been hidden. </span>
+                                                            <div class="user-action-buttons"><span class="likeButton"><i class="cl-icon-thumbs-up-1 up"
+                                                                                                                         id="img_16875376"></i> <span id="countVoteLike_16875376" class="count-vote">
+                                                                        0</span></span><span class="disLikeButton"><i class="cl-icon-thumbs-down-1 down"
+                                                                                                              id="imgDisLike_16875376"></i><span id="countVoteDisLike_16875376" class="count-vote">
+                                                                        0</span> </span><span class="footer-button reply-button"><i
+                                                                        class="cl-icon-reply-full reply-img"></i>Reply</span></div>
+                                                        </div>
+                                                        <div class="right-parts"><button class="btn btn-success standard-button save-button"
+                                                                                         style="display: none;">Save</button> </div>
+                                                    </div>
+                                                    <div class="replies loaded-all">
+                                                        <div class="comment-block has-replies" style="display: block;">
+                                                            <div class="user-avatar">
+                                                                <div class="avatars"> <img class="level-avatar"
+                                                                                           src="/Themes/TheCodeCampPro/Resources/Images/level-avatars/User-05.svg?v=3"> <img
+                                                                                           src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                            </div>
+                                                            <div class="comment-main">
+                                                                <div class="comment-user"><a href="/profile/17219477"
+                                                                                             class="href-user">huy.tran1305@hcmut.edu.vn</a> <span class="modified-time">Jul 13,
+                                                                        2022</span></div>
+                                                                <div class="comment-content">nâng cao trc</div>
+                                                                <div class="comment-message for-edit"></div>
+                                                                <div class="view-more">View more</div>
+                                                                <div class="comment-footer">
+                                                                    <div class="left-parts action-buttons"><span class="hide-message">This comment has been
+                                                                            hidden. </span>
+                                                                        <div class="user-action-buttons"><span class="likeButton"><i id="img_17317684"
+                                                                                                                                     class="cl-icon-thumbs-up-1"></i> <span id="countVoteLike_17317684"
+                                                                                                                                     class="count-vote"> 2</span></span><span class="disLikeButton"><i
+                                                                                    id="imgDisLike_17317684" class="cl-icon-thumbs-down-1"></i><span
+                                                                                    id="countVoteDisLike_17317684" class="count-vote"> 0</span> </span><span
+                                                                                class="footer-button reply-button"><i
+                                                                                    class="cl-icon-reply-full reply-img"></i>Reply</span></div>
+                                                                    </div>
+                                                                    <div class="right-parts"><button class="btn btn-success standard-button save-button"
+                                                                                                     style="display: none;">Save</button> </div>
+                                                                </div>
+                                                                <div class="replies"></div>
+                                                                <div class="edit-box reply-box" style="display: none;">
+                                                                    <div placeholder="Write your comment" class="with-placeholder" id="comment-box"
+                                                                         contenteditable=""></div>
+                                                                    <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div><a
+                                                                        href="#" class="submit-cmmt btn" title="Post"> Post</a>
+                                                                </div>
+                                                                <div class="comment-message"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-block" style="display: block;">
+                                                            <div class="user-avatar">
+                                                                <div class="avatars"> <img class="level-avatar"
+                                                                                           src="/Themes/TheCodeCampPro/Resources/Images/level-avatars/User-06.svg?v=3"> <img
+                                                                                           src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                            </div>
+                                                            <div class="comment-main">
+                                                                <div class="comment-user"><a href="/profile/17953994"
+                                                                                             class="href-user">trung28282803@gmail.com</a> <span class="modified-time">Sep 24,
+                                                                        2022</span></div>
+                                                                <div class="comment-content">t ms học đc 2 tuần mà học mỗi vector xong học lthdt luôn:)))</div>
+                                                                <div class="comment-message for-edit"></div>
+                                                                <div class="view-more">View more</div>
+                                                                <div class="comment-footer">
+                                                                    <div class="left-parts action-buttons"><span class="hide-message">This comment has been
+                                                                            hidden. </span>
+                                                                        <div class="user-action-buttons"><span class="likeButton"><i
+                                                                                    class="cl-icon-thumbs-up-1 up" id="img_18932616"></i> <span
+                                                                                    id="countVoteLike_18932616" class="count-vote"> 0</span></span><span
+                                                                                class="disLikeButton"><i class="cl-icon-thumbs-down-1 down"
+                                                                                                     id="imgDisLike_18932616"></i><span id="countVoteDisLike_18932616"
+                                                                                                     class="count-vote"> 0</span> </span><span
+                                                                                class="footer-button reply-button"><i
+                                                                                    class="cl-icon-reply-full reply-img"></i>Reply</span></div>
+                                                                    </div>
+                                                                    <div class="right-parts"><button class="btn btn-success standard-button save-button"
+                                                                                                     style="display: none;">Save</button> </div>
+                                                                </div>
+                                                                <div class="replies"></div>
+                                                                <div class="edit-box reply-box" style="display: none;">
+                                                                    <div placeholder="Write your comment" class="with-placeholder" id="comment-box"
+                                                                         contenteditable=""></div>
+                                                                    <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div><a
+                                                                        href="#" class="submit-cmmt btn" title="Post"> Post</a>
+                                                                </div>
+                                                                <div class="comment-message"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="view-more-comments-button as-link"><span class="view-more-text">View more</span><span
+                                                                class="glyphicon glyphicon-refresh"></span></div>
+                                                    </div>
+                                                    <div class="edit-box reply-box hide">
+                                                        <div placeholder="Write your comment" class="with-placeholder" id="comment-box" contenteditable="">
+                                                        </div>
+                                                        <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div><a href="#"
+                                                                                                                                                 class="submit-cmmt btn" title="Post"> Post</a>
+                                                    </div>
+                                                    <div class="comment-message"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="view-more-comments-button-container">
+                                                <div class="view-more-comments-button btn btn-default"><span class="view-more-text">View more</span><span
+                                                        class="glyphicon glyphicon-refresh"></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane certification" id="4a"></div>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         </div>
 
@@ -286,9 +516,9 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>Please contact email: <a
-                                                href="/cdn-cgi/l/email-protection#90e3e5e0e0ffe2e4d0f3fff4f5fcf5f1e2febef9ff"><span
+                                                href="/cdn-cgi/l/email-protection#9be8eeebebf4e9efdbf8f4fffef7fefae9f5b5f2f4"><span
                                                     class="__cf_email__"
-                                                    data-cfemail="32414742425d404672515d56575e5753405c1c5b5d">[email&#160;protected]</span></a>
+                                                    data-cfemail="45363035352a373105262a2120292024372b6b2c2a">[email&#160;protected]</span></a>
                                             for support.</p>
                                     </div>
                                     <div class="modal-footer">
@@ -297,12 +527,6 @@
                                 </div>
                             </div>
                         </div>
-                        <script data-cfasync="false"
-                        src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-                        <script>
-                //Ẩn breadcum ở trang danh sách khóa học
-                $('#layout-navigation .widget-bread-cumps-widget').css('display', 'none');
-                        </script>
                     </div>
                 </div>
             </div>
@@ -354,7 +578,7 @@
                                 <h4>Help</h4>
                                 <p><a href="/help" title="Help">Help</a></p>
                                 <p><a href="/discussion" title="Discussion">Discussion</a></p>
-                                <p><a href="/cdn-cgi/l/email-protection#196a6c6969766b6d597a767d7c757c786b77377076"
+                                <p><a href="/cdn-cgi/l/email-protection#becdcbceced1cccafeddd1dadbd2dbdfccd090d7d1"
                                       title="Contact us">Contact us</a></p>
                             </div>
                         </div>
@@ -371,132 +595,56 @@
                 </div>
             </div>
         </footer>
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="/Themes/TheCodeCampPro/Resources/Lib/slick/slick.min.js?fileHash=g5vMajDezqU32iaWKxPsqg%3d%3d"
-        type="text/javascript"></script>
-        <script
-            src="/Themes/TheCodeCampPro/Resources/App/Scripts/notification/notification.min.js?fileHash=KTzMdkPU39hUOQ5OrgzArg%3d%3d"
-        type="text/javascript"></script>
+
         <script type="text/javascript">
-                $(document).ready(function () {
-                    var w_width = 0;
-                    $(window).resize(function () {
-                        if (w_width != $(window).width()) {
-                            w_width = $(window).width();
-                            $('.list-courses>.row.slick-slider').slick('unslick');
-                            $('.list-courses>.row').each(function () {
-                                //Case have more than 8 courses
-                                if (w_width > 1200 && $(this).find('.course-item').length > 8) {
-                                    $(this).slick({
-                                        slidesToShow: 4,
-                                        slidesToScroll: 4,
-                                        rows: 2,
-                                        infinite: false,
-                                        autoplay: false,
-                                        autoplaySpeed: 3500,
-                                        dots: false,
-                                        arrows: true,
-                                        prevArrow: "<span class='slick-prev btn-carousel'><i class='cl-icon-angle-left'></i></span>",
-                                        nextArrow: "<span class='slick-next btn-carousel'><i class='cl-icon-angle-right'></i></span>"
-                                    });
-                                }
-                                //Case have more more than 5 and in small laptop
-                                else if ((w_width > 1024 && w_width < 1201) && $(this).find('.course-item').length > 6) {
-                                    $(this).slick({
-                                        slidesToShow: 3,
-                                        slidesToScroll: 3,
-                                        rows: 2,
-                                        infinite: false,
-                                        autoplay: true,
-                                        autoplaySpeed: 3500,
-                                        dots: true,
-                                        arrows: false,
-                                    });
-                                }
-                                //Case have more more than 3 and in tablet
-                                else if ((w_width > 556 && w_width < 1025) && $(this).find('.course-item').length > 4) {
-                                    $(this).slick({
-                                        slidesToShow: 2,
-                                        slidesToScroll: 2,
-                                        rows: 2,
-                                        infinite: false,
-                                        autoplay: true,
-                                        autoplaySpeed: 3500,
-                                        dots: true,
-                                        arrows: false
-                                    });
-                                } else if (w_width < 557) {
-                                    //Case mobile
-                                    $(this).slick({
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        infinite: false,
-                                        autoplay: true,
-                                        autoplaySpeed: 3500,
-                                        dots: true,
-                                        arrows: false
-                                    });
-                                }
-                            });
-                        }
-                    }).resize();
-                    popoverCourse();
-                });
-                $(function () {
-                    $('#search-course').val(getParameterByName('name'));
+            $(function () {
 
-                    $('#search-course').keyup(function (e) {
-                        if (e.keyCode === 13 || $(this).val() == '') {
-                            $('#form-search').trigger('submit');
-                        }
-                    });
-                    $(document).on('click', '#form-search .input-group-addon.btn', function () {
-                        $('#form-search').trigger('submit');
-                    });
+                var loadCommentsTrigger = {};
+                $("#comments-tab").on("shown.bs.tab", function () {
+                    loadCommentsTrigger.loadComments();
                 });
-
-                // Handle position hover course item to popover
-                function popoverCourse() {
-                    $(document).on('mouseover', '.wrap-course-item', function (e) {
-                        e.preventDefault();
-                        //get with of popover div
-                        let wd_pop = $(this).children('.popover-course').width();
-                        var wd_width = $(window).width();
-                        let offsetCourse = $(this).offset();
-                        let right_cor = wd_width - offsetCourse.left;
-                        if (right_cor < 700) {
-                            $(this).children('.popover-course').css('right', 'calc(100% + 20px)');
-                            $(this).children('.popover-course').css('left', 'unset');
-                            $(this).children('.popover-course').addClass('arrow-right');
-                        } else {
-                            $(this).children('.popover-course').css('left', 'calc(100% + 20px)');
-                            $(this).children('.popover-course').css('right', 'unset');
-                            $(this).children('.popover-course').addClass('arrow-left');
-                        }
-                    });
-                }
+                $.UseCommentModule({
+                    containerSelector: "#3a",
+                    headerCountSelector: "#total-comments-count",
+                    contentId: courseId,
+                    loadCommentsUri: "/CodeCamp/Comment/GetComments",
+                    postCommentUri: "/CodeCamp/Comment/PostComment",
+                    toggleCommentUri: "/CodeCamp/Comment/ToggleCommentVisibility",
+                    postLikeCommentUri: "/Discussion/LikeCommentUri",
+                    trigger: loadCommentsTrigger
+                });
+            });
+        </script>
+        <script type="application/ld+json">
+            {
+            "@context": "http://schema.org/",
+            "@type": "Product",
+            "name": "Object Oriented-Programming in C++" ,
+            "image" : "/CodeCamp/CodeCamp/Upload/Course/fa2bdb40f4e449dca4514de8c8bca52d.jpg" ,
+            "url" : "https://codelearn.io/learning/" ,
+            "description" : "Object-Oriented-Programming (Object-Oriented-Programming) is an object-based programming method to find out the nature of the problem. This course helps programmers learn programming techniques that all logic and practical requirements are built around objects. Understanding how OOP works in C++ will simplify maintenance and scalability in software development.)" ,
+            "aggregateRating" : {
+            "@type" : "AggregateRating" ,
+            "ratingValue" : "4.5" ,
+            "reviewCount" : "200" ,
+            "worstRating" : 3,
+            "bestRating" : 5
+            },
+            "offers" : {
+            "@type" : "Offer" ,
+            "priceCurrency" : "USD" ,
+            "price" : "0" ,
+            "seller" : {
+            "@type" : "Organization" ,
+            "name" : "Codelearn"
+            },
+            "url" : "https://codelearn.io/learning/object-oriented-programming-in-cpp"
+            }
+            }
         </script>
 
         <div id="fb-root"></div>
 
-        <script type="application/ld+json">
-            {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "CodeLearn",
-            "url": "https://codelearn.io",
-            "address": "Ha Noi, Viet Nam",
-            "sameAs": [
-            "https://www.facebook.com/CodeLearnFanpage/",
-            "https://www.linkedin.com/company/codelearnio",
-            "https://twitter.com/codelearn_io"
-            ]
-            }
-        </script>
-
-        <noscript>
-        <img height="1" width="1" style="display:none" alt=""
-             src="https://www.facebook.com/tr?id=700313553710795&ev=PageView&noscript=1" />
-        </noscript>
     </body>
+
 </html>

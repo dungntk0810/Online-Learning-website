@@ -66,23 +66,10 @@ public class CommentCourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("like") != null) {
             int likenum = Integer.parseInt(request.getParameter("like"));
             CommentCourseDAO dao = new CommentCourseDAO();
             dao.rateCommentCourse(likenum);
-            response.sendRedirect("discussion");
-        } else {
-            String courseId_raw = request.getParameter("courseId");
-            int courseID = Integer.parseInt(courseId_raw);
-            List<CommentCourse> list = new ArrayList<>();
-            CommentCourseDAO dao = new CommentCourseDAO();
-            list = dao.getCommentCourse(courseID);
-            List<CommentCourse> list2 = new ArrayList<>();
-            list2 = dao.getReplyCommentCourse(courseID);
-            request.setAttribute("commentcourse", list);
-            request.setAttribute("replycommentcourse", list2);
-            request.getRequestDispatcher("/pages/user/comment/commentcourse.jsp").forward(request, response);
-        }
+            response.sendRedirect("course?id=1");
     }
 
     /**
@@ -96,22 +83,22 @@ public class CommentCourseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Part filePart = request.getPart("upFile");
-        String image;
-        if (filePart == null) {
-            image = "";
-        } else {
-            String fileName = filePart.getSubmittedFileName();
-            for (Part part : request.getParts()) {
-                part.write("E:\\PRJ301\\Online-Learning\\web\\upload\\" + fileName);
-            }
-            image = fileName;
-        }
+//        Part filePart = request.getPart("upFile");
+//        String image;
+//        if (filePart == null) {
+//            image = "";
+//        } else {
+//            String fileName = filePart.getSubmittedFileName();
+//            for (Part part : request.getParts()) {
+//                part.write("E:\\PRJ301\\Online-Learning\\web\\upload\\" + fileName);
+//            }
+//            image = fileName;
+//        }
         if (request.getParameter("discussion") != null) {
             String comment = request.getParameter("discussion");
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("account");
-            Discussion d = new Discussion(u, comment, image);
+            Discussion d = new Discussion(u, comment);
             DiscussionDAO dao = new DiscussionDAO();
             dao.addDiscussion(d);
             response.sendRedirect("discussion");
