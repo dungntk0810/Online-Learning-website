@@ -7,6 +7,7 @@ package controller.user;
 import dal.DAO;
 import dal.LessonDAO;
 import dal.PercentageDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -47,13 +48,18 @@ public class LessonServlet extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             request.setAttribute("lid", id);
+
             String c = d.getDetailByLessonId(id);
             int course_id = ld.findCourseIdByLessonId(id);
             HttpSession session = request.getSession();
+            request.setAttribute("course_id", course_id);
             if (session.getAttribute("account") != null) {
                 User user = (User) session.getAttribute("account");
                 List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
                 request.setAttribute("listPercentage", listPercentage);
+                if (pd.checkPercentageByUserID(id, user.getUser_id()) != 1) {
+                    pd.addPercentage(user.getUser_id(), id, 1);
+                }
             }
 
             int chapterId = ld.findChapterIdByLessonId(id);
@@ -104,19 +110,30 @@ public class LessonServlet extends HttpServlet {
         PercentageDAO pd = new PercentageDAO();
         DAO d = new DAO();
         int id;
+        LessonDAO ld = new LessonDAO();
         try {
             id = Integer.parseInt(id_raw);
-            String c = d.getDetailByLessonId(id);
             request.setAttribute("lid", id);
+
+            String c = d.getDetailByLessonId(id);
+            int course_id = ld.findCourseIdByLessonId(id);
             HttpSession session = request.getSession();
+            request.setAttribute("course_id", course_id);
             if (session.getAttribute("account") != null) {
                 User user = (User) session.getAttribute("account");
+                List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
+                request.setAttribute("listPercentage", listPercentage);
                 if (pd.checkPercentageByUserID(id, user.getUser_id()) != 1) {
                     pd.addPercentage(user.getUser_id(), id, 1);
                 }
             }
+            int chapterId = ld.findChapterIdByLessonId(id);
+            List<Lesson> listLesson = ld.FindAllLessonByChapterId(chapterId);
+            request.setAttribute("listlesson", listLesson);
+            RequestDispatcher dispatcherA = request.getRequestDispatcher("Lesson_Java_JSP/" + c);
 
-            request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
+            dispatcherA.forward(request, response);
+
         } catch (NumberFormatException e) {
             System.out.println(e);
 

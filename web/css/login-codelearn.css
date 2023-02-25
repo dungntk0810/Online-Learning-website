@@ -9432,8 +9432,6 @@ button.close {
     }
 }
 
-@charset "UTF-8";
-
 @font-face {
     font-family: "codelearn-font";
     src: url("fonts/codelearn-font.eot?v8.1");
