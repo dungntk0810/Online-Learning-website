@@ -104,7 +104,7 @@ public class DiscussionServlet extends HttpServlet {
         } else {
             String fileName = filePart.getSubmittedFileName();
             for (Part part : request.getParts()) {
-                part.write("E:\\PRJ301\\Online-Learning\\web\\upload\\" + fileName);
+                part.write("D:\\online-Learning\\web\\upload\\" + fileName);
             }
             image = fileName;
         }

@@ -14,55 +14,55 @@
     </head>
     <body>
         <c:set value="0" var="num"></c:set> 
-        <c:forEach items="${requestScope.map}" var="entry">
+        <c:forEach items="${requestScope.list}" var="entry">
             <c:set value="${num+1}" var="num"></c:set> 
-            <ul>Question ${num} : ${entry.key.question}
+            <ul>Question ${num} : ${entry.question}
                 <c:choose>
-                    <c:when test="${entry.value=='1'}">
-                        <li style="color: #0069d9"><b>${entry.key.choice1}</b></li>
-                        <li>${entry.key.choice2}</li>
-                        <li>${entry.key.choice3}</li>
-                        <li>${entry.key.choice4}</li>
-                        <li>${entry.key.choice5}</li>
+                    <c:when test="${entry.choose=='1'}">
+                        <li style="color: #0069d9"><b>${entry.choice1}</b></li>
+                        <li>${entry.choice2}</li>
+                        <li>${entry.choice3}</li>
+                        <li>${entry.choice4}</li>
+                        <li>${entry.choice5}</li>
                         </c:when>
-                        <c:when test="${entry.value=='2'}">
-                        <li>${entry.key.choice1}</li>
-                        <li style="color: #0069d9"><b>${entry.key.choice2}</b></li>
-                        <li>${entry.key.choice3}</li>
-                        <li>${entry.key.choice4}</li>
-                        <li>${entry.key.choice5}</li>
+                        <c:when test="${entry.choose=='2'}">
+                        <li>${entry.choice1}</li>
+                        <li style="color: #0069d9"><b>${entry.choice2}</b></li>
+                        <li>${entry.choice3}</li>
+                        <li>${entry.choice4}</li>
+                        <li>${entry.choice5}</li>
                         </c:when>
-                        <c:when test="${entry.value=='3'}">
-                        <li>${entry.key.choice1}</li>
-                        <li>${entry.key.choice2}</li>
-                        <li style="color: #0069d9"><b>${entry.key.choice3}</b></li>
-                        <li>${entry.key.choice4}</li>
-                        <li>${entry.key.choice5}</li>
+                        <c:when test="${entry.choose=='3'}">
+                        <li>${entry.choice1}</li>
+                        <li>${entry.choice2}</li>
+                        <li style="color: #0069d9"><b>${entry.choice3}</b></li>
+                        <li>${entry.choice4}</li>
+                        <li>${entry.choice5}</li>
                         </c:when>
-                        <c:when test="${entry.value=='4'}">
-                        <li>${entry.key.choice1}</li>
-                        <li>${entry.key.choice2}</li>
-                        <li>${entry.key.choice3}</li>
-                        <li style="color: #0069d9"><b>${entry.key.choice4}</b></li>
-                        <li>${entry.key.choice5}</li>
+                        <c:when test="${entry.choose=='4'}">
+                        <li>${entry.choice1}</li>
+                        <li>${entry.choice2}</li>
+                        <li>${entry.choice3}</li>
+                        <li style="color: #0069d9"><b>${entry.choice4}</b></li>
+                        <li>${entry.choice5}</li>
                         </c:when>
-                        <c:when test="${entry.value=='5'}">
-                        <li>${entry.key.choice1}</li>
-                        <li>${entry.key.choice2}</li>
-                        <li>${entry.key.choice3}</li>
-                        <li>${entry.key.choice4}</li>
-                        <li style="color: #0069d9"><b>${entry.key.choice5}</b></li>
+                        <c:when test="${entry.choose=='5'}">
+                        <li>${entry.choice1}</li>
+                        <li>${entry.choice2}</li>
+                        <li>${entry.choice3}</li>
+                        <li>${entry.choice4}</li>
+                        <li style="color: #0069d9"><b>${entry.choice5}</b></li>
                         </c:when>
                         <c:otherwise>
-                        <li>${entry.key.choice1}</li>
-                        <li>${entry.key.choice2}</li>
-                        <li>${entry.key.choice3}</li>
-                        <li>${entry.key.choice4}</li>
-                        <li>${entry.key.choice5}</li>
+                        <li>${entry.choice1}</li>
+                        <li>${entry.choice2}</li>
+                        <li>${entry.choice3}</li>
+                        <li>${entry.choice4}</li>
+                        <li>${entry.choice5}</li>
                         </c:otherwise>
                     </c:choose> 
 
-                <li style="color: red">CORRECT Answer: ${entry.key.correct}</li>
+                <li style="color: red">CORRECT Answer: ${entry.correct}</li>
 
             </ul>
         </c:forEach>

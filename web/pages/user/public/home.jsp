@@ -151,7 +151,7 @@
                                     </li>
                                     <li><a href="/training">Training</a>
                                     </li>
-                                    <li><a href="discussion.html">Discussion</a>
+                                    <li><a href="discussion">Discussion</a>
                                     </li>
                                     <li><a href="/game">Contact</a>
                                     </li>

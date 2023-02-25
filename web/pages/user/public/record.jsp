@@ -11,44 +11,51 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/record.css" />
+
     </head>
     <body>
 
-        <c:set var="count" value="0"></c:set>
-        <c:forEach var="c" items="${requestScope.listRecord}">
-            <c:set var="count" value="${count+1}"></c:set>
-                <table border="2">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Submit Time</th>
-                            <th>Score</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>${count}</td>
-                        <td>${c.record_date}</td>
-                        <td>${c.record_mark}/30</td>
-                        <td><a href="review?recordId=${c.record_id}">REVIEW</a></td>
-                        
+        <div class="tab-pane" id="2a" >
+            <table class="generaltable quizattemptsummary">
+                <thead>
+                    <tr>
+                        <th class="header c0" style="text-align:center;" scope="col">Attempt
+                        </th>
+                        <th class="header c1" style="text-align:left;" scope="col">State</th>
+                        <th class="header c2" style="text-align:center;" scope="col">Submit Time</th>
+                        <th class="header c3" style="text-align:center;" scope="col">Grade /
+                            30</th>
+                        <th class="header c4 lastcol" style="text-align:center;" scope="col">
+                            Review</th>
                     </tr>
+                </thead>
+                <tbody>
+                    <c:set var="count" value="0"></c:set>
+                    <c:forEach var="c" items="${requestScope.listRecord}">
+                        <c:set var="count" value="${count+1}"></c:set>
+                            <tr class="">
+                                <td class="cell c0" style="text-align:center;">${count}</td>
+                            <td class="cell c1" style="text-align:left;">Finished</td>
+                            <td class="cell c2" style="text-align:center;"><span
+                                    class="statedetails">Submitted ${c.record_date}</span></td>
+                            <td class="cell c3" style="text-align:center;">${c.record_mark}</td>
+                            <td class="cell c4 lastcol" style="text-align:center;"><a
+                                    title="Review your responses to this attempt"
+                                    href="review?recordId=${c.record_id}" style="color: #fd647a">Review</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
-            <br/>
-        </c:forEach>
-        <br/><!-- comment -->
-        <div >
-            <a href="quizz?courseId=${requestScope.courseID}">
-                RE-ATTEMPT QUIZ
-            </a>
-        </div>
-                <br/>
-        <div >
-            <a href="course?id=${requestScope.courseID}">
-                Return to Course
-            </a>
+            <div class="box quizattempt py-3" >
+                <div class="singlebutton quizstartbuttondiv"></div>
+
+                <a href="quizz?courseId=${course.course_id}">
+                    <button type="submit" class="btn btn-secondary"
+                            id="single_button63eb98f97423a18" title="">Continue the practice</button>
+                </a>
+            </div>
         </div>
 
     </body>

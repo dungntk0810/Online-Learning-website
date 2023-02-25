@@ -7,6 +7,7 @@ package controller.user;
 import dal.CommentCourseDAO;
 import dal.DAO;
 import dal.PercentageDAO;
+import dal.QuizDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -23,6 +24,7 @@ import model.Course;
 import model.Enroll;
 import model.Lesson;
 import model.Percentage;
+import model.Record;
 import model.User;
 
 /**
@@ -85,14 +87,22 @@ public class CourseDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String courseId_raw = request.getParameter("id");
-            int courseID = Integer.parseInt(courseId_raw);
-            List<CommentCourse> list = new ArrayList<>();
-            CommentCourseDAO dao = new CommentCourseDAO();
-            list = dao.getCommentCourse(courseID);
-            List<CommentCourse> list2 = new ArrayList<>();
-            list2 = dao.getReplyCommentCourse(courseID);
-            request.setAttribute("commentcourse", list);
-            request.setAttribute("replycommentcourse", list2);
+        int courseID = Integer.parseInt(courseId_raw);
+        List<CommentCourse> list = new ArrayList<>();
+        CommentCourseDAO dao = new CommentCourseDAO();
+        list = dao.getCommentCourse(courseID);
+        List<CommentCourse> list2 = new ArrayList<>();
+        list2 = dao.getReplyCommentCourse(courseID);
+        request.setAttribute("commentcourse", list);
+        request.setAttribute("replycommentcourse", list2);
+        QuizDAO quizdao = new QuizDAO();
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("account");
+        if(u!= null){
+          List<Record> list3 = new ArrayList<>();
+        list3 = quizdao.getRecord(u.getUser_id(), courseID);
+        request.setAttribute("listRecord", list3);  
+        }
         processRequest(request, response);
     }
 

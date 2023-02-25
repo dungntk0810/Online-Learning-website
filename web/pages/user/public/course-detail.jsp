@@ -104,7 +104,7 @@
             }(document, 'script', 'facebook-jssdk'));
 
         </script>
-
+        <link rel="stylesheet" type="text/css" href="css/record.css" />
         <link href="css/chapter.css" rel="stylesheet" type="text/css" />
         <script src="js/account1.js" type="text/javascript"></script>
         <script src="js/account2.js" type="text/javascript"></script>
@@ -136,11 +136,11 @@
                             <label class="hamburger-menu-mask" for="mobile-menu-cb"></label>
                             <nav class="site-menu">
                                 <ul class="menu menu-main-menu">
-                                    <li><a href="learn.html">Learning</a>
+                                    <li><a href="home">Learning</a>
                                     </li>
                                     <li><a href="/training">Training</a>
                                     </li>
-                                    <li><a href="discussion.html">Discussion</a>
+                                    <li><a href="discussion">Discussion</a>
                                     </li>
                                     <li><a href="/game">Contact</a>
                                     </li>
@@ -380,9 +380,10 @@
                                                 </div>
                                             </c:forEach>
                                         </div>
-                                        <div class="tab-pane" id="2a" ></div>
-                                        <div class="tab-pane " id="3a" >
-                                            <div class="total-comments-section"><span id="total-comments">${course.getNumbercomment()}</span> comments</div>
+                                        <jsp:include page="../public/record.jsp"></jsp:include>
+
+                                            <div class="tab-pane " id="3a" >
+                                                <div class="total-comments-section"><span id="total-comments">${course.getNumbercomment()}</span> comments</div>
                                             <c:if test="${sessionScope.account !=null}">
                                                 <form action="commentc" method="post">
                                                     <div class="top-level-comment-input">
@@ -470,7 +471,7 @@
                                                             <div class="view-more-comments-button as-link"><span class="view-more-text">View more</span><span
                                                                     class="glyphicon glyphicon-refresh"></span></div>
                                                         </div>
-                                                                            <div class="edit-box reply-box  " id="${i.commentc_id}" style="display: none">
+                                                        <div class="edit-box reply-box  " id="${i.commentc_id}" style="display: none">
                                                             <div placeholder="Write your comment" class="with-placeholder" id="comment-box" contenteditable="">
                                                             </div>
                                                             <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div>

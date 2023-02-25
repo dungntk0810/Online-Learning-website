@@ -17,6 +17,7 @@ public class Question {
     private String choice4;
     private String choice5;
     private String correct;
+    private String choose ;
 
     public Question() {
     }
@@ -32,8 +33,15 @@ public class Question {
         this.correct = correct;
     }
 
-    
+    public String getChoose() {
+        return choose;
+    }
 
+    public void setChoose(String choose) {
+        this.choose = choose;
+    }
+
+    
     public int getQuestionID() {
         return questionID;
     }

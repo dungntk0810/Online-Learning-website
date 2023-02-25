@@ -104,9 +104,8 @@ public class CommentCourseDAO extends DBContext {
                 + "           ([user_id]\n"
                 + "           ,[course_id]\n"
                 + "           ,[comment_detail]\n"
-                + "           ,[comment_date]\n"
-                + "           ,[comment_image])\n"
-                + "     VALUES(?,?,?,?,?)";
+                + "           ,[comment_date])\n"
+                + "     VALUES(?,?,?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, d.getUser().getUser_id());
@@ -115,7 +114,6 @@ public class CommentCourseDAO extends DBContext {
             long millis = System.currentTimeMillis();
             Date date = new Date(millis);
             st.setDate(4, date);
-            st.setString(5, d.getCommentc_image());
             st.executeUpdate();
         } catch (SQLException e) {
         }
@@ -124,7 +122,7 @@ public class CommentCourseDAO extends DBContext {
     public static void main(String[] args) {
         CommentCourseDAO d = new CommentCourseDAO();
         CommentCourse com = new CommentCourse(new User(1, "kienpt", "123", 1), 1,
-                "reply1");
-        d.addCommentCourse2(com,1);
+                "comment3");
+        d.addCommentCourse(com);
     }
 }

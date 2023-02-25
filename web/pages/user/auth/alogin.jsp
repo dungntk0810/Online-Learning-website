@@ -66,7 +66,7 @@
                                                 <a href="/training" title="Training">Training</a>
                                             </li>
                                             <li>
-                                                <a href="discussion.html" title="Discussion">Discussion</a>
+                                                <a href="discussion" title="Discussion">Discussion</a>
                                             </li>
                                             <li>
                                                 <a href="/leaderboard" title="Contact">Contact</a>
