@@ -552,17 +552,17 @@
                                             <input name="re-pass" type="password" class="form-control"
                                                    placeholder="Confirm your password" required />
                                         </div>
-<!--                                        <div class="form-check">
-                                            <div class="checkbox-area">
-                                                <input name="cbAgree" type="checkbox" value="1" class="form-check-input"
-                                                       id="cbAgree" data-error="#cbAgree-error" />
-                                                <label class="form-check-label" for="cbAgree">
-                                                    I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>
-                                                    of CodeLearn
-                                                </label>
-                                            </div>
-                                            <div id="cbAgree-error"></div>
-                                        </div>-->
+                                        <!--                                        <div class="form-check">
+                                                                                    <div class="checkbox-area">
+                                                                                        <input name="cbAgree" type="checkbox" value="1" class="form-check-input"
+                                                                                               id="cbAgree" data-error="#cbAgree-error" />
+                                                                                        <label class="form-check-label" for="cbAgree">
+                                                                                            I agree to the <a href="/terms" target="_blank">Terms and Conditions</a>
+                                                                                            of CodeLearn
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div id="cbAgree-error"></div>
+                                                                                </div>-->
                                         <button type="submit"
                                                 class="btn btn-default btn-block btn-blue btn-signup">Register</button>
                                         <div class="col-md-12 registered-forgot" style="margin-bottom: 0;">
