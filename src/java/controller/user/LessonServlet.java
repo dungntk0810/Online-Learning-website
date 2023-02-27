@@ -74,6 +74,9 @@ public class LessonServlet extends HttpServlet {
             if (course_id == 3) {
                 request.getRequestDispatcher("sql_JSP/" + c).forward(request, response);
             }
+            if (course_id == 4) {
+                request.getRequestDispatcher("NodeJS_JSP/" + c).forward(request, response);
+            }
         } catch (NumberFormatException e) {
             System.out.println(e);
 
