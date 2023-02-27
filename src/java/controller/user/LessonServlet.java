@@ -133,10 +133,18 @@ public class LessonServlet extends HttpServlet {
             int chapterId = ld.findChapterIdByLessonId(id);
             List<Lesson> listLesson = ld.FindAllLessonByChapterId(chapterId);
             request.setAttribute("listlesson", listLesson);
-            RequestDispatcher dispatcherA = request.getRequestDispatcher("Lesson_Java_JSP/" + c);
-
-            dispatcherA.forward(request, response);
-
+            if (course_id == 1) {
+                request.getRequestDispatcher("Lesson_Java_JSP/" + c).forward(request, response);
+            }
+            if (course_id == 2) {
+                request.getRequestDispatcher("git_JSP/" + c).forward(request, response);
+            }
+            if (course_id == 3) {
+                request.getRequestDispatcher("sql_JSP/" + c).forward(request, response);
+            }
+            if (course_id == 4) {
+                request.getRequestDispatcher("NodeJS_JSP/" + c).forward(request, response);
+            }
         } catch (NumberFormatException e) {
             System.out.println(e);
 
