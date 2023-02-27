@@ -369,7 +369,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="https://www.google.com" target="_blank" class="px-2">
+                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force" target="_blank" class="px-2">
                                             <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
                                                 <i class="cl-icon-google-full" aria-hidden="true"></i>
                                                 <span>Google</span>
@@ -380,11 +380,11 @@
                                     <p class="label-or text-center">OR</p>
                                     <h3 class="label-or text-center" style="color: red">${requestScope.ms}</h3>
                                     <c:set var="cookie" value="${pageContext.request.cookies}"></c:set>
-                                    <div role="tabpanel" class="tab-pane active" id="login">
-                                        <form id="frmLogin" action="alogin" method="post">
-                                            <div class="form-group">
-                                                <input name="user" type="text" class="form-control" placeholder="User name"
-                                                       value="${cookie.cuser.value}" />
+                                        <div role="tabpanel" class="tab-pane active" id="login">
+                                            <form id="frmLogin" action="alogin" method="post">
+                                                <div class="form-group">
+                                                    <input name="user" type="text" class="form-control" placeholder="User name"
+                                                           value="${cookie.cuser.value}" />
                                                 <a href="/resend-email" title="Resend activation email"
                                                    class="resend-email hidden">Resend activation email</a>
                                             </div>
