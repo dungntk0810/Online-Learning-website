@@ -111,7 +111,7 @@ public class QuizzServlet extends HttpServlet {
          Record reco = new Record(userID, courseID, time, (count+""), s);
          QuizDAO dao = new QuizDAO();
          dao.addRecord(reco);
-         response.sendRedirect("record?courseId="+courseID);
+         response.sendRedirect("course?id="+courseID);
 //        request.getRequestDispatcher("record").forward(request, response);
     }
 

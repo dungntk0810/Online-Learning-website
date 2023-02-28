@@ -210,11 +210,12 @@
                                     </li>
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
+                                            <c:set var="user" value="${sessionScope.account}"></c:set>
                                             <img alt="" class="btn--img"
-                                                 src="">
+                                                 src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
-                                            <li><a href="">My information</a></li>
+                                            <li><a href="information">My information</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="">My profile</a></li>
                                             <li role="separator" class="divider"></li>
@@ -248,10 +249,12 @@
                                 <h2>Learning code online. Let's start with your first course!</h2>
                                 <div id="search" class="block-top-head">
                                     <div class="input-group">
-                                        <form id="form-search" action="/learning?">
-                                            <input Name="name" id="search-course" type="text" class="form-control"
+                                        <form id="form-search" action="home" method="post">
+                                            <input Name="search" id="search-course" type="text" class="form-control"
                                                    placeholder="Search...">
-                                            <span class="input-group-addon btn"><i class="cl-icon-search"></i></span>
+                                            <!--<div class="input-group-addon btn"><i class="cl-icon-search"></i></div>-->
+                                            <button type="submit" class="input-group-addon btn"><i class="cl-icon-search"></i></button>
+                                            <!--<span class="input-group-addon btn"><i class="cl-icon-search"></i></span>-->
                                         </form>
                                     </div>
                                 </div>
@@ -270,7 +273,7 @@
                                                            title="">
                                                             <img src="${listC.getCourse_image()}">
                                                         </a>
-                                                        <div class="cl-badge hot"><span>Hot</span></div>
+                                                        <!--<div class="cl-badge hot"><span>Hot</span></div>-->
                                                     </div>
                                                     <div class="view-content">
 
@@ -284,7 +287,7 @@
                                                             </span>
                                                         </div>
                                                         <h3 class="course-title"><a title="Object Oriented-Programming in C++"
-                                                                                    href="chapter.html">${listC.getCourse_name()}</a></h3>
+                                                                                    href="course?id=${listC.getCourse_id()}">${listC.getCourse_name()}</a></h3>
                                                         <a href="/profile/3488" title="TuanLQ7"
                                                            class="course-author"></a>
                                                         <p class="course-description">${listC.course_description}</p>
@@ -308,10 +311,12 @@
                                                                             </div>
                                                                         </c:when>
                                                                         <c:when test="${listC.getCourse_price()!=0}">
-                                                                            <div class="course-footer-left">
-                                                                                <span class="free-text">${listC.getCourse_price()} VNĐ</span>
-                                                                            </div>
-                                                                            <div class="course-footer-right">
+                                                                            <div class="view-content-footer">
+                                                                                <div class="course-footer-left">
+                                                                                    <span class="free-text">${listC.getCourse_price()} VNĐ</span>
+                                                                                </div>
+                                                                                <div class="course-footer-right">
+                                                                                </div>
                                                                             </div>
                                                                         </c:when> 
                                                                     </c:choose>
@@ -319,12 +324,12 @@
                                                                 <c:when test="${count>0}">
                                                                     <div class="view-content-footer">
                                                                         <div class="course-footer-left">
-                                                                            <c:set var="value" value="100"></c:set>
-                                                                            <div class="progress-circle progress-${value}"><span>${value}</span></div>
+
+                                                                            <div class="progress-circle progress-${listC.getPercentage()}"><span>${listC.getPercentage()}</span></div>
                                                                         </div>
                                                                         <div class="course-footer-right">
                                                                             <a class="btn-continue-study"
-                                                                               href="/learning/c-for-beginners">Continue learning<i
+                                                                               href="course?id=${listC.getCourse_id()}">Continue learning<i
                                                                                     class="cl-icon-arrow-right"></i></a>
                                                                         </div>
                                                                     </div>
@@ -343,10 +348,12 @@
                                                                     </div>
                                                                 </c:when>
                                                                 <c:when test="${listC.getCourse_price()!=0}">
-                                                                    <div class="course-footer-left">
-                                                                        <span class="free-text">${listC.getCourse_price()} VNĐ</span>
-                                                                    </div>
-                                                                    <div class="course-footer-right">
+                                                                    <div class="view-content-footer">
+                                                                        <div class="course-footer-left">
+                                                                            <span class="free-text">${listC.getCourse_price()} VNĐ</span>
+                                                                        </div>
+                                                                        <div class="course-footer-right">
+                                                                        </div>
                                                                     </div>
                                                                 </c:when> 
                                                             </c:choose>
@@ -360,7 +367,105 @@
                                 <section class="list-courses">
                                     <h2 class="title-block">Advance programming</h2>
                                     <div class="row">
+                                        <div class="row">
+                                            <c:forEach items="${requestScope.listA}" var="listA">
+                                                <article class="course-item col-12 col-md-4 col-lg-3">
+                                                    <div class="wrap-course-item ">
+                                                        <div class="course-thumb">
+                                                            <a href="course?id=${listA.getCourse_id()}"
+                                                               title="">
+                                                                <img src="${listA.getCourse_image()}">
+                                                            </a>
+                                                            <!--<div class="cl-badge hot"><span>Hot</span></div>-->
+                                                        </div>
+                                                        <div class="view-content">
 
+                                                            <div class="view-content-header">
+                                                                <img class="view-content-header__img-top"
+                                                                     src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
+                                                                     alt="course top img" />
+                                                                <span class="star-rating"><span style="width:90.0%"></span></span>
+                                                                <span class="course-type online">
+                                                                    Online
+                                                                </span>
+                                                            </div>
+                                                            <h3 class="course-title"><a title="Object Oriented-Programming in C++"
+                                                                                        href="course?id=${listA.getCourse_id()}">${listA.getCourse_name()}</a></h3>
+                                                            <a href="/profile/3488" title="TuanLQ7"
+                                                               class="course-author"></a>
+                                                            <p class="course-description">${listA.course_description}</p>
+                                                            <c:if test="${sessionScope.account!=null}">
+                                                                <c:set var="count" value="0"></c:set>
+                                                                <c:forEach var="i" items="${requestScope.lister}">
+                                                                    <c:if test="${i.getCourse_id()==listA.getCourse_id()}">
+                                                                        <c:set var="count" value="${count+1}"></c:set>
+                                                                    </c:if>                                                          
+                                                                </c:forEach>
+                                                                <c:choose>
+                                                                    <c:when test="${count==0}">
+                                                                        <c:choose >
+                                                                            <c:when test="${listA.getCourse_price()==0}">
+                                                                                <div class="view-content-footer">
+                                                                                    <div class="course-footer-left">
+                                                                                        <span class="free-text">Free</span>
+                                                                                    </div>
+                                                                                    <div class="course-footer-right">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </c:when>
+                                                                            <c:when test="${listA.getCourse_price()!=0}">
+                                                                                <div class="view-content-footer">
+                                                                                    <div class="course-footer-left">
+                                                                                        <span class="free-text">${listA.getCourse_price()} VNĐ</span>
+                                                                                    </div>
+                                                                                    <div class="course-footer-right">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </c:when> 
+                                                                        </c:choose>
+                                                                    </c:when>
+                                                                    <c:when test="${count>0}">
+                                                                        <div class="view-content-footer">
+                                                                            <div class="course-footer-left">
+                                                                                <c:set var="value" value="100"></c:set>
+                                                                                <div class="progress-circle progress-${value}"><span>${value}</span></div>
+                                                                            </div>
+                                                                            <div class="course-footer-right">
+                                                                                <a class="btn-continue-study"
+                                                                                   href="course?id=${listA.getCourse_id()}">Continue learning<i
+                                                                                        class="cl-icon-arrow-right"></i></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:when>    
+                                                                </c:choose>
+                                                            </c:if>
+                                                            <c:if test="${sessionScope.account==null}">
+                                                                <c:choose >
+                                                                    <c:when test="${listA.getCourse_price()==0}">
+                                                                        <div class="view-content-footer">
+                                                                            <div class="course-footer-left">
+                                                                                <span class="free-text">Free</span>
+                                                                            </div>
+                                                                            <div class="course-footer-right">
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:when>
+                                                                    <c:when test="${listA.getCourse_price()!=0}">
+                                                                        <div class="view-content-footer">
+                                                                            <div class="course-footer-left">
+                                                                                <span class="free-text">${listA.getCourse_price()} VNĐ</span>
+                                                                            </div>
+                                                                            <div class="course-footer-right">
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:when> 
+                                                                </c:choose>
+                                                            </c:if>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </c:forEach>
+                                        </div>
                                     </div>
                                 </section>
                             </div>

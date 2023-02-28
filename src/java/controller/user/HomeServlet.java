@@ -4,6 +4,7 @@
  */
 package controller.user;
 
+import dal.CourseDAO;
 import dal.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -65,14 +66,23 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         DAO d = new DAO();
         List<Course> listCourse = d.getAllCourse();
+        List<Course> list = d.getAllAdvanceCourse();
 
         HttpSession session = request.getSession();
         if (session.getAttribute("account") != null) {
             User user = (User) session.getAttribute("account");
             List<Enroll> listenroll = d.listAllEnroll(user.getUser_id());
             request.setAttribute("lister", listenroll);
+            for (Course course : listCourse) {
+                course.setUser_id(user.getUser_id());
+            }
+            for (Course course : list) {
+                course.setUser_id(user.getUser_id());
+            }
         }
         request.setAttribute("listC", listCourse);
+        request.setAttribute("listA", list);
+
         request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
     }
 
@@ -87,7 +97,28 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String s = request.getParameter("search");
+        CourseDAO d = new CourseDAO();
+        List<Course> listCourse = d.searchAllCourse(s);
+        List<Course> list = d.searchAllAdvanceCourse(s);
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("account") != null) {
+            User user = (User) session.getAttribute("account");
+            DAO dao =new DAO() ;
+            List<Enroll> listenroll = dao.listAllEnroll(user.getUser_id());
+            request.setAttribute("lister", listenroll);
+            for (Course course : listCourse) {
+                course.setUser_id(user.getUser_id());
+            }
+            for (Course course : list) {
+                course.setUser_id(user.getUser_id());
+            }
+        }
+        request.setAttribute("listC", listCourse);
+        request.setAttribute("listA", list);
+
+        request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
     }
 
     /**

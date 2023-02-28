@@ -5,6 +5,7 @@
 package dal;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.* ;
 /**
@@ -28,9 +29,24 @@ public class EnrollDAO extends DBContext{
             System.out.println(a);
         }
     }
+    
+    public int getNumberUser (int courseID){
+        String sql="Select count(*) from Enroll where course_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, courseID);
+            ResultSet rs = st.executeQuery() ;
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         EnrollDAO dao = new EnrollDAO() ;
-        dao.Enroll(new Enroll(1, 3));
+        System.out.println(dao.getNumberUser(1));
     }
 }

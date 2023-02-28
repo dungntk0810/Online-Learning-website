@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -181,8 +182,9 @@
                                     </li>
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
+                                            <c:set var="user" value="${sessionScope.account}"></c:set>
                                             <img alt="" class="btn--img"
-                                                 src="">
+                                                 src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="profile">My information</a></li>

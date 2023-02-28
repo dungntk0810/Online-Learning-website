@@ -69,13 +69,39 @@ public class DAO extends DBContext {
     public List<Course> getAllCourse() {
 
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT [Course_id]\n"
-                + "      ,[Course_name]\n"
+        String sql = "SELECT TOP (1000) [Course_id]\n"
+                + "      ,[course_name]\n"
                 + "      ,[course_description]\n"
                 + "      ,[course_price]\n"
                 + "      ,[course_number_lesson]\n"
                 + "      ,[course_image]\n"
-                + "  FROM [dbo].[Course]";
+                + "  FROM [SWP-Project].[dbo].[Course]\n"
+                + "  where course_price =0";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Course c = new Course(rs.getInt("Course_id"), rs.getString("Course_name"), rs.getString("course_description"), rs.getInt("course_price"), rs.getInt("course_number_lesson"), rs.getString("course_image"));
+                list.add(c);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+    
+    public List<Course> getAllAdvanceCourse() {
+
+        List<Course> list = new ArrayList<>();
+        String sql = "SELECT TOP (1000) [Course_id]\n"
+                + "      ,[course_name]\n"
+                + "      ,[course_description]\n"
+                + "      ,[course_price]\n"
+                + "      ,[course_number_lesson]\n"
+                + "      ,[course_image]\n"
+                + "  FROM [SWP-Project].[dbo].[Course]\n"
+                + "  where course_price >0";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
 
@@ -155,13 +181,15 @@ public class DAO extends DBContext {
         }
         return null;
     }
+
     public static void main(String[] args) {
         DAO d = new DAO();
         List<Lesson> l = d.listLesson1(2);
-        for(int i =0 ; i < l.size();i++){
+        for (int i = 0; i < l.size(); i++) {
             System.out.println(l.get(i).getLesson_number());
         }
     }
+
     public List<Lesson> listLesson1(int course_id) {
 
         List<Lesson> list = new ArrayList<>();
@@ -188,7 +216,6 @@ public class DAO extends DBContext {
         }
         return list;
     }
-
 
     public int countCommentCourse(int id) {
         int num = 0;

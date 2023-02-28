@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.auths;
+package controller.user;
 
-import dal.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,15 +11,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.User;
 
 /**
  *
- * @author User
+ * @author Admin
  */
-@WebServlet(name = "ChangePassServlet", urlPatterns = {"/change"})
-public class ChangePassServlet extends HttpServlet {
+@WebServlet(name = "InformationServlet", urlPatterns = {"/information"})
+public class InformationServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +36,10 @@ public class ChangePassServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChangePassServlet</title>");
+            out.println("<title>Servlet InformationServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ChangePassServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InformationServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,33 +57,7 @@ public class ChangePassServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String op = request.getParameter("oldpass");
-        String pass = request.getParameter("newpass");
-        String rpass = request.getParameter("rpass");
-        String name=request.getParameter("name");
-        DAO d = new DAO();
-
-        try {
-          
-            User a = d.check(name, op);
-
-            if (a == null || rpass.equals(pass) == false) {
-                //khong ton tai
-                String ms = "Old password is incorrect ";
-                request.setAttribute("ms", ms);
-                request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
-            } else {
-                //nhap dung pass cu
-                User uNew = new User(a.getUser_id(), name, pass,a.getUser_mail(), a.getUser_role(), a.getUser_gender(), a.getUser_address(), a.getUser_phone(), a.getUser_avatar());
-                d.change(uNew);
-                HttpSession session = request.getSession();
-                session.setAttribute("account", uNew);
-                response.sendRedirect("home");
-            }
-        } catch (NumberFormatException e) {
-
-        }
+        request.getRequestDispatcher("/pages/user/public/information.jsp").forward(request, response);
     }
 
     /**

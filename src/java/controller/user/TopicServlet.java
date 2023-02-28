@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.auths;
+package controller.user;
 
-import dal.DAO;
+import dal.DiscussionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,14 +13,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
+import model.Discussion;
 import model.User;
 
 /**
  *
- * @author User
+ * @author Admin
  */
-@WebServlet(name = "ChangePassServlet", urlPatterns = {"/change"})
-public class ChangePassServlet extends HttpServlet {
+@WebServlet(name = "TopicServlet", urlPatterns = {"/topic"})
+public class TopicServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +42,10 @@ public class ChangePassServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChangePassServlet</title>");
+            out.println("<title>Servlet TopicServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ChangePassServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet TopicServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,33 +63,17 @@ public class ChangePassServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String op = request.getParameter("oldpass");
-        String pass = request.getParameter("newpass");
-        String rpass = request.getParameter("rpass");
-        String name=request.getParameter("name");
-        DAO d = new DAO();
-
-        try {
-          
-            User a = d.check(name, op);
-
-            if (a == null || rpass.equals(pass) == false) {
-                //khong ton tai
-                String ms = "Old password is incorrect ";
-                request.setAttribute("ms", ms);
-                request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
-            } else {
-                //nhap dung pass cu
-                User uNew = new User(a.getUser_id(), name, pass,a.getUser_mail(), a.getUser_role(), a.getUser_gender(), a.getUser_address(), a.getUser_phone(), a.getUser_avatar());
-                d.change(uNew);
-                HttpSession session = request.getSession();
-                session.setAttribute("account", uNew);
-                response.sendRedirect("home");
-            }
-        } catch (NumberFormatException e) {
-
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        DiscussionDAO dao = new DiscussionDAO();
+        Discussion d = dao.getDiscussionbyID(id);
+        request.setAttribute("discusion", d);
+        List<Discussion> list2 = new ArrayList<>();
+        list2 = dao.getReplyDiscussion();
+        request.setAttribute("replydiscussion", list2);
+//        PrintWriter out =response.getWriter();
+//        out.print(d.getDiscussion_id());
+//        out.println(d.getUser().getUser_name());
+        request.getRequestDispatcher("pages/user/comment/topic.jsp").forward(request, response);
     }
 
     /**
@@ -100,7 +87,19 @@ public class ChangePassServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+//        String content = request.getParameter("discussion");
+//        PrintWriter out= response.getWriter();
+//        out.print(id +"   "+content);
+        String reply = request.getParameter("discusion");
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("account");
+        Discussion d = new Discussion(u, reply);
+//        int replyof = Integer.parseInt(request.getParameter("Replyof"));
+        DiscussionDAO dao = new DiscussionDAO();
+        dao.replyDiscussion(id, d);
+        String s= "topic?id=" + id ;
+        response.sendRedirect(s);
     }
 
     /**

@@ -29,7 +29,7 @@ public class DiscussionDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Discussion(new User(rs.getInt(8), rs.getString(9),
-                        rs.getString(11), rs.getInt(12)),
+                        rs.getString(11), rs.getInt(12),rs.getString(16)),
                         rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
             }
@@ -49,7 +49,7 @@ public class DiscussionDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Discussion(new User(rs.getInt(8), rs.getString(9),
-                        rs.getString(11), rs.getInt(12)),
+                        rs.getString(11), rs.getInt(12),rs.getString(16)),
                         rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
             }
@@ -118,11 +118,31 @@ public class DiscussionDAO extends DBContext {
         }
     }
 
+    public Discussion getDiscussionbyID(int id) {
+        String sql = "Select * from [Discussion] as DI\n"
+                + "                    Join [User] as US on DI.[user_id] =US.User_Id\n"
+                + "                    where DI.discussion_Id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Discussion d = new Discussion(new User(rs.getInt(8), rs.getString(9),
+                        rs.getString(11), rs.getInt(12),rs.getString(16)),
+                        rs.getInt(1), rs.getInt(2), rs.getString(3),
+                        rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
+                return d ;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         DiscussionDAO d = new DiscussionDAO();
-        Discussion di = new Discussion(new User(1, "kienpt", "123", 1),
-                "Hello world");
-        d.replyDiscussion(1,di);
+        d.replyDiscussion(2, new Discussion(new User(1, "kienpt", "123", 1), "reoly"));
+//        System.out.println(d.getDiscussionbyID(1).getUser().getUser_name());
+        
     }
 }

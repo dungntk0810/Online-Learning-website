@@ -46,17 +46,16 @@ public class PercentageDAO extends DBContext {
             st.setInt(2, userId);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-               number = rs.getInt(1);
+                number = rs.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
         return number;
     }
-    public static void main(String[] args) {
-        PercentageDAO pd = new PercentageDAO();
-        System.out.println(pd.checkPercentageByUserID(2, 1));
-    }
+
+
+
     public void addPercentage(int userId, int lessonId, int percentage) {
         String sql = "INSERT INTO [dbo].[Percentage]\n"
                 + "           ([User_Id]\n"
@@ -73,5 +72,29 @@ public class PercentageDAO extends DBContext {
         } catch (SQLException e) {
         }
     }
+
+    public int getPercentageOfCourse(int courseId, int userId) {
+        String sql = "select COUNT(*)  from Percentage as pe join Lesson as le \n"
+                + "on pe.lesson_id=le.lesson_id\n"
+                + "join Course as co \n"
+                + "on le.course_id=co.Course_id\n"
+                + "where co.Course_id=? and pe.User_Id=?";
+        try {
+            PreparedStatement st= connection.prepareStatement(sql);
+            st.setInt(1, courseId);
+            st.setInt(2, userId);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return 0 ;
+    }
     
+        public static void main(String[] args) {
+        PercentageDAO pd = new PercentageDAO();
+        System.out.println(pd.getPercentageOfCourse(1, 1));
+    }
+
 }

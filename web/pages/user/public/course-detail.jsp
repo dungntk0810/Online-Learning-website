@@ -123,7 +123,7 @@
                 <article class="widget-navigation widget-menu-widget widget">
                     <header class="navbar site-header">
                         <div class="wrap-site-logo">
-                            <a title="Home" href="home.html">
+                            <a title="Home" href="home">
                                 <img alt="Home" class="site-logo" src="themes/logo2.png">
                                 <img alt="Home" class="site-logo-mobile" src="">
                             </a>
@@ -198,11 +198,12 @@
                                     </li>
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
+                                           <c:set var="user" value="${sessionScope.account}"></c:set>
                                             <img alt="" class="btn--img"
-                                                 src="">
+                                                 src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
-                                            <li><a href="">My information</a></li>
+                                            <li><a href="information">My information</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="">My profile</a></li>
                                             <li role="separator" class="divider"></li>
@@ -253,7 +254,8 @@
 
                                                 <div class="enroll-students">
                                                     <i style="font-size: 13px" class="cl-icon-users-alt"></i>
-                                                    47746 students
+                                                    
+                                                    ${requestScope.numberUser} students
                                                 </div>
 
                                                 <div id="container-rate" class="rate ">
@@ -301,13 +303,44 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="actions-wrap">
-                                            <span class="text-price free">Free</span>
-                                            <div class="register" id="button-register">
-                                                <a id="course-register" href="javascript:void(0)"
-                                                   class="buy-now course-register">Register Now</a>
+                                        <c:if test="${sessionScope.account!=null}">
+                                            <c:set var="count" value="0"></c:set>
+                                            <c:forEach var="i" items="${requestScope.lister}">
+                                                <c:if test="${i.getCourse_id()==course.getCourse_id()}">
+                                                    <c:set var="count" value="${count+1}"></c:set>
+                                                </c:if>                                                          
+                                            </c:forEach>
+                                            <c:choose>
+                                                <c:when test="${count==0}">
+                                                    <div class="actions-wrap">
+                                                        <span class="text-price free">Free</span>
+                                                        <div class="register" id="button-register">
+                                                            <a id="course-register" href="enroll?course=${course.course_id}"
+                                                               class="buy-now course-register">Register Now</a>
+                                                               
+                                                        </div>
+                                                    </div>
+                                                </c:when>
+                                                <c:when test="${count>0}">
+                                                    <div class="actions-wrap">
+                                                        <div class="process-wrap">
+                                                            <div class="progress-circle progress-${course.getPercentage()}"><span>${course.getPercentage()}</span></div>
+                                                        </div>
+                                                    </div> 
+                                                </c:when>    
+                                            </c:choose>
+
+                                        </c:if>
+                                        <c:if test="${sessionScope.account==null}">
+                                            <div class="actions-wrap">
+                                                <span class="text-price free">Free</span>
+                                                <div class="register" id="button-register">
+                                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal"
+                                                       onclick="openModal('login')" id="not-auth">Please login to continue</a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </c:if>
+
                                     </div>
                                 </div>
                             </div>
@@ -388,8 +421,9 @@
                                                 <form action="commentc" method="post">
                                                     <div class="top-level-comment-input">
                                                         <div class="user-avatar">
+                                                            <c:set var="user" value="${sessionScope.account}"></c:set>
                                                             <div class="avatars"> <img
-                                                                    src="themes/en.png"> </div>
+                                                                    src="upload/${user.user_avatar}"> </div>
                                                         </div>
                                                         <div class="edit-box comment-box">
                                                             <input type="text" class="with-placeholder" name="commentcourse"

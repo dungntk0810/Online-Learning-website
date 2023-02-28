@@ -4,6 +4,7 @@
  */
 package model;
 import dal.DAO ;
+import dal.PercentageDAO;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Course {
     private float course_price;
     private int course_number_lesson;
     private String course_image;
+    private int user_id ;
+    private int percentage ;
 
     public Course() {
     }
@@ -80,6 +83,25 @@ public class Course {
     public int getNumbercomment(){
         DAO d= new DAO();
         return d.countCommentCourse(course_id);
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public int getPercentage() {
+        PercentageDAO dao = new PercentageDAO();
+        int num = dao.getPercentageOfCourse(course_id, user_id);
+        int result = num*100/course_number_lesson;
+        return result;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
     }
     
 

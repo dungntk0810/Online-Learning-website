@@ -13,8 +13,8 @@
         <meta name="description"
               content="An online community for developers to share programming knowledge, give question and get answer from professional and enthusiasist programmers." />
         <meta name="author" content="CodeLearn" />
-<!--        <link rel="shortcut icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
-        <link rel="apple-touch-icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />-->
+        <!--        <link rel="shortcut icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />
+                <link rel="apple-touch-icon" href="/Themes/TheCodeCampPro/Resources/Images/content/codelearn-icon.png" />-->
         <link rel="canonical" href="/discussion" />
         <link rel="alternate" hreflang="vi" href="https://codelearn.io/discussion" />
         <link rel="alternate" hreflang="en-US" href="https://codelearn.io/discussion" />
@@ -180,8 +180,9 @@
                                     </li>
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
-                                            <img alt="" class="btn--img"
-                                                 src="">
+                                            <c:set var="user" value="${sessionScope.account}"></c:set>
+                                                <img alt="" class="btn--img"
+                                                     src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="">My information</a></li>
@@ -243,16 +244,16 @@
                                             <div class="forum-thread">
                                                 <div class="forum-thread-item">
                                                     <div class="user-info-container">
-                                                        <div class="user-col"><a href="/profile/21378411">
+                                                        <div class="user-col"><a href="topic?id=${i.discussion_id}">
                                                                 <div class="avatars"><img
                                                                         class="user-avatar"
-                                                                        src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg">
+                                                                        src="upload/${i.user.user_avatar}">
                                                                 </div>
                                                             </a>
 
                                                         </div>
 
-                                                        <div><a href="/discussion/topic/21378433"
+                                                        <div><a href="topic?id=${i.discussion_id}"
                                                                 class="forum-thread-title">Discussion about content</a>
                                                             <div>
                                                                 <div><span class="forum-thread-content">${i.discussion_detail} </span></div>
@@ -263,16 +264,23 @@
 
                                                             <div class="thread-summary">
                                                                 <div>By <span class="created-by"><a
-                                                                            href="/profile/21378411">${i.user.getUser_name()}</a></span><a
+                                                                            href="/profile?id=${i.user.user_id}">${i.user.getUser_name()}</a></span><a
                                                                         href="/profile/21378411"><span
                                                                             class="category hide">null</span></a>Last update:
                                                                     <span class="last-update">${i.timediff}</span></div>
                                                             </div>
                                                         </div>
                                                         <div class="right-side-info"> <span class="shares-count hide">0</span>
+                                                            <c:set var="count" value="0"></c:set>
+                                                            <c:forEach items="${requestScope.replydiscussion}" var="j">
+                                                                <c:if test="${j.discussion_reply== i.discussion_id}">
+                                                                    <c:set var="count" value="${count+1}"></c:set>
+                                                                </c:if>
+                                                            </c:forEach>
                                                             <span
-                                                                class="cl-icon-comment-dots forum-posts-count-icon"></span><span
-                                                                class="posts-count">0</span> </div>
+                                                                class="cl-icon-comment-dots forum-posts-count-icon"></span>
+                                                            <span class="posts-count">${count}</span> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

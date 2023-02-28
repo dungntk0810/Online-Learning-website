@@ -6,6 +6,7 @@ package controller.user;
 
 import dal.CommentCourseDAO;
 import dal.DAO;
+import dal.EnrollDAO;
 import dal.PercentageDAO;
 import dal.QuizDAO;
 import java.io.IOException;
@@ -53,18 +54,22 @@ public class CourseDetail extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             Course c = d.getCourseById(id);
-            request.setAttribute("course", c);
+
             List<Lesson> listlesson = d.listLesson1(id);
-            
-        HttpSession session = request.getSession();
-        if (session.getAttribute("account") != null) {
-            User user = (User) session.getAttribute("account");
-            List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
-            request.setAttribute("listPercentage", listPercentage);
-        }
+
+            HttpSession session = request.getSession();
+            if (session.getAttribute("account") != null) {
+                User user = (User) session.getAttribute("account");
+                c.setUser_id(user.getUser_id());
+                List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
+                request.setAttribute("listPercentage", listPercentage);
+                List<Enroll> listenroll = d.listAllEnroll(user.getUser_id());
+                request.setAttribute("lister", listenroll);
+            }
             List<Chapter> listChap = d.getChapterByCourseID(id);
             request.setAttribute("listChap", listChap);
             request.setAttribute("listlesson", listlesson);
+            request.setAttribute("course", c);
 
             request.getRequestDispatcher("/pages/user/public/course-detail.jsp").forward(request, response);
         } catch (NumberFormatException e) {
@@ -86,6 +91,7 @@ public class CourseDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String courseId_raw = request.getParameter("id");
         int courseID = Integer.parseInt(courseId_raw);
         List<CommentCourse> list = new ArrayList<>();
@@ -98,11 +104,14 @@ public class CourseDetail extends HttpServlet {
         QuizDAO quizdao = new QuizDAO();
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("account");
-        if(u!= null){
-          List<Record> list3 = new ArrayList<>();
-        list3 = quizdao.getRecord(u.getUser_id(), courseID);
-        request.setAttribute("listRecord", list3);  
+        if (u != null) {
+            List<Record> list3 = new ArrayList<>();
+            list3 = quizdao.getRecord(u.getUser_id(), courseID);
+            request.setAttribute("listRecord", list3);
         }
+        EnrollDAO en = new EnrollDAO();
+        int num = en.getNumberUser(courseID);
+        request.setAttribute("numberUser", num);
         processRequest(request, response);
     }
 
