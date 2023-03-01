@@ -91,6 +91,30 @@ public class DAO extends DBContext {
         return list;
     }
     
+     public List<Course> getAllCourse1() {
+
+        List<Course> list = new ArrayList<>();
+        String sql = "SELECT TOP (1000) [Course_id]\n"
+                + "      ,[course_name]\n"
+                + "      ,[course_description]\n"
+                + "      ,[course_price]\n"
+                + "      ,[course_number_lesson]\n"
+                + "      ,[course_image]\n"
+                + "  FROM [SWP-Project].[dbo].[Course]\n";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Course c = new Course(rs.getInt("Course_id"), rs.getString("Course_name"), rs.getString("course_description"), rs.getInt("course_price"), rs.getInt("course_number_lesson"), rs.getString("course_image"));
+                list.add(c);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     public List<Course> getAllAdvanceCourse() {
 
         List<Course> list = new ArrayList<>();
@@ -182,13 +206,6 @@ public class DAO extends DBContext {
         return null;
     }
 
-    public static void main(String[] args) {
-        DAO d = new DAO();
-        List<Lesson> l = d.listLesson1(2);
-        for (int i = 0; i < l.size(); i++) {
-            System.out.println(l.get(i).getLesson_number());
-        }
-    }
 
     public List<Lesson> listLesson1(int course_id) {
 
@@ -261,6 +278,147 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
         return list;
+    }
+
+    public Chapter getChapterByChapterId(int chapterId) {
+
+        String sql = "SELECT [Chapter_id]\n"
+                + "      ,[course_id]\n"
+                + "      ,[chapter_name]\n"
+                + "  FROM [dbo].[Chapter]\n"
+                + "  where Chapter_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, chapterId);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Chapter c = new Chapter(chapterId, rs.getInt("course_id"), rs.getString("chapter_name"));
+                return c;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public void updateChapter(Chapter c) {
+        String sql = "UPDATE [dbo].[Chapter]\n"
+                + "   SET   [course_id] = ?\n"
+                + "      ,[chapter_name] = ?\n"
+                + " WHERE Chapter_id=?";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setInt(1, c.getCourse_id());
+            st.setString(2, c.getChapter_name());
+            st.setInt(3, c.getChapter_id());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+
+    public void insertChapter(Chapter c) {
+        String sql = "INSERT INTO [dbo].[Chapter]\n"
+                + "           ([Chapter_id]\n"
+                + "           ,[course_id]\n"
+                + "           ,[chapter_name])\n"
+                + "     VALUES\n"
+                + "           (?,?,?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, c.getChapter_id());
+            st.setInt(2, c.getCourse_id());
+            st.setString(3, c.getChapter_name());
+
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+
+    public void insertLesson(Lesson l) {
+        String sql = "INSERT INTO [dbo].[Lesson]\n"
+                + "           ([lesson_id]           \n"
+                + "           ,[lesson_level]\n"
+                + "           ,[chapter_id]           \n"
+                + "           ,[lesson_content]\n"
+                + "           ,[lesson_number]\n"
+                 + "           ,[course_id]\n"
+                + "           )\n"
+                + "     VALUES\n"
+                + "           (?,?,?,?,?,?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, l.getLesson_id());
+            st.setString(2, l.getLesson_level());
+            st.setInt(3, l.getChapter_id());
+            st.setString(4, l.getLesson_content());
+            st.setInt(5, l.getLesson_number());
+            st.setInt(6, l.getCourse_id());
+ 
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+
+    public void deleteChapterByID(int id) {
+        String sql = "DELETE FROM [dbo].[Chapter]\n"
+                + "      WHERE Chapter_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void deleteLessonByID(int id) {
+        String sql = "DELETE FROM [dbo].[Lesson]\n"
+                + "      WHERE lesson_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+public void updateLesson(Lesson l) {
+        String sql = "UPDATE [dbo].[Lesson]\n"
+                + "   SET \n"
+                + "      [lesson_level] = ?\n"
+                + "      ,[chapter_id] = ?\n"
+                + "      ,[lesson_content] = ?\n"
+                + "      ,[lesson_number] =?\n"
+                + " WHERE lesson_id =?";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setString(1, l.getLesson_level());
+            st.setInt(2, l.getChapter_id());
+            st.setString(3, l.getLesson_content());
+            st.setInt(4, l.getLesson_number());
+            st.setInt(5, l.getLesson_id());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        DAO d=new DAO();
+        
+        List<Course> c=d.getAllCourse();
+        System.out.println(c.size());
     }
 
 }

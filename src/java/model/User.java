@@ -20,8 +20,22 @@ public class User {
     private String user_address ;
     private String user_phone ;
     private String user_avatar ;
+    private int status;
 
     public User() {
+    }
+
+    public User(int user_id, String user_name, String user_password, String user_mail, int user_role, int user_gender, String user_address, String user_phone, String user_avatar, int status) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_password = user_password;
+        this.user_mail = user_mail;
+        this.user_role = user_role;
+        this.user_gender = user_gender;
+        this.user_address = user_address;
+        this.user_phone = user_phone;
+        this.user_avatar = user_avatar;
+        this.status = status;
     }
 
     public User(int user_id, String user_name, String user_password, String user_mail, int user_role, int user_gender, String user_address, String user_phone, String user_avatar) {
@@ -58,6 +72,14 @@ public class User {
         this.user_password = user_password;
         this.user_role = user_role;
         this.user_avatar = user_avatar;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
     
     

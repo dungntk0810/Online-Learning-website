@@ -8,6 +8,8 @@ import model.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,6 +32,28 @@ public class UserDAO extends DBContext {
         }
         return true;
     }
+    public User checkUserById(int id) {
+        String sql = "SELECT  * \n"
+                + "  FROM [SWP-Project].[dbo].[User]\n"
+                + "  where User_Id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                User u = new User(rs.getInt("User_Id"), rs.getString("user_name"),
+                        rs.getString("user_mail"),
+                        rs.getString("user_password"),
+                        rs.getInt("user_role"),
+                        rs.getInt("user_gender"), rs.getString("user_address"),
+                        rs.getString("user_phone"), rs.getString("user_avatar"),rs.getInt("user_status"));
+                return u;
+            }
+        } catch (SQLException e) {
+        }
+        return null;
+    }
+
 
     public void addUser(String user, String pass) {
         String sql = "INSERT INTO [dbo].[User]\n"
@@ -102,5 +126,34 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
+ 
+ public List<User> getAllUser() {
+
+        List<User> list = new ArrayList<>();
+        String sql = "SELECT [User_Id]\n"
+                + "      ,[user_name]\n"
+                + "      ,[user_mail]\n"
+                + "      ,[user_password]\n"
+                + "      ,[user_role]\n"
+                + "      ,[user_gender]\n"
+                + "      ,[user_address]\n"
+                + "      ,[user_phone]\n"
+                + "      ,[user_avatar]\n"
+                + "      ,[user_status]\n"
+                + "  FROM [dbo].[User]";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                User u = new User(rs.getInt("User_Id"), rs.getString("user_name"), rs.getString("user_mail"), rs.getString("user_password"), rs.getInt("user_role"), rs.getInt("user_gender"), rs.getString("user_address"), rs.getString("user_phone"), rs.getString("user_avatar"), rs.getInt("us_status"));
+                list.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
 
 }

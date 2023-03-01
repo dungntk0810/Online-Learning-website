@@ -86,4 +86,33 @@ public class LessonDAO extends DBContext {
         }
         return chapterId;
     }
+    public Lesson getLessonByLessonId(int lessonId) {
+
+        String sql = "SELECT [lesson_id]\n"
+                + "      ,[lesson_video]\n"
+                + "      ,[lesson_level]\n"
+                + "      ,[chapter_id]\n"
+                + "      ,[image_id]\n"
+                + "      ,[lesson_content]\n"
+                + "      ,[lesson_number]\n"
+                + "  FROM [dbo].[Lesson]\n"
+                + "  where lesson_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, lessonId);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Lesson l = new Lesson(lessonId, rs.getString("lesson_video"),
+                        rs.getString("lesson_level"), rs.getInt("chapter_id"), rs.getInt("image_id"), rs.getString("lesson_content"),
+                        rs.getInt("lesson_number"));
+                return l;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
 }

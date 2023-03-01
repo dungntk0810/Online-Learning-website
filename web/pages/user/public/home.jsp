@@ -147,6 +147,7 @@
                             <label class="hamburger-menu-mask" for="mobile-menu-cb"></label>
                             <nav class="site-menu">
                                 <ul class="menu menu-main-menu">
+                                   
                                     <li><a href="home">Learning</a>
                                     </li>
                                     <li><a href="/training">Training</a>
@@ -155,6 +156,10 @@
                                     </li>
                                     <li><a href="/game">Contact</a>
                                     </li>
+                                    <c:if test="${sessionScope.account.getUser_role()==0}">
+                                        <li><a href="manage">Manage</a>
+                                    </li>
+                                    </c:if>
                                 </ul>
                                 <div class="dropdown dropdown-language">
                                     <a href="#" class="dropdown-toggle btn-dark btn--language " data-toggle="dropdown"

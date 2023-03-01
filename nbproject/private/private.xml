@@ -11,6 +11,16 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/SWP/P3/online-learning/src/java/controller/Admin/CourseManage.java</file>
+            <file>file:/D:/SWP/P3/online-learning/web/LessonManage.jsp</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/controller/Admin/LessonManager.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/controller/Admin/ChapterManager.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/controller/Admin/AddNewLesson.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/dal/DAO.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/controller/Admin/Manage.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/model/Lesson.java</file>
+            <file>file:/D:/SWP/P3/online-learning/src/java/dal/DBContext.java</file>
+        </group>
     </open-files>
 </project-private>
