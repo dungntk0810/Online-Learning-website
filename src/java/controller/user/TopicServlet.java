@@ -91,7 +91,7 @@ public class TopicServlet extends HttpServlet {
 //        String content = request.getParameter("discussion");
 //        PrintWriter out= response.getWriter();
 //        out.print(id +"   "+content);
-        String reply = request.getParameter("discusion");
+        String reply = request.getParameter("discussion");
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("account");
         Discussion d = new Discussion(u, reply);

@@ -422,11 +422,11 @@
                         <div class="row">
                             <div class="col-xs-12 col-md-6 introduction footer-column">
                                 <div class="logo-codelearn">
-                                    <img src="/Themes/TheCodeCampPro/Resources/Images/new-header/codelearn-logo.svg"
+                                    <img src="themes/logo2.png"
                                          alt="CodeLearn" />
                                 </div>
                                 <p>
-                                    CodeLearn is an online platform that helps users to learn, practice coding skills and
+                                    BoxBox is an online platform that helps users to learn, practice coding skills and
                                     join the online coding contests.
                                 </p>
                                 <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"

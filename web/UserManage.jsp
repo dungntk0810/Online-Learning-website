@@ -329,7 +329,7 @@
                     window.location = "delete?id=" + id;
                 }
             }
-          
+
 //            function doDeleteS(id) {
 //                if (confirm("Are you sure to delete product with id=" + id)) {
 //                    window.location = "deletes?id=" + id;
@@ -473,16 +473,18 @@
                                             <td>${u.getUser_id()}</td>
                                             <td>
                                                 <c:if test="${u.getUser_gender()==0}">
-                                                    <img src="images/imageNam.png" width="80px" height="70px" alt="alt"/>
+                                                    <img src="upload/${u.user_avatar}" width="80px" height="70px" alt="alt"/>
                                                 </c:if>
                                                 <c:if test="${u.getUser_gender()==1}">
-                                                    <img src="images/imageNu.png" width="80px" height="70px" alt="alt"/>
+                                                    <img src="upload/${u.user_avatar}" width="80px" height="70px" alt="alt"/>
                                                 </c:if>
 
                                             </td> 
+                                            <c:set value="${u.getUser_id()}" var="id" />
                                             <td>
                                                 ${u.getUser_name()}
                                             </td> 
+                                            <c:set value="${u.getUser_name()}" var="name" />
                                             <td>${u.getUser_mail() }</td>                                   
                                             <td>${u.getUser_phone()}</td>
                                             <td>
@@ -514,10 +516,10 @@
                         </div>
                     </div>        
                 </div>
-               
-                   
-                
-                      
+
+
+
+
                 <div id="editStatusUser" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">                   
@@ -529,11 +531,11 @@
                                 <div class="modal-body">					
                                     <div >
                                         User_ID
-                                        <input type="text" class="form-control" name="id" >
+                                        <input type="text" class="form-control" readonly name="id" value="${id}" >
                                     </div>
                                     <div >
                                         Name
-                                        <input type="text" class="form-control" name="name" >
+                                        <input type="text" class="form-control"  readonly name="name"  value="${name}">
                                     </div>
                                     <div >
                                         Status User
@@ -553,8 +555,8 @@
                         </div>
                     </div>
                 </div>
-                
- 
+
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

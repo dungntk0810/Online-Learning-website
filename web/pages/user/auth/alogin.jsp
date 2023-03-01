@@ -46,9 +46,9 @@
                         <article class="widget-navigation widget-menu-widget widget">
                             <header class="navbar site-header container">
                                 <div class="wrap-site-logo">
-                                    <a title="CodeLearn" href="home.html">
-                                        <img alt="CodeLearn" class="site-logo"
-                                             src="themes/codelearn-logo.png">
+                                    <a title="CodeLearn" href="home">
+                                        <img alt="" class="site-logo"
+                                             src="themes/logo2.png">
                                     </a>
                                 </div>
                                 <div class="wrap-right-header">
@@ -277,11 +277,11 @@
                             <div class="row">
                                 <div class="col-md-6 introduction footer-column">
                                     <div class="logo-codelearn">
-                                        <img src="/Themes/TheCodeCampPro/Resources/Images/new-header/codelearn-logo.svg"
+                                        <img src="themes/logo2.png"
                                              alt="CodeLearn" />
                                     </div>
                                     <p>
-                                        CodeLearn is an online platform that helps users to learn, practice coding skills and
+                                        BoxBox is an online platform that helps users to learn, practice coding skills and
                                         join the online coding contests.
                                     </p>
                                     <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"

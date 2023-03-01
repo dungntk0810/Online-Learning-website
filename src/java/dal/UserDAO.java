@@ -146,7 +146,7 @@ public class UserDAO extends DBContext {
 
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                User u = new User(rs.getInt("User_Id"), rs.getString("user_name"), rs.getString("user_mail"), rs.getString("user_password"), rs.getInt("user_role"), rs.getInt("user_gender"), rs.getString("user_address"), rs.getString("user_phone"), rs.getString("user_avatar"), rs.getInt("us_status"));
+                User u = new User(rs.getInt("User_Id"), rs.getString("user_name"), rs.getString("user_mail"), rs.getString("user_password"), rs.getInt("user_role"), rs.getInt("user_gender"), rs.getString("user_address"), rs.getString("user_phone"), rs.getString("user_avatar"), rs.getInt("user_status"));
                 list.add(u);
             }
         } catch (SQLException e) {

@@ -147,7 +147,7 @@
                             <label class="hamburger-menu-mask" for="mobile-menu-cb"></label>
                             <nav class="site-menu">
                                 <ul class="menu menu-main-menu">
-                                   
+
                                     <li><a href="home">Learning</a>
                                     </li>
                                     <li><a href="/training">Training</a>
@@ -158,7 +158,7 @@
                                     </li>
                                     <c:if test="${sessionScope.account.getUser_role()==0}">
                                         <li><a href="manage">Manage</a>
-                                    </li>
+                                        </li>
                                     </c:if>
                                 </ul>
                                 <div class="dropdown dropdown-language">
@@ -216,8 +216,8 @@
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
                                             <c:set var="user" value="${sessionScope.account}"></c:set>
-                                            <img alt="" class="btn--img"
-                                                 src="upload/${user.user_avatar}">
+                                                <img alt="" class="btn--img"
+                                                     src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="information">My information</a></li>
@@ -514,11 +514,11 @@
                         <div class="row">
                             <div class="col-xs-12 col-md-6 introduction footer-column">
                                 <div class="logo-codelearn">
-                                    <img src="/Themes/TheCodeCampPro/Resources/Images/new-header/codelearn-logo.svg"
-                                         alt="CodeLearn" />
+                                    <img src="themes/logo2.png"
+                                         alt="" />
                                 </div>
                                 <p>
-                                    CodeLearn is an online platform that helps users to learn, practice coding skills and
+                                    BoxBox is an online platform that helps users to learn, practice coding skills and
                                     join the online coding contests.
                                 </p>
                                 <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"
@@ -610,10 +610,12 @@
                                         <i class="cl-icon-facebook-f" aria-hidden="true"></i>
                                         <span>Facebook</span>
                                     </button>
-                                    <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
-                                        <i class="cl-icon-google-full" aria-hidden="true"></i>
-                                        <span>Google</span>
-                                    </button>
+                                    <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force" target="_blank" class="px-2">
+                                        <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
+                                            <i class="cl-icon-google-full" aria-hidden="true"></i>
+                                            <span>Google</span>
+                                        </button>
+                                    </a>
                                 </div>
                                 <p class="label-or text-center">OR</p>
                                 <div role="tabpanel" class="tab-pane " id="login">
