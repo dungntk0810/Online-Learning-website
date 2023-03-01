@@ -316,7 +316,7 @@
                         Powered by <a href="/">CodeLearn</a>
                     </span>
                     <span class="copyright">&#169; 2023.</span>
-                    <span>All Rights Reserved. rev 11/12/2022 11:15:59 AM</span>
+                    <span>All Rights Reserved. rev 11/12/2022 11:15:59 AMabc</span>
                 </div>
             </div>
         </footer>
