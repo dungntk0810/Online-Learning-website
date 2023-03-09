@@ -154,7 +154,7 @@
                                     </li>
                                     <li><a href="discussion">Discussion</a>
                                     </li>
-                                    <li><a href="/game">Contact</a>
+                                    <li><a href="Contact.jsp">Contact</a>
                                     </li>
                                     <c:if test="${sessionScope.account.getUser_role()==0}">
                                         <li><a href="manage">Manage</a>
