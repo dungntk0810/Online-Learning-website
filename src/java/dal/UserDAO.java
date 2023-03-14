@@ -332,11 +332,31 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public User getUserById(int id) {
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[User]\n"
+                + "  where User_Id =?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                User u = new User(rs.getInt(1),rs.getString(2), rs.getString(7), 
+                        rs.getString(8), rs.getString(9), rs.getString(11), 
+                        rs.getDate(12), rs.getString(13), rs.getString(17), 
+                        rs.getString(18));
+                return u ;
+            }
+        } catch (SQLException e) {
+        }
+        return null ;
+    }
+
     public static void main(String[] args) {
         UserDAO dao = new UserDAO();
 //        Date date = Date.valueOf("2023-01-26");
-        dao.updateBirthday("2023-02-26", 1);
-//        System.out.println(dao.getInformationUser(1));
+//        dao.updateBirthday("2023-02-26", 1);
+        System.out.println(dao.getUserById(1));
 
     }
 

@@ -222,7 +222,8 @@
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="information">My information</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="">My profile</a></li>
+                                            <c:set var="link" value="profile?id=${user.user_id}"></c:set>
+                                            <li><a href="${link}">My profile</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a id="cick-logoff" href="logout">Sign out</a></li>
                                         </ul>

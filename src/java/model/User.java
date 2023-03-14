@@ -95,6 +95,21 @@ public class User {
         this.user_achievement = user_achievement;
     }
 
+    public User(int user_id, String user_name,String user_address, String user_phone, String user_avatar, String user_fullname, Date user_birthday, String user_country, String user_summary, String user_achievement) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_address = user_address;
+        this.user_phone = user_phone;
+        this.user_avatar = user_avatar;
+        this.user_fullname = user_fullname;
+        this.user_birthday = user_birthday;
+        this.user_country = user_country;
+        this.user_summary = user_summary;
+        this.user_achievement = user_achievement;
+    }
+    
+    
+
     public String getUser_fullname() {
         return user_fullname;
     }

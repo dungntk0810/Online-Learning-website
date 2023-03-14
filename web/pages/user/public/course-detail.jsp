@@ -315,9 +315,14 @@
                                                     <div class="actions-wrap">
                                                         <span class="text-price free">Free</span>
                                                         <div class="register" id="button-register">
-                                                            <a id="course-register" href="enroll?course=${course.course_id}"
-                                                               class="buy-now course-register">Register Now</a>
-
+                                                            <c:if test="${course.course_id==0}">
+                                                                <a id="course-register" href="enroll?course=${course.course_id}"
+                                                                   class="buy-now course-register">Register Now</a>
+                                                            </c:if>
+                                                            <c:if test="${course.course_id>0}">
+                                                                <a id="course-register" href="payment?course=${course.course_id}"
+                                                                   class="buy-now course-register">Register Now</a>
+                                                            </c:if>
                                                         </div>
                                                     </div>
                                                 </c:when>

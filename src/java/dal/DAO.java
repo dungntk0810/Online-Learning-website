@@ -90,8 +90,8 @@ public class DAO extends DBContext {
         }
         return list;
     }
-    
-     public List<Course> getAllCourse1() {
+
+    public List<Course> getAllCourse1() {
 
         List<Course> list = new ArrayList<>();
         String sql = "SELECT TOP (1000) [Course_id]\n"
@@ -206,7 +206,6 @@ public class DAO extends DBContext {
         return null;
     }
 
-
     public List<Lesson> listLesson1(int course_id) {
 
         List<Lesson> list = new ArrayList<>();
@@ -319,7 +318,6 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
     }
-    
 
     public void insertChapter(Chapter c) {
         String sql = "INSERT INTO [dbo].[Chapter]\n"
@@ -339,7 +337,6 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
     }
-    
 
     public void insertLesson(Lesson l) {
         String sql = "INSERT INTO [dbo].[Lesson]\n"
@@ -348,7 +345,7 @@ public class DAO extends DBContext {
                 + "           ,[chapter_id]           \n"
                 + "           ,[lesson_content]\n"
                 + "           ,[lesson_number]\n"
-                 + "           ,[course_id]\n"
+                + "           ,[course_id]\n"
                 + "           )\n"
                 + "     VALUES\n"
                 + "           (?,?,?,?,?,?)";
@@ -360,13 +357,12 @@ public class DAO extends DBContext {
             st.setString(4, l.getLesson_content());
             st.setInt(5, l.getLesson_number());
             st.setInt(6, l.getCourse_id());
- 
+
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
         }
     }
-
 
     public void deleteChapterByID(int id) {
         String sql = "DELETE FROM [dbo].[Chapter]\n"
@@ -391,7 +387,8 @@ public class DAO extends DBContext {
             System.out.println(e);
         }
     }
-public void updateLesson(Lesson l) {
+
+    public void updateLesson(Lesson l) {
         String sql = "UPDATE [dbo].[Lesson]\n"
                 + "   SET \n"
                 + "      [lesson_level] = ?\n"
@@ -414,10 +411,30 @@ public void updateLesson(Lesson l) {
         }
     }
 
+    public List<Course> getCourseInProfile(int id) {
+
+        List<Course> list = new ArrayList<>();
+        String sql = "Select * from [Enroll] as en join [Course] as co\n"
+                + "on en.course_id = co.Course_id\n"
+                + "where en.user_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Course c = new Course(rs.getInt("Course_id"), rs.getString("Course_name"), rs.getString("course_description"), rs.getInt("course_price"), rs.getInt("course_number_lesson"), rs.getString("course_image"));
+                list.add(c);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        DAO d=new DAO();
-        
-        List<Course> c=d.getAllCourse();
+        DAO d = new DAO();
+
+        List<Course> c = d.getCourseInProfile(1);
         System.out.println(c.size());
     }
 

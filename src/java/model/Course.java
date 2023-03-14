@@ -4,6 +4,7 @@
  */
 package model;
 import dal.DAO ;
+import dal.EnrollDAO;
 import dal.PercentageDAO;
 
 /**
@@ -19,6 +20,7 @@ public class Course {
     private String course_image;
     private int user_id ;
     private int percentage ;
+    private int course_number_user ;
 
     public Course() {
     }
@@ -31,6 +33,16 @@ public class Course {
         this.course_number_lesson = course_number_lesson;
         this.course_image = course_image;
     }
+
+    public int getCourse_number_user() {
+        EnrollDAO dao = new EnrollDAO();
+        return dao.getNumberUser(course_id);
+    }
+
+    public void setCourse_number_user(int course_number_user) {
+        this.course_number_user = course_number_user;
+    }
+    
 
     public int getCourse_id() {
         return course_id;
@@ -57,7 +69,7 @@ public class Course {
     }
 
     public float getCourse_price() {
-        return course_price;
+        return (int)course_price;
     }
 
     public void setCourse_price(float course_price) {
