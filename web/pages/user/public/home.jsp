@@ -432,8 +432,8 @@
                                                                     <c:when test="${count>0}">
                                                                         <div class="view-content-footer">
                                                                             <div class="course-footer-left">
-                                                                                <c:set var="value" value="100"></c:set>
-                                                                                <div class="progress-circle progress-${value}"><span>${value}</span></div>
+                                                                                <div class="progress-circle progress-${listA.getPercentage()}"><span>${listA.getPercentage()}</span></div>
+
                                                                             </div>
                                                                             <div class="course-footer-right">
                                                                                 <a class="btn-continue-study"

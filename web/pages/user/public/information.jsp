@@ -145,6 +145,11 @@
             var defaultStateName;
             var defaultMessage;
         </script>
+        <style>
+            #messageValidateImage:hover {
+                background-color: #0081c7;
+            }
+        </style>
     </head>
 
     <body class="hold-transition site-body skin-sku-light layout-top-nav user ">
@@ -278,36 +283,34 @@
                                             </ul>
                                         </div>
                                     </div>
+
                                     <div class="col-md-9 user--profile-right-container">
                                         <div class="user--profile-right">
                                             <div class="user--profile-group">
                                                 <h2 class="user--profile-title-group">Information</h2>
-                                                <form class="init" method="post" id="frm-info">
-                                                    <div class="row">
-                                                        <div class="col-md-2 col-xs-12">
-                                                            <div class="row">
-                                                                <div id="ImgPreview" class="no-img" style="background-image: url('upload/${user.user_avatar}')">
-                                                                    <img src="upload/${user.user_avatar}" alt="alt"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row avatar-selector">
-                                                                <div class="form-group UploadAvatar">
-                                                                    <label for="Avatar" id="messageValidateImage"
-                                                                           style="display: block;">Your Avatar</label>
-                                                                    <input name="ImgFile" id="Avatar" class="file"
-                                                                           type="file"
-                                                                           accept="image/png,image/x-png,image/gif,image/jpeg,image/jpg">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-btn">
-                                                                            <button class="browse btn btn-primary input-sm"
-                                                                                    type="button" id="Upload-Ava"
-                                                                                    style="display: block;">Select
-                                                                                photo</button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                <!--<form class="init" method="post" id="frm-info">-->
+                                                <div class="row">
+                                                    <div class="col-md-2 col-xs-12">
+                                                        <div class="row">
+                                                            <div id="ImgPreview" class="no-img" style="background-image: url('upload/${user.user_avatar}')">
+                                                                <img src="upload/${requestScope.avatar}" alt="alt"/>
                                                             </div>
                                                         </div>
+                                                        <div class="row avatar-selector">
+                                                            <div class="form-group UploadAvatar">
+                                                                <form id="myForm" action="avatar" method="post" enctype="multipart/form-data">
+                                                                    <label for="Avatar" id="messageValidateImage"
+                                                                           style="display: block;">Select photo</label>
+                                                                    <input name="ImgFile" id="Avatar" class="file"
+                                                                           type="file"
+                                                                           accept="image/png,image/x-png,image/gif,image/jpeg,image/jpg"
+                                                                           onchange="document.getElementById('myForm').submit()"
+                                                                           >
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <form class="init" method="post" id="frm-info" action="information">
                                                         <div class="col-md-9 col-xs-12">
                                                             <div class="row">
                                                                 <div class="col-lg-3 col-sm-4 col-xs-12">
@@ -316,13 +319,22 @@
                                                                             name</label>
                                                                     </div>
                                                                 </div>
+
                                                                 <div class="col-lg-9 col-sm-8 col-xs-12">
                                                                     <div class="form-group">
                                                                         <span id="span-name" class="span-display"></span>
                                                                         <input name="FamilyName" type="text"
                                                                                class="form-control is-required" id="FamilyName"
                                                                                autocomplete="family-name" aria-required="true"
-                                                                               style="display: block;">
+                                                                               style="display: block; " placeholder="Full Name" 
+                                                                               <c:if test="${requestScope.name != null}">
+                                                                                   value="${requestScope.name}"
+                                                                               </c:if>
+                                                                               >
+                                                                        <%--<c:if test="${requestScope.mssg == null}">
+                                                                            <label id="FamilyName-error" class="error" for="FamilyName">This field is invalid</label>
+                                                                        </c:if>--%>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -337,7 +349,10 @@
                                                                         <span id="span-birthday"
                                                                               class="span-display"></span>
 
-                                                                              <input type="date" name="date" class="form-control">
+                                                                        <input type="date" name="date" class="form-control"
+                                                                               <c:if test="${requestScope.dob != null}">
+                                                                                   value="${requestScope.dob}"
+                                                                               </c:if>>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -354,6 +369,9 @@
                                                                         <input name="PhoneNumber" type="text"
                                                                                class="form-control is-required"
                                                                                id="PhoneNumber" placeholder="Phone number"
+                                                                               <c:if test="${requestScope.phone != null}">
+                                                                                   value="${requestScope.phone}"
+                                                                               </c:if>
                                                                                autocomplete='tel-national' />
                                                                     </div>
                                                                 </div>
@@ -368,12 +386,9 @@
                                                                 <div class="col-lg-9 col-sm-8 col-xs-12">
                                                                     <div class="form-group">
                                                                         <span id="span-country" class="span-display"></span>
-                                                                        <input id="CountryId" type="text"
-                                                                               class="form-control hide is-required"
-                                                                               name="CountryId" />
                                                                         <select class="form-control" id="CountrySelect"
-                                                                                name="CountrySelect">
-
+                                                                                name="CountrySelect"
+                                                                                >
                                                                             <option value="United States" selected="selected">United States</option>
                                                                             <option value="United Kingdom" selected="selected">United Kingdom</option>
                                                                             <option value="India" selected="selected">India</option>
@@ -381,6 +396,9 @@
                                                                             <option value="Venezuela" selected="selected">Venezuela</option>
                                                                             <option value="Korea" selected="selected">Korea</option>
                                                                             <option value="Viet Nam" selected="selected">Viet Nam</option>
+                                                                            <c:if test="${requestScope.country != null}">
+                                                                                <option value="${requestScope.country}" selected="selected">${requestScope.country}</option>
+                                                                            </c:if>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -397,7 +415,10 @@
                                                                               class="span-display"></span>
                                                                         <textarea name="CityName" type="text"
                                                                                   class="form-control" id="CityName"
-                                                                                  placeholder="Province/city name that you're living now"></textarea>
+                                                                                  placeholder="Province/city name that you're living now"
+                                                                                  ><c:if test="${requestScope.address != null}">${requestScope.address}
+                                                                            </c:if>
+                                                                        </textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -413,7 +434,10 @@
                                                                               class="span-display"></span>
                                                                         <input type="text" name="Facebook"
                                                                                class="form-control" id="facebook"
-                                                                               placeholder="Your profile link" />
+                                                                               placeholder="Your profile link" 
+                                                                               <c:if test="${requestScope.face != null}">
+                                                                                   value="${requestScope.face}"
+                                                                               </c:if>/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -429,7 +453,10 @@
                                                                               class="span-display"></span>
                                                                         <input type="text" name="LinkedIn"
                                                                                class="form-control" id="linkedIn"
-                                                                               placeholder="Your profile link" />
+                                                                               placeholder="Your profile link" 
+                                                                               <c:if test="${requestScope.link != null}">
+                                                                                   value="${requestScope.link}"
+                                                                               </c:if>/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -444,7 +471,10 @@
                                                                         <span id="span-twitter" class="span-display"></span>
                                                                         <input type="text" name="Twitter"
                                                                                class="form-control" id="twitter"
-                                                                               placeholder="Your profile link" />
+                                                                               placeholder="Your profile link" 
+                                                                               <c:if test="${requestScope.twit != null}">
+                                                                                   value="${requestScope.twit}"
+                                                                               </c:if>/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -458,7 +488,9 @@
                                                                     <div class="form-group">
                                                                         <p id="span-summary"></p>
                                                                         <textarea rows="5" name="Summary" type="text"
-                                                                                  class="form-control" id="summary"></textarea>
+                                                                                  class="form-control" id="summary"
+                                                                                  ><c:if test="${requestScope.summary != null}">${requestScope.summary}
+                                                                            </c:if></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -476,7 +508,8 @@
                                                                         <textarea rows="5" name="Achievement" type="text"
                                                                                   class="form-control"
                                                                                   id="achievement"
-                                                                                  ></textarea>
+                                                                                  ><c:if test="${requestScope.archie != null}">${requestScope.archie}
+                                                                            </c:if></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -484,25 +517,18 @@
                                                                 <div class="form-group pull-right">
                                                                     <button
                                                                         class="btn btn-sm pull-right btn-save save-info-button"
-                                                                        type="button" id="btnSaveInfo"
+                                                                        type="submit" id="btnSaveInfo"
                                                                         style="height: 35px;width: 104px;border-radius: 3px;line-height: inherit;">Save</button>
-                                                                    <button class="btn btn-sm pull-right btn-cancel "
-                                                                            type="button" id="btnCancelInfo"
-                                                                            style="height: 35px;width: 104px;border-radius: 3px;margin-right: 18px; line-height: inherit;">Cancel</button>
+                                                                    <a href="information"><button class="btn btn-sm pull-right btn-cancel "
+                                                                                                  type="button" id="btnCancelInfo"
+                                                                                                  style="height: 35px;width: 104px;border-radius: 3px;margin-right: 18px; line-height: inherit;">Cancel</button></a>
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-1">
-                                                            <p style="float: right;">
-                                                                <a href="javascript:void(0)">
-                                                                    <i class="cl-icon-pen edit-pencil-info"
-                                                                       id="edit-pencil-info"></i>
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                    </form>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -560,11 +586,11 @@
                         <div class="row">
                             <div class="col-xs-12 col-md-6 introduction footer-column">
                                 <div class="logo-codelearn">
-                                    <img src="/Themes/TheCodeCampPro/Resources/Images/new-header/codelearn-logo.svg"
+                                    <img src="themes/logo2.png"
                                          alt="CodeLearn" />
                                 </div>
                                 <p>
-                                    CodeLearn is an online platform that helps users to learn, practice coding skills and
+                                    BoxBox is an online platform that helps users to learn, practice coding skills and
                                     join the online coding contests.
                                 </p>
                                 <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"

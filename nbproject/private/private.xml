@@ -11,14 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/online-learning/src/java/controller/auths/ChangePassServlet.java</file>
-            <file>file:/D:/online-learning/web/pages/user/public/home.jsp</file>
-            <file>file:/D:/online-learning/web/UserManage.jsp</file>
-            <file>file:/D:/online-learning/src/java/dal/UserDAO.java</file>
-            <file>file:/D:/online-learning/src/java/model/User.java</file>
-            <file>file:/D:/online-learning/src/java/controller/auths/SignupServlet.java</file>
-            <file>file:/D:/online-learning/web/pages/user/comment/discussion.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -4,19 +4,26 @@
  */
 package controller.user;
 
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import java.sql.Date;
+import model.User;
 
 /**
  *
  * @author Admin
  */
 @WebServlet(name = "InformationServlet", urlPatterns = {"/information"})
+
 public class InformationServlet extends HttpServlet {
 
     /**
@@ -57,6 +64,22 @@ public class InformationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("account");
+        UserDAO dao = new UserDAO();
+        User infor = dao.getInformationUser(u.getUser_id());
+        request.setAttribute("avatar", infor.getUser_avatar());
+        request.setAttribute("name", infor.getUser_fullname());
+        request.setAttribute("dob", infor.getUser_birthday());
+        request.setAttribute("phone", infor.getUser_phone());
+        request.setAttribute("country", infor.getUser_country());
+        request.setAttribute("address", infor.getUser_address());
+        request.setAttribute("face", infor.getUser_facebook());
+        request.setAttribute("link", infor.getUser_linkedln());
+        request.setAttribute("twit", infor.getUser_twitter());
+        request.setAttribute("summary", infor.getUser_summary());
+        request.setAttribute("archie", infor.getUser_achievement());
+
         request.getRequestDispatcher("/pages/user/public/information.jsp").forward(request, response);
     }
 
@@ -71,7 +94,24 @@ public class InformationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("account");
+        int id = u.getUser_id();
+        UserDAO dao = new UserDAO();
+        dao.updateName(request.getParameter("FamilyName"), id);
+        if (request.getParameter("date") != null) {
+            String date = request.getParameter("date");
+            dao.updateBirthday(date, id);
+        }
+        dao.updatePhone(request.getParameter("PhoneNumber"), id);
+        dao.updateCountry(request.getParameter("CountrySelect"), id);
+        dao.updateAddress(request.getParameter("CityName"), id);
+        dao.updateFacebook(request.getParameter("Facebook"), id);
+        dao.updateLinkedln(request.getParameter("LinkedIn"), id);
+        dao.updateTwitter(request.getParameter("Twitter"), id);
+        dao.updateSummary(request.getParameter("Summary"), id);
+        dao.updateAchievement(request.getParameter("Achievement"), id);
+        response.sendRedirect("information");
     }
 
     /**
