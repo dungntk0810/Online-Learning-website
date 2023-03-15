@@ -19,23 +19,23 @@
 
     <body style="background-color: rgb(0, 0, 34);">
         <c:set var="course" value="${requestScope.course}"></c:set>
-        <div class="card">
-            <div class="card-body">
-                <a href="home">Back to home</a>
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="left border">
-                            <div class="row">
-                                <span class="header">Chuyển khoản thủ công</span>
-                            </div>
-                            <form>
-                                <span>Tên tài khoản:</span>
-                                <input placeholder="BoxBox Company" readonly>
-                                <span>Số tài khoản:</span>
-                                <input placeholder="0123 4567 8910 1112" readonly="">
+            <div class="card">
+                <div class="card-body">
+                    <a href="home">Back to home</a>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="left border">
                                 <div class="row">
-                                    <div class="col-4"><span>Nội dung:</span>
-                                        <input placeholder="Mua khoá học" readonly>
+                                    <span class="header">Chuyển khoản thủ công</span>
+                                </div>
+                                <form>
+                                    <span>Tên tài khoản:</span>
+                                    <input placeholder="BoxBox Company" readonly>
+                                    <span>Số tài khoản:</span>
+                                    <input placeholder="0123 4567 8910 1112" readonly="">
+                                    <div class="row">
+                                        <div class="col-4"><span>Nội dung:</span>
+                                            <input placeholder="${requestScope.content}" readonly>
                                     </div>
                                     <div class="col-4"><span>Chi nhánh:</span>
                                         <input placeholder="Vietcombank" readonly>
@@ -52,7 +52,7 @@
                                         <img src="upload/332960341_1631627357278845_1878392059447962187_n.jpg" />
                                     </div>
                                     <span>Bước 1: Mở app ngân hàng hoặc Momo và quét mã QR</span><br />
-                                    <span>Bước 2: Đảm bảo nội dung chuyển khoản là </span><b>"Tôi mua khoá học"</b><br />
+                                    <span>Bước 2: Đảm bảo nội dung chuyển khoản là </span><b>${requestScope.content}</b><br />
                                     <span>Bước 3: Thực hiện thanh toán</span>
                                 </form>
                             </div>
@@ -91,9 +91,12 @@
                             </div>
 
                             <form action="abc" method="get">
-                                <button type="submit" class="btn">Place order</button>
+                                <input type="hidden" name="course" value="${course.course_id}" >
+                                <input type="hidden" name="course" value="${course.course_price}" >
+
+                                <button type="submit" class="btn">Check out</button>
                             </form>
-                            
+
 
                         </div>
                         <br>

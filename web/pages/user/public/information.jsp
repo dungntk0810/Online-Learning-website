@@ -292,7 +292,7 @@
                                                 <div class="row">
                                                     <div class="col-md-2 col-xs-12">
                                                         <div class="row">
-                                                            <div id="ImgPreview" class="no-img" style="background-image: url('upload/${user.user_avatar}')">
+                                                            <div id="ImgPreview" class="no-img" >
                                                                 <img src="upload/${requestScope.avatar}" alt="alt"/>
                                                             </div>
                                                         </div>
