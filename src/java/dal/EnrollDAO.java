@@ -20,13 +20,16 @@ public class EnrollDAO extends DBContext {
         String sql = "INSERT INTO [dbo].[Enroll]\n"
                 + "           ([user_id]\n"
                 + "           ,[course_id]\n"
-                + "           )\n"
+                + "           ,[start_date])\n"
                 + "     VALUES\n"
-                + "           (?,?)";
+                + "           (?,?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, e.getUser_id());
             st.setInt(2, e.getCourse_id());
+            long millis = System.currentTimeMillis();
+            Date date = new Date(millis);
+            st.setDate(3, date);
             st.executeUpdate();
         } catch (SQLException a) {
             System.out.println(a);
@@ -73,7 +76,7 @@ public class EnrollDAO extends DBContext {
 
     public static void main(String[] args) {
         EnrollDAO dao = new EnrollDAO();
-        dao.updatePayment(1, 1, "abc", 10000);
+        dao.Enroll(new Enroll(1, 1));
 //            long millis = System.currentTimeMillis();
 //            Date date = new Date(millis);
 //            System.out.println(date);

@@ -90,10 +90,10 @@
                                 <div class="col text-right"><b>${course.course_price} VNĐ</b></div>
                             </div>
 
-                            <form action="abc" method="get">
+                            <form action="payment" method="post">
                                 <input type="hidden" name="course" value="${course.course_id}" >
-                                <input type="hidden" name="course" value="${course.course_price}" >
-
+                                <input type="hidden" name="price" value="${course.course_price}" >
+                                <input type="hidden" name="content" value="${requestScope.content}">
                                 <button type="submit" class="btn">Check out</button>
                             </form>
 

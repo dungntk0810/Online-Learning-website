@@ -68,7 +68,7 @@ public class Course {
         this.course_description = course_description;
     }
 
-    public float getCourse_price() {
+    public int getCourse_price() {
         return (int)course_price;
     }
 

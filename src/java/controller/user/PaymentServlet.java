@@ -5,6 +5,7 @@
 package controller.user;
 
 import dal.DAO;
+import dal.EnrollDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -70,7 +71,7 @@ public class PaymentServlet extends HttpServlet {
         request.setAttribute("course", c);
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("account");
-        String content = c.getCourse_name() + "-"+user.getUser_id();
+        String content = c.getCourse_name() + "-" + user.getUser_id();
 
         request.setAttribute("content", content);
         request.getRequestDispatcher("/pages/user/public/payment.jsp").forward(request, response);
@@ -87,7 +88,22 @@ public class PaymentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("account") != null) {
+            User user = (User) session.getAttribute("account");
+            int course = Integer.parseInt(request.getParameter("course"));
+            float price = Float.parseFloat(request.getParameter("price"));
+            String content = request.getParameter("content");
+            EnrollDAO dao = new EnrollDAO();
+            dao.updatePayment(user.getUser_id(), course, content, price);
+            dao.Enroll(new Enroll(user.getUser_id(), course));
+            String link = "course?id=" + course;
+            response.sendRedirect(link);
+        }else{
+            int course = Integer.parseInt(request.getParameter("course"));
+            String link2 = "payment?course=" + course;
+            response.sendRedirect(link2);
+        }
     }
 
     /**
