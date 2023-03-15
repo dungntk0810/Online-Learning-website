@@ -216,6 +216,7 @@
                                                         <div class="form-group">
                                                             <input name="name" value="${sessionScope.account.getUser_name()}"
                                                                    type="hidden" />
+                                                            
                                                         </div>
                                                         <div class="form-group">
                                                             <label style="font-weight:bold;color:#333;"
@@ -223,6 +224,8 @@
                                                             <input name="oldpass" type="password"
                                                                    class="form-control" placeholder="Password"
                                                                    autocomplete='current-password' required />
+                                                            <label id="currentPassword-error" class="error" for="currentPassword">${ms1}</label>
+                                                            
                                                         </div>
                                                         <p>
                                                             <a href="/users/account/logoff?returnUrl=~/forgot-password"
@@ -233,12 +236,14 @@
                                                                    for="newPassword">New Password</label>
                                                             <input name="newpass" type="password" class="form-control"
                                                                    placeholder="New Password" required/>
+                                                            <label id="newPassword-error" class="error" for="newPassword">${ms2}</label>
                                                         </div>
                                                         <div class="form-group">
                                                             <label style="font-weight:bold;color:#333;"
                                                                    for="confirmPassword">Confirm Password</label>
                                                             <input name="rpass" type="password"
                                                                    class="form-control" placeholder="Confirm Password" required/>
+                                                            <label id="confirmPassword-error" class="error" for="confirmPassword">${ms3}</label>
                                                         </div>
                                                         <div class="form-group">
                                                             <button class="btn btn-sm pull-right btn-save btn-success"

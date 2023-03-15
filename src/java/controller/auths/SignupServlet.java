@@ -72,6 +72,9 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String regexUsername = "^[a-zA-Z0-9._-]{8,20}$";
+        String regexPassword = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
         String user = request.getParameter("suser");
         String pass = request.getParameter("spass");
         String rpass = request.getParameter("re-pass");
@@ -79,9 +82,14 @@ public class SignupServlet extends HttpServlet {
         if (!pass.equals(rpass)) {
             request.setAttribute("message", "2 password are not the same");
             request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
-        }
-        if (dao.checkUser(user)) {
+        } else if (dao.checkUser(user)) {
             request.setAttribute("message", "This user's name has been used");
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
+        } else if (!user.matches(regexUsername)) {
+            request.setAttribute("message", "Username consists of alphanumeric characters (a-zA-Z0-9), lowercase, or uppercase.");
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
+        } else if (!pass.matches(regexPassword)) {
+            request.setAttribute("message", "Password must contain at least 1 uppercase letter, at least 1 number, at least 1 special character and length must be in range (8-20)");
             request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
         } else {
             dao.addUser(user, pass);

@@ -68,7 +68,7 @@ public class InformationServlet extends HttpServlet {
         User u = (User) session.getAttribute("account");
         UserDAO dao = new UserDAO();
         User infor = dao.getInformationUser(u.getUser_id());
-        request.setAttribute("avatar", infor.getUser_avatar());
+//        request.setAttribute("avatar", infor.getUser_avatar());
         request.setAttribute("name", infor.getUser_fullname());
         request.setAttribute("dob", infor.getUser_birthday());
         request.setAttribute("phone", infor.getUser_phone());

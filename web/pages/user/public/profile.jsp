@@ -270,7 +270,6 @@
                                 <div id="cv-left" class="col-md-3 col-sm-12 white">
                                     <div id="user-profile">
                                         <div class="user-avatar">
-
                                             <img id="img-user"
                                                  src="upload/${profile.user_avatar}">
                                     </div>

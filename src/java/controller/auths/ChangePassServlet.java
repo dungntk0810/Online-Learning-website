@@ -60,25 +60,34 @@ public class ChangePassServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         String op = request.getParameter("oldpass");
         String pass = request.getParameter("newpass");
         String rpass = request.getParameter("rpass");
-        String name=request.getParameter("name");
+        String name = request.getParameter("name");
+        String regexPassword = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
         DAO d = new DAO();
 
         try {
-          
+
             User a = d.check(name, op);
 
-            if (a == null || rpass.equals(pass) == false) {
+            if (a == null) {
                 //khong ton tai
                 String ms = "Old password is incorrect ";
-                request.setAttribute("ms", ms);
+                request.setAttribute("ms1", ms);
+                request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
+            } else if (pass.equals(rpass) == false) {
+                String ms3 = "Passwords are not the same.";
+                request.setAttribute("ms3", ms3);
+                request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
+            } else if (!pass.matches(regexPassword)) {
+                String ms2 = "Password must contain at least 1 uppercase letter, at least 1 number, at least 1 special character and length must be in range (8-20).";
+                request.setAttribute("ms2", ms2);
                 request.getRequestDispatcher("/pages/user/auth/changePass.jsp").forward(request, response);
             } else {
                 //nhap dung pass cu
-                User uNew = new User(a.getUser_id(), name, pass,a.getUser_mail(), a.getUser_role(), a.getUser_gender(), a.getUser_address(), a.getUser_phone(), a.getUser_avatar());
+                User uNew = new User(a.getUser_id(), name, pass, a.getUser_mail(), a.getUser_role(), a.getUser_gender(), a.getUser_address(), a.getUser_phone(), a.getUser_avatar());
                 d.change(uNew);
                 HttpSession session = request.getSession();
                 session.setAttribute("account", uNew);
