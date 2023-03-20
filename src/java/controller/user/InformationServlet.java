@@ -16,7 +16,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import model.User;
+import util.Validate;
 
 /**
  *
@@ -94,24 +96,54 @@ public class InformationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String regexFullName = "^[A-Z][a-zA-Z]{2,}(?: [A-Z][a-zA-Z]*){1,}$";
+//        String regexDOB = "";
+//        String regexPhone = "^0\\d{8,}$";
+        String regexPhone = "^(0)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{1,}$";
+        String regexAddress = "^[a-zA-Z0-9 +]*$";
+        String date = request.getParameter("date");
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("account");
         int id = u.getUser_id();
         UserDAO dao = new UserDAO();
-        dao.updateName(request.getParameter("FamilyName"), id);
-        if (request.getParameter("date") != null) {
-            String date = request.getParameter("date");
+//        dao.updateName(request.getParameter("FamilyName"), id);
+        if (date !=null && Validate.getDate(date)== true) {
             dao.updateBirthday(date, id);
+        }else{
+            String messageDateError = "Date is invalid.";
+            request.setAttribute("messageDateError", messageDateError);
         }
-        dao.updatePhone(request.getParameter("PhoneNumber"), id);
+        if(!request.getParameter("FamilyName").matches(regexFullName)){
+            String messageNameError = "Name is invalid.";
+            request.setAttribute("messageNameError", messageNameError);
+        }else{
+            dao.updateName(request.getParameter("FamilyName"), id);
+        }
+        if(!request.getParameter("PhoneNumber").matches(regexPhone)){
+            String messagePhoneError = "Phone number is invalid.";
+            request.setAttribute("messagePhoneError", messagePhoneError);
+        }else{
+            dao.updatePhone(request.getParameter("PhoneNumber"), id);
+        }
+        if(!request.getParameter("CityName").matches(regexAddress)){
+            String messageAddress = "Address is invalid.";
+            request.setAttribute("messageAddress", messageAddress);
+        }else{
+            dao.updateAddress(request.getParameter("CityName"), id);
+        }
+
+//        dao.updateName(request.getParameter("FamilyName"), id);
+//        dao.updatePhone(request.getParameter("PhoneNumber"), id);
         dao.updateCountry(request.getParameter("CountrySelect"), id);
-        dao.updateAddress(request.getParameter("CityName"), id);
+//        dao.updateAddress(request.getParameter("CityName"), id);
         dao.updateFacebook(request.getParameter("Facebook"), id);
         dao.updateLinkedln(request.getParameter("LinkedIn"), id);
         dao.updateTwitter(request.getParameter("Twitter"), id);
         dao.updateSummary(request.getParameter("Summary"), id);
         dao.updateAchievement(request.getParameter("Achievement"), id);
-        response.sendRedirect("information");
+//        response.sendRedirect("information");
+        request.getRequestDispatcher("/pages/user/public/information.jsp").forward(request, response);
+
     }
 
     /**

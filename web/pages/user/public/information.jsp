@@ -334,7 +334,7 @@
                                                                         <%--<c:if test="${requestScope.mssg == null}">
                                                                             <label id="FamilyName-error" class="error" for="FamilyName">This field is invalid</label>
                                                                         </c:if>--%>
-
+                                                                        <label id="FamilyName-error" class="error" for="FamilyName">${messageNameError}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -354,6 +354,7 @@
                                                                                    value="${requestScope.dob}"
                                                                                </c:if>>
                                                                     </div>
+                                                                    <label id="Date-error" class="error" for="Date">${messageDateError}</label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -373,6 +374,7 @@
                                                                                    value="${requestScope.phone}"
                                                                                </c:if>
                                                                                autocomplete='tel-national' />
+                                                                        <label id="PhoneNumber-error" class="error" for="PhoneNumber">${messagePhoneError}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -419,6 +421,7 @@
                                                                                   ><c:if test="${requestScope.address != null}">${requestScope.address}
                                                                             </c:if>
                                                                         </textarea>
+                                                                        <label id="CityName-error" class="error" for="CityName">${messageAddress}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>

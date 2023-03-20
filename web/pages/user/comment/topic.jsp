@@ -297,20 +297,22 @@
                                             <td class="user-col" rowspan="2">
                                                 <div class="avatars">
                                                     <c:set var="user" value="${sessionScope.account}"></c:set>
-                                                        <img src="upload/${user.user_avatar}"
-                                                             class="user-avatar" />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div id="top-level-input">
-                                                        <form id="frm-fr" action="topic" method="post" >
-                                                            <div class="form-group" hidden>
-                                                                <input name="id" type="text" class="form-control" id="Id" value="${d.discussion_id}" />
+                                                    <img src="upload/${user.user_avatar}"
+                                                         class="user-avatar" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="top-level-input">
+                                                    <form id="frm-fr" action="topic" method="post" >
+                                                        <div class="form-group" hidden>
+                                                            <input name="id" type="text" class="form-control" id="Id" value="${d.discussion_id}" />
                                                         </div>
                                                         <div class="form-group">
 
                                                             <textarea id="fr-content" class="form-control tinymce" name="discussion"></textarea>
                                                         </div>
+                                                        <label>${errorReply}</label>
+
                                                         <button
                                                             class="btn btn-success standard-button">Post</button>
 
@@ -387,7 +389,7 @@
                                                                 </div>
                                                                 <button
                                                                     class="btn btn-success standard-button reply-post-button">Post</button>
-
+                                                                    <br><label style="color: red">${errorReply}</label>
                                                             </form>
 
                                                             <div placeholder="Write your comment" class="with-placeholder"

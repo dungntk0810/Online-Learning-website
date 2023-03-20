@@ -183,8 +183,8 @@
                                     <li class="dropdown header-user-profile">
                                         <a href="#" class="dropdown-toggle btn--profile" title="Info">
                                             <c:set var="user" value="${sessionScope.account}"></c:set>
-                                            <img alt="" class="btn--img"
-                                                 src="upload/${user.user_avatar}">
+                                                <img alt="" class="btn--img"
+                                                     src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="profile">My information</a></li>
@@ -229,6 +229,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="required">Content</label>
+                                    <br><label style="color: red" >${errorCreate}</label>
                                     <textarea id="fr-content" class="form-control tinymce" name="discussion"></textarea>
                                 </div>
                                 <input class="btn btn-default mr-3" type="file" name="upFile" >
