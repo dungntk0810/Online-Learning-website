@@ -106,6 +106,7 @@
         </script>
 
         <link href="css/learn.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
 
         <script src="js/account1.js" type="text/javascript"></script>
         <script src="js/account2.js" type="text/javascript"></script>
@@ -203,7 +204,7 @@
                                     <li class="dropdown notify">
                                         <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
                                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="cl-icon-bell-1"></i>
+                                            <i class="fa-regular fa-bell"></i>
                                             <span id="notification-count" class="label label-warning"></span>
                                         </a>
                                         <div class="dropdown-menu">
@@ -222,7 +223,7 @@
                                         <ul class="dropdown-menu dropdown-menu-user">
                                             <li><a href="information">My information</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <c:set var="link" value="profile?id=${user.user_id}"></c:set>
+                                                <c:set var="link" value="profile?id=${user.user_id}"></c:set>
                                             <li><a href="${link}">My profile</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a id="cick-logoff" href="logout">Sign out</a></li>
@@ -259,7 +260,7 @@
                                             <input Name="search" id="search-course" type="text" class="form-control"
                                                    placeholder="Search...">
                                             <!--<div class="input-group-addon btn"><i class="cl-icon-search"></i></div>-->
-                                            <button type="submit" class="input-group-addon btn"><i class="cl-icon-search"></i></button>
+                                            <button type="submit" class="input-group-addon btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                                             <!--<span class="input-group-addon btn"><i class="cl-icon-search"></i></span>-->
                                         </form>
                                     </div>
@@ -287,7 +288,7 @@
                                                             <img class="view-content-header__img-top"
                                                                  src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                  alt="course top img" />
-                                                            <span class="star-rating"><span style="width:90.0%"></span></span>
+                                                            <span  ><span style="width:100.0%"></span></span>
                                                             <span class="course-type online">
                                                                 Online
                                                             </span>
@@ -335,8 +336,8 @@
                                                                         </div>
                                                                         <div class="course-footer-right">
                                                                             <a class="btn-continue-study"
-                                                                               href="course?id=${listC.getCourse_id()}">Continue learning<i
-                                                                                    class="cl-icon-arrow-right"></i></a>
+                                                                               href="course?id=${listC.getCourse_id()}">Continue learning <i
+                                                                                    class="fa-solid fa-arrow-right"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </c:when>    
@@ -390,7 +391,7 @@
                                                                 <img class="view-content-header__img-top"
                                                                      src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                      alt="course top img" />
-                                                                <span class="star-rating"><span style="width:90.0%"></span></span>
+                                                                <span><span style="width:90.0%"></span></span>
                                                                 <span class="course-type online">
                                                                     Online
                                                                 </span>
@@ -438,8 +439,8 @@
                                                                             </div>
                                                                             <div class="course-footer-right">
                                                                                 <a class="btn-continue-study"
-                                                                                   href="course?id=${listA.getCourse_id()}">Continue learning<i
-                                                                                        class="cl-icon-arrow-right"></i></a>
+                                                                                   href="course?id=${listA.getCourse_id()}">Continue learning <i
+                                                                                        class="fa-solid fa-arrow-right"></i></a>
                                                                             </div>
                                                                         </div>
                                                                     </c:when>    
@@ -600,20 +601,10 @@
                             <div class="tab-content">
                                 <h4 class="header-card">with your social network</h4>
                                 <div class="signin-options">
-                                    <button class="btn btn-default btn-block btn--microsoft icon-left"
-                                            onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
-                                            title="Login to FSoft account via Microsoft">
-                                        <i class="cl-icon-windows" aria-hidden="true"></i>
-                                        <span>Microsoft</span>
-                                    </button>
-                                    <button class="btn btn-default btn-block btn--facebook icon-left"
-                                            onclick="facebookSignIn()">
-                                        <i class="cl-icon-facebook-f" aria-hidden="true"></i>
-                                        <span>Facebook</span>
-                                    </button>
+                                    
                                     <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force" target="_blank" class="px-2">
                                         <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
-                                            <i class="cl-icon-google-full" aria-hidden="true"></i>
+                                            <i class="fa-brands fa-google" aria-hidden="true"></i>
                                             <span>Google</span>
                                         </button>
                                     </a>

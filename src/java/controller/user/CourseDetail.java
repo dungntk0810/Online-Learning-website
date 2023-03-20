@@ -112,6 +112,12 @@ public class CourseDetail extends HttpServlet {
         EnrollDAO en = new EnrollDAO();
         int num = en.getNumberUser(courseID);
         request.setAttribute("numberUser", num);
+
+        int numofRate = en.getNumberOfRate(courseID);
+        request.setAttribute("numberRate", numofRate);
+        float rate = en.getRate(courseID);
+        request.setAttribute("Rate", rate);
+
         processRequest(request, response);
     }
 

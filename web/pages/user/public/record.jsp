@@ -42,7 +42,7 @@
                             <td class="cell c3" style="text-align:center;">${c.record_mark}</td>
                             <td class="cell c4 lastcol" style="text-align:center;"><a
                                     title="Review your responses to this attempt"
-                                    href="review?recordId=${c.record_id}" style="color: #fd647a">Review</a>
+                                    href="review?recordId=${c.record_id}&id=${course.course_id}" style="color: #fd647a">Review</a>
                             </td>
                         </tr>
                     </c:forEach>

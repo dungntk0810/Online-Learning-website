@@ -63,6 +63,7 @@ public class RecordServlet extends HttpServlet {
     throws ServletException, IOException {
         List<Record> list = new ArrayList<>();
         int courseID = Integer.parseInt(request.getParameter("courseId"));
+        
         QuizDAO dao = new QuizDAO() ;
         HttpSession session = request.getSession();
         User u = (User)session.getAttribute("account");
