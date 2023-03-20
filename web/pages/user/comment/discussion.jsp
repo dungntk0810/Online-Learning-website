@@ -20,6 +20,7 @@
         <link rel="alternate" hreflang="en-US" href="https://codelearn.io/discussion" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
         <title>A question and anwser site about IT for developers</title>
+        <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
 
         <script>
             var isGetNotification = true;
@@ -168,7 +169,7 @@
                                     <li class="dropdown notify">
                                         <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
                                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="cl-icon-bell-1"></i>
+                                            <i class="fa-regular fa-bell"></i>
                                             <span id="notification-count" class="label label-warning"></span>
                                         </a>
                                         <div class="dropdown-menu">
@@ -220,13 +221,13 @@
                                 <div class="col-md-6 col-sm-8 col-xs-12">
                                     <div class='search-box'>
                                         <input id="search-box" type="text" placeholder="Search...">
-                                        <span class="input-group-addon btn btn-filter"><i class="cl-icon-search"></i></span>
+                                        <span class="input-group-addon btn btn-filter"><i class="fa-solid fa-magnifying-glass"></i></span>
                                     </div>
                                 </div>
                                 <c:if test="${sessionScope.account !=null}"> 
                                     <div class="col-md-6  col-sm-4  col-xs-12" style="text-align: right">
                                         <a href="post" class="btn btn-success standard-button create">
-                                            <i class="cl-icon-plus"></i>
+                                            <i class="fa-regular fa-plus"></i>
                                             Create new discussion
                                         </a>
                                     </div>
@@ -278,7 +279,7 @@
                                                                 </c:if>
                                                             </c:forEach>
                                                             <span
-                                                                class="cl-icon-comment-dots forum-posts-count-icon"></span>
+                                                                class="fa-regular fa-comment"></span>
                                                             <span class="posts-count">${count}</span> 
                                                         </div>
                                                     </div>

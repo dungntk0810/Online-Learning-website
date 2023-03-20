@@ -66,6 +66,8 @@ public class ReviewServlet extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         int id = Integer.parseInt(request.getParameter("recordId"));
+        int CourseId = Integer.parseInt(request.getParameter("id"));
+
         QuizDAO dao = new QuizDAO();
         String record = dao.getRecordbyID(id);
 //        out.print(record);
@@ -74,11 +76,12 @@ public class ReviewServlet extends HttpServlet {
         for (String string : split1) {
             Question q = new Question();
             String[] split2 = string.split("-");
-            q= dao.getQuestionbyID(split2[0]);
+            q = dao.getQuestionbyID(split2[0]);
             q.setChoose(split2[1]);
             list.add(q);
         }
         request.setAttribute("list", list);
+        request.setAttribute("id", CourseId);
         request.getRequestDispatcher("/pages/user/public/review.jsp").forward(request, response);
     }
 

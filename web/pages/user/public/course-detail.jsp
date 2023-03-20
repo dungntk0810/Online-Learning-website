@@ -104,6 +104,8 @@
             }(document, 'script', 'facebook-jssdk'));
 
         </script>
+        <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
+
         <link rel="stylesheet" type="text/css" href="css/record.css" />
         <link href="css/chapter.css" rel="stylesheet" type="text/css" />
         <script src="js/account1.js" type="text/javascript"></script>
@@ -186,7 +188,7 @@
                                     <li class="dropdown notify">
                                         <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
                                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="cl-icon-bell-1"></i>
+                                            <i class="fa-regular fa-bell"></i>
                                             <span id="notification-count" class="label label-warning"></span>
                                         </a>
                                         <div class="dropdown-menu">
@@ -253,29 +255,30 @@
                                             <div class="title-wrap__rate-and-author">
 
                                                 <div class="enroll-students">
-                                                    <i style="font-size: 13px" class="cl-icon-users-alt"></i>
+                                                    <i class="fa-regular fa-user"></i>
 
                                                     ${requestScope.numberUser} students
-                                                </div>
+                                                </div>&nbsp&nbsp&nbsp&nbsp
 
                                                 <div id="container-rate" class="rate ">
-                                                    <span class="star-rating">
-                                                        <span style="width:90.0%"></span>
-                                                        <span class="vote-rate">
-                                                            <span value="1" class="star"><i
-                                                                    class="cl-icon-favorite-full"></i></span>
-                                                            <span value="2" class="star"><i
-                                                                    class="cl-icon-favorite-full"></i></span>
-                                                            <span value="3" class="star"><i
-                                                                    class="cl-icon-favorite-full"></i></span>
-                                                            <span value="4" class="star"><i
-                                                                    class="cl-icon-favorite-full"></i></span>
-                                                            <span value="5" class="star"><i
-                                                                    class="cl-icon-favorite-full"></i></span>
-                                                        </span>
+                                                    <!--<span class="star-rating">-->
+                                                    <span style="width:100.0%"></span>
+                                                    <span class="vote-rate">
+                                                        <a href="rate?value=1&id=${course.course_id}"><i
+                                                                class="fa-solid fa-star star"></i></a>
+                                                        <a href="rate?value=2&id=${course.course_id}"><i
+                                                                class="fa-solid fa-star star"></i></a>
+                                                        <a href="rate?value=3&id=${course.course_id}"><i
+                                                                class="fa-solid fa-star star"></i></a>
+                                                        <a href="rate?value=4&id=${course.course_id}"><i
+                                                                class="fa-solid fa-star star"></i></a>
+                                                        <a href="rate?value=5&id=${course.course_id}"><i
+                                                                class="fa-solid fa-star star"></i></a>
                                                     </span>
-                                                    <span class="text-rate">
-                                                        4.5 (200 votes)
+                                                    <!--</span>-->
+
+                                                    <span class="text-rate" >
+                                                        ${requestScope.Rate} (${requestScope.numberRate} votes)
                                                     </span>
                                                 </div>
                                             </div>
@@ -286,7 +289,7 @@
                                         <div class="infor-wrap">
                                             <div class="infor-wrap__item">
                                                 <span class="left">
-                                                    <span class="icon-wrap"><i class="cl-icon-clock"></i></span>
+                                                    <span class="icon-wrap"><i class="fa-regular fa-clock"></i></span>
                                                     Time
                                                 </span>
                                                 <span class="right">
@@ -295,7 +298,7 @@
                                             </div>
                                             <div class="infor-wrap__item">
                                                 <span class="left">
-                                                    <span class="icon-wrap"><i class="cl-icon-layer-group"></i></span>
+                                                    <span class="icon-wrap"><i class="fa-solid fa-list-check"></i></span>
                                                     Number of tasks
                                                 </span>
                                                 <span class="right">
@@ -442,7 +445,7 @@
                                             <c:forEach items="${requestScope.commentcourse}" var="i" >
                                                 <div class="comment-block has-replies" style="display: block;">
                                                     <div class="user-avatar">
-                                                        <div class="avatars"> <img src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                        <div class="avatars"> <img src="upload/${i.user.user_avatar}"> </div>
                                                     </div>
                                                     <div class="comment-main">
                                                         <div class="comment-user"><a href="/profile/16742109" class="href-user">${i.user.getUser_name()}</a> <span
@@ -470,7 +473,7 @@
                                                                 <c:if test="${j.commentc_reply== i.commentc_id}">
                                                                     <div class="comment-block " style="display: block;">
                                                                         <div class="user-avatar">
-                                                                            <div class="avatars"><img src="/Themes/TheCodeCampPro/Resources/Images/code-learn/user-default.svg"> </div>
+                                                                            <div class="avatars"><img src="upload/${j.user.user_avatar}"> </div>
                                                                         </div>
                                                                         <div class="comment-main">
                                                                             <div class="comment-user"><a href="/profile/17219477"

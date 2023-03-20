@@ -14497,7 +14497,7 @@ table {
 
 .login-modal .signin-options .btn {
     padding: 10px;
-    width: 132px;
+    /*width: 132px;*/
     font-size: 14px;
     line-height: 16px;
     color: #fff;

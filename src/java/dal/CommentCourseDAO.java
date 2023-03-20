@@ -121,8 +121,9 @@ public class CommentCourseDAO extends DBContext {
 
     public static void main(String[] args) {
         CommentCourseDAO d = new CommentCourseDAO();
-        CommentCourse com = new CommentCourse(new User(1, "kienpt", "123", 1), 1,
-                "comment3");
-        d.addCommentCourse(com);
+//        CommentCourse com = new CommentCourse(new User(1, "kienpt", "123", 1), 1,
+//                "comment3");
+//        d.addCommentCourse(com);
+System.out.println(d.getCommentCourse(1).get(0).getUser().getUser_avatar());
     }
 }

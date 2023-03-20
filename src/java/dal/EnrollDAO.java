@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.*;
 
 /**
@@ -74,11 +76,65 @@ public class EnrollDAO extends DBContext {
         }
     }
 
+    public float getRate(int course) {
+        List<Integer> list = new ArrayList<>();
+        String sql = "SELECT *\n"
+                + "  FROM [SWP-Project].[dbo].[Enroll]\n"
+                + "  where course_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, course);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getInt(6));
+            }
+            int sum = 0;
+            for (Integer integer : list) {
+                sum += integer;
+            }
+            return (float) sum / (list.size());
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public int getNumberOfRate(int course) {
+        String sql = "SELECT COUNT([rate]) FROM [Enroll] where course_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, course);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public void updateRateStar(int rate, int user, int course) {
+        String sql = "UPDATE Enroll\n"
+                + "SET rate =?\n"
+                + "WHERE user_id=? and course_id=?;";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, rate);
+            st.setInt(2, user);
+            st.setInt(3, course);
+            st.executeUpdate();
+        } catch (SQLException e) {
+        }
+    }
+
     public static void main(String[] args) {
         EnrollDAO dao = new EnrollDAO();
-        dao.Enroll(new Enroll(1, 1));
+//        dao.Enroll(new Enroll(1, 1));
 //            long millis = System.currentTimeMillis();
 //            Date date = new Date(millis);
-//            System.out.println(date);
+//        System.out.println(dao.getNumberOfRate(1));
+        dao.updateRateStar(5, 2,1 );
     }
 }

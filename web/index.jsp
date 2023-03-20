@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:forward page="home" />
+        <jsp:forward page="alogin" />
         <h1>Hello World!</h1>
     </body>
 </html>

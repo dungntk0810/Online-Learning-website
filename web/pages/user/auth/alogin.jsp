@@ -26,7 +26,8 @@
                 var s3Storage = '';
                 var resourcePath = '';
                 var strAuthen = '';
-            </script> 
+            </script>
+            <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
             <link href="css/login-codelearn.css" rel="stylesheet" type="text/css" />
             <script src="js/login1.js" type="text/javascript"></script>
             <script src="js/login2.js" type="text/javascript"></script>
@@ -149,19 +150,23 @@
                                         </form>
                                         <div class="switch-type-login">or use another account</div>
                                         <div class="signin-options">
-                                            <button class="btn btn-default btn-block btn--microsoft icon-left"
-                                                    onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
-                                                    title="Login with your Fsoft account via Microsoft">
-                                                <i class="cl-icon-windows" aria-hidden="true"></i>
-                                            </button>
-                                            <button class="btn btn-default btn-block btn--facebook icon-left"
-                                                    onclick="facebookSignIn()" title="Continue with Facebook account">
-                                                <i class="cl-icon-facebook" aria-hidden="true"></i>
-                                            </button>
+                                            <!--                                            <button class="btn btn-default btn-block btn--microsoft icon-left"
+                                                                                                onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
+                                                                                                title="Login with your Fsoft account via Microsoft"
+                                                                                                >
+                                                                                            <i class="cl-icon-windows" aria-hidden="true"></i>
+                                                                                        </button>-->
+
                                             <button class="btn btn-default btn-block btn--google icon-left btn-google-login"
+                                                    onclick="window.location.replace('https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force')"
                                                     title="Continue with Google account">
-                                                <i class="cl-icon-google-full" aria-hidden="true"></i>
+                                                <i class="fa-brands fa-google" aria-hidden="true"></i>
                                             </button>
+
+                                            <!--                                            <button class="btn btn-default btn-block btn--facebook icon-left"
+                                                                                                onclick="facebookSignIn()" title="Continue with Facebook account">
+                                                                                            <i class="cl-icon-facebook" aria-hidden="true"></i>
+                                                                                        </button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -354,14 +359,22 @@
                                 <div class="tab-content">
                                     <h4 class="header-card">with your social network</h4>
                                     <div class="signin-options">
-                                        <button class="btn btn-default btn-block btn--microsoft icon-left"
-                                                onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
-                                                title="Login to FSoft account via Microsoft">
-                                            <i class="cl-icon-windows" aria-hidden="true"></i>
-                                            <span>Microsoft</span>
+                                        <a href="https://wwww.facebook.com" target="_blank" class="px-2" hidden="">
+                                            <button class="btn btn-default btn-block btn--microsoft icon-left"
+                                                    onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
+                                                    title="Login to FSoft account via Microsoft" hidden="">
+                                                <i class="cl-icon-windows" aria-hidden="true"></i>
+                                                <span>Microsoft</span>
+                                            </button>
+                                        </a>
+                                        <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn"
+                                                onclick="window.location.replace('https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force')"
+                                                >
+                                            <i class="fa-brands fa-google" aria-hidden="true"></i>
+                                            <span>Google</span>
                                         </button>
 
-                                        <a href="https://wwww.facebook.com" target="_blank" class="px-2">
+                                        <a href="https://wwww.facebook.com" target="_blank" class="px-2" hidden="">
                                             <button class="btn btn-default btn-block btn--facebook icon-left"
                                                     onclick="facebookSignIn()">
                                                 <i class="cl-icon-facebook-f" aria-hidden="true"></i>
@@ -369,12 +382,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force" target="_blank" class="px-2">
-                                            <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
-                                                <i class="cl-icon-google-full" aria-hidden="true"></i>
-                                                <span>Google</span>
-                                            </button>
-                                        </a>
+
 
                                     </div>
                                     <p class="label-or text-center">OR</p>

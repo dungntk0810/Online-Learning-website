@@ -5,18 +5,19 @@
             <url>web/pages/user/auth/alogin.jsp</url>
             <bookmark id="1">
                 <name/>
-                <line>384</line>
+                <line>392</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/online-learning/src/java/model/Course.java</file>
-            <file>file:/D:/online-learning/src/java/controller/user/PaymentServlet.java</file>
-            <file>file:/D:/online-learning/web/pages/user/public/payment.jsp</file>
-            <file>file:/D:/online-learning/src/java/controller/user/HomeServlet.java</file>
-            <file>file:/D:/online-learning/src/java/dal/DiscussionDAO.java</file>
+            <file>file:/D:/online-learning/src/java/controller/user/EnrollServlet.java</file>
+            <file>file:/D:/online-learning/src/java/controller/user/CourseDetail.java</file>
+            <file>file:/D:/online-learning/src/java/controller/user/RecordServlet.java</file>
+            <file>file:/D:/online-learning/src/java/controller/user/RateServlet.java</file>
+            <file>file:/D:/online-learning/web/pages/user/public/record.jsp</file>
+            <file>file:/D:/online-learning/web/new.jsp</file>
             <file>file:/D:/online-learning/web/pages/user/public/course-detail.jsp</file>
             <file>file:/D:/online-learning/src/java/dal/EnrollDAO.java</file>
         </group>
