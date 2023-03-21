@@ -438,52 +438,49 @@
                     </div>
                 </nav>
             </div>
-            <c:set var="c" value="${requestScope.lesson}" />
+            <c:set var="user" value="${requestScope.user}"/>
             <div id="layoutSidenav_content">
 
                 <div class="container">
-                    <form class="needs-validation" action="updatelesson" method="post" novalidate>
+                    <form class="needs-validation"action="editstatus" method="post" novalidate>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="block-dashboard__title">
-                                    <h1>Update  Lesson Information</h1>
+                                    <h1>Update  User Information</h1>
                                 </div>
                                 <div class="form-group">
-                                    <label for="first-name">Lesson ID <span class="required">*</span></label>
-                                    <input type="text" class="form-control" readonly name="id" value="${lesson.getLesson_id()}" >
-                                    <div class="invalid-feedback">
-                                        This is a required field
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="last-name"> Level <span class="required">*</span></label>
-                                    <input type="text" class="form-control"  name="level" value="${lesson.getLesson_level()}" >
+                                    <label for="first-name">User ID <span class="required">*</span></label>
+                                    <input type="text" class="form-control"  readonly name="id"  value="${user.getUser_id()}">
                                     <div class="invalid-feedback">
                                         This is a required field
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="last-name"> Chapter ID <span class="required">*</span></label>
-                                    <input type="text" class="form-control"  name="chapterid" value="${lesson.getChapter_id()}" >
+                                    <label for="last-name"> Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" readonly name="name" value="${user.getUser_name()}" >
                                     <div class="invalid-feedback">
                                         This is a required field
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="last-name"> Lesson Content <span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="content" value="${lesson.getLesson_content()}" >
-                                    <div class="invalid-feedback">
-                                        This is a required field
-                                    </div>
-                                </div>
-                                    <div class="form-group">
-                                    <label for="last-name"> Lesson Number <span class="required">*</span></label>
-                                    <input type="text" class="form-control"  name="number" value="${lesson.getLesson_number()}" >
-                                    <div class="invalid-feedback">
-                                        This is a required field
-                                    </div>
-                                </div>
+                                    <label for="last-name"> Status User<span class="required">*</span></label><br>
+                                    <c:if test="${user.getStatus()==1}">
+                                        <input type="radio" id="active" name="status" checked="" value="1">
+                                          <label  style="color: green"for="active">Active</label>
+                                          <input type="radio" id="block" name="status" value="0">
+                                        <label style="color: red"for="block">Block</label><br>
+                                    </c:if>
+                                    <c:if test="${user.getStatus()==0}">
+                                        <input type="radio" id="active" name="status"  value="1">
+                                          <label  style="color: green"for="active">Active</label>
+                                          <input type="radio" id="block" name="status" checked="" value="0">
+                                        <label style="color: red"for="block">Block</label><br>
+                                    </c:if>
 
+                                    <div class="invalid-feedback">
+                                        This is a required field
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Update</button>
                                 </div>

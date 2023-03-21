@@ -61,18 +61,19 @@ public class EditStatusUser extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id_raw = request.getParameter("id");
-        String name = request.getParameter("name");
-        String status = request.getParameter("status");
-        int id, status_raw;
+
+        int id;
         UserDAO d = new UserDAO();
-        DAOAdmin dao = new DAOAdmin();
+
         try {
             id = Integer.parseInt(id_raw);
-            status_raw = Integer.parseInt(status);
             User u = d.checkUserById(id);
-            User uNew = new User(id, u.getUser_name(), u.getUser_mail(), u.getUser_password(), u.getUser_role(), u.getUser_gender(), u.getUser_address(), u.getUser_phone(), u.getUser_avatar(), status_raw);
-            dao.updateStatusUser(uNew);
-             response.sendRedirect("usermanage");
+            if (u != null) {
+                request.setAttribute("user", u);
+
+            }
+            request.getRequestDispatcher("UpdateStatusUser.jsp").forward(request, response);
+
         } catch (NumberFormatException e) {
 
         }
@@ -89,7 +90,22 @@ public class EditStatusUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         String id_raw = request.getParameter("id");
+        String name = request.getParameter("name");
+        String status = request.getParameter("status");
+        int id, status_raw;
+        UserDAO d = new UserDAO();
+        DAOAdmin dao = new DAOAdmin();
+        try {
+            id = Integer.parseInt(id_raw);
+            status_raw = Integer.parseInt(status);
+            User u = d.checkUserById(id);
+            User uNew = new User(id, u.getUser_name(), u.getUser_mail(), u.getUser_password(), u.getUser_role(), u.getUser_gender(), u.getUser_address(), u.getUser_phone(), u.getUser_avatar(), status_raw);
+            dao.updateStatusUser(uNew);
+             response.sendRedirect("usermanage");
+        } catch (NumberFormatException e) {
+
+        }
     }
 
     /**

@@ -27,7 +27,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <title>KHSOES</title>
+        <title>Online Learning</title>
         <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
 
 
@@ -487,7 +487,7 @@
                                             <td>
 
                                                 <a href="updatelesson?id=${lesson.getLesson_id()}"  class="edit" ><i class="material-icons" title="Edit">&#xE254;</i></a>
-                                                <a href="#" onclick="doDelete('${lesson.getLesson_id()}')" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                <a href="#" onclick="doDelete('${lesson.getLesson_id()}')" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                             </td>
                                         </tr>  
                                     </c:forEach>                        
@@ -507,13 +507,12 @@
                 </div>
 
 
-
                 <div id="searchLesson" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">                   
                             <form action="searchlesson">
                                 <div class="modal-header">						
-                                    <h4 class="modal-title">Search Lesson</h4>
+                                    <h4 class="modal-title">Add Lesson</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">					
@@ -532,7 +531,7 @@
                                     </div> 
                                     <div >
                                         Content
-                                        <input type="text" class="form-control" name="content" >
+                                        <input  type="file" name="upFile" >
                                     </div>      
                                     <div >
                                         Lesson Number
@@ -593,9 +592,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

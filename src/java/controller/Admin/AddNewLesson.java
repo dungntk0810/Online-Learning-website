@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Chapter;
+import model.Course;
 import model.Lesson;
 
 /**
@@ -77,7 +78,7 @@ public class AddNewLesson extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         String id_raw = request.getParameter("id");
+               String id_raw = request.getParameter("id");
         String level_raw = request.getParameter("level");
         String chapter_id = request.getParameter("chapterid");
         String lesson_content = request.getParameter("content");
@@ -95,11 +96,13 @@ public class AddNewLesson extends HttpServlet {
 
             chapterid = Integer.parseInt(chapter_id);
             lessonNumber = Integer.parseInt(lesson_number);
-
+            Course c=d.getCourseById(cid);
             Lesson lesson = l.getLessonByLessonId(id);
+            int numberCourse=c.getCourse_number_lesson()+1;
             if (lesson == null) {
                 Lesson lessonNew = new Lesson(id, level_raw, chapterid, lesson_content, lessonNumber,cid);
                 d.insertLesson(lessonNew);
+                d.updateCourseNumberLesson(cid, numberCourse);
                 response.sendRedirect("coursemanage");
             } else {
                 request.setAttribute("ms", "LessonId :" + id + " have existed!!!");

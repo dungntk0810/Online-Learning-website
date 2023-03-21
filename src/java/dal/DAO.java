@@ -22,7 +22,7 @@ import model.User;
 public class DAO extends DBContext {
 
     public User check(String username, String password) {
-        String sql = "SELECT [User_Id]\n"
+        String sql = "SELECT TOP (1000) [User_Id]\n"
                 + "      ,[user_name]\n"
                 + "      ,[user_mail]\n"
                 + "      ,[user_password]\n"
@@ -31,8 +31,9 @@ public class DAO extends DBContext {
                 + "      ,[user_address]\n"
                 + "      ,[user_phone]\n"
                 + "      ,[user_avatar]\n"
-                + "  FROM [dbo].[User]\n"
-                + "  where user_name=? and user_password=?";
+                + "      ,[user_status]\n"
+                + "  FROM [SWP-Project].[dbo].[User]\n"
+                + "  where [user_name] =? and user_password =?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -42,7 +43,7 @@ public class DAO extends DBContext {
                 User u = new User(rs.getInt("User_Id"), username, password,
                         rs.getString("user_mail"), rs.getInt("user_role"),
                         rs.getInt("user_gender"), rs.getString("user_address"),
-                        rs.getString("user_phone"), rs.getString("user_avatar"));
+                        rs.getString("user_phone"), rs.getString("user_avatar"),rs.getInt("user_status"));
                 return u;
             }
         } catch (SQLException e) {
@@ -64,6 +65,52 @@ public class DAO extends DBContext {
         } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public void updateCourseNumberLesson(int cid, int number) {
+        String sql = "UPDATE [dbo].[Course]\n"
+                + "   SET\n"
+                + "   \n"
+                + "      [course_number_lesson] = ?\n"
+                + "      \n"
+                + " WHERE  Course_id =?";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setInt(1, number);
+            st.setInt(2, cid);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public Lesson getLessonById(int id) {
+
+        String sql = "SELECT [lesson_id]\n"
+                + "      ,[lesson_video]\n"
+                + "      ,[lesson_level]\n"
+                + "      ,[chapter_id]\n"
+                + "      ,[image_id]\n"
+                + "      ,[lesson_content]\n"
+                + "      ,[lesson_number]\n"
+                + "      ,[course_id]\n"
+                + "  FROM [dbo].[Lesson]\n"
+                + "  where lesson_id=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Lesson l = new Lesson(id, rs.getString("lesson_video"), rs.getString("lesson_level"), rs.getInt("chapter_id"), rs.getInt("image_id"), rs.getString("lesson_content"), rs.getInt("lesson_number"), rs.getInt("course_id"));
+                return l;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
     public List<Course> getAllCourse() {

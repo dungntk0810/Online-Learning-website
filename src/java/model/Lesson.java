@@ -34,6 +34,18 @@ public class Lesson {
 
     }
 
+    public Lesson(int lesson_id, String lesson_video, String lesson_level, int chapter_id, int image_id, String lesson_content, int lesson_number, int course_id) {
+        this.lesson_id = lesson_id;
+        this.lesson_video = lesson_video;
+        this.lesson_level = lesson_level;
+        this.chapter_id = chapter_id;
+        this.image_id = image_id;
+        this.lesson_content = lesson_content;
+        this.lesson_number = lesson_number;
+        this.course_id = course_id;
+    }
+    
+
     public Lesson(int lesson_id, String lesson_level, int chapter_id, String lesson_content, int lesson_number, int course_id) {
         this.lesson_id = lesson_id;
         this.lesson_level = lesson_level;

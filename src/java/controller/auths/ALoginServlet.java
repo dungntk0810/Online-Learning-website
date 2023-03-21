@@ -72,7 +72,7 @@ public class ALoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String user= request.getParameter("user");
+                     String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         String rem = request.getParameter("remember");
         Cookie cu = new Cookie("cuser", user);
@@ -93,6 +93,7 @@ public class ALoginServlet extends HttpServlet {
         response.addCookie(cr);
         DAO d = new DAO();
         User a = d.check(user, pass);
+
         HttpSession session = request.getSession();
 
         if (a == null) {
@@ -100,10 +101,14 @@ public class ALoginServlet extends HttpServlet {
             String error = "Username or password is incorrect!";
             request.setAttribute("ms", error);
             request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
+        } else if (a.getStatus() == 0) {
+            request.getRequestDispatcher("/pages/user/auth/alogin.jsp").forward(request, response);
         } else {
+
             session.setAttribute("account", a);
             response.sendRedirect("home");
         }
+        
     }
 
     /** 

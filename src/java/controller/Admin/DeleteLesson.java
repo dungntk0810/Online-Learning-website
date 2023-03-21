@@ -13,6 +13,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Course;
+import model.Lesson;
 
 /**
  *
@@ -56,15 +58,19 @@ public class DeleteLesson extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String id_raw =request.getParameter("id");
+         String id_raw = request.getParameter("id");
         int id;
-        DAO d=new DAO();
-        try{
-            id=Integer.parseInt(id_raw);
-            
+        DAO d = new DAO();
+        try {
+            id = Integer.parseInt(id_raw);
+            Lesson lesson = d.getLessonById(id);
+            int courseid = lesson.getCourse_id();
+            Course c = d.getCourseById(courseid);
+            int courseNum = c.getCourse_number_lesson() - 1;
+            d.updateCourseNumberLesson(courseid, courseNum);
             d.deleteLessonByID(id);
             response.sendRedirect("coursemanage");
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println(e);
         }
     } 
