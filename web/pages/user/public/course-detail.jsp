@@ -261,21 +261,16 @@
                                                 </div>&nbsp&nbsp&nbsp&nbsp
 
                                                 <div id="container-rate" class="rate ">
-                                                    <!--<span class="star-rating">-->
-                                                    <span style="width:100.0%"></span>
-                                                    <span class="vote-rate">
-                                                        <a href="rate?value=1&id=${course.course_id}"><i
-                                                                class="fa-solid fa-star star"></i></a>
-                                                        <a href="rate?value=2&id=${course.course_id}"><i
-                                                                class="fa-solid fa-star star"></i></a>
-                                                        <a href="rate?value=3&id=${course.course_id}"><i
-                                                                class="fa-solid fa-star star"></i></a>
-                                                        <a href="rate?value=4&id=${course.course_id}"><i
-                                                                class="fa-solid fa-star star"></i></a>
-                                                        <a href="rate?value=5&id=${course.course_id}"><i
-                                                                class="fa-solid fa-star star"></i></a>
+                                                    <span class="star-rating">
+                                                        <span style="width:88.0%"></span>
+                                                        <span class="vote-rate">
+                                                            <span value="1" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="2" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="3" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="4" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="5" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                        </span>
                                                     </span>
-                                                    <!--</span>-->
 
                                                     <span class="text-rate" >
                                                         ${requestScope.Rate} (${requestScope.numberRate} votes)
@@ -433,9 +428,11 @@
                                                                 <div class="avatars"> <img
                                                                         src="upload/${user.user_avatar}"> </div>
                                                         </div>
+
                                                         <div class="edit-box comment-box">
                                                             <input type="text" class="with-placeholder" name="commentcourse"
                                                                    id="comment-box" placeholder="Write your comment">
+                                                            <input type="hidden" name="id" value="${course.course_id}">
                                                             <input type="submit" class="submit-cmmt btn" title="Post" value="Post" style="color: white;font-size:150%;background-color: #0062cc" >
 
                                                         </div>
@@ -455,12 +452,12 @@
                                                         <div class="view-more">View more</div>
                                                         <div class="comment-footer">
                                                             <div class="left-parts action-buttons"><span class="hide-message">This comment has been hidden. </span>
-                                                                <div class="user-action-buttons"><span class="likeButton"><i class="cl-icon-thumbs-up-1 up"
-                                                                                                                             id="img_16875376"></i> <span id="countVoteLike_16875376" class="count-vote">
-                                                                            ${i.commentc_like}</span></span>
-                                                                            <c:if test="${sessionScope.account !=null}">
+                                                                <div class="user-action-buttons"><span class="likeButton">
+                                                                        <a href="like"><i class="fa-solid fa-thumbs-up"></i> </a>
+                                                                        <span id="countVoteLike_16875376" class="count-vote"> ${i.commentc_like}</span></span>
+                                                                        <c:if test="${sessionScope.account !=null}">
                                                                         <span class="footer-button reply-button" id="btn${i.commentc_id}"><i
-                                                                                class="cl-icon-reply-full reply-img"></i>Reply
+                                                                                class="fa-solid fa-reply"></i> Reply
                                                                         </span>
                                                                     </c:if>
                                                                 </div>
@@ -485,12 +482,10 @@
                                                                                 <div class="left-parts action-buttons"><span class="hide-message">This comment has been
                                                                                         hidden. </span>
                                                                                     <div class="user-action-buttons">
-                                                                                        <span class="likeButton"><a href="discussion"><i id="img_17317684" class="cl-icon-thumbs-up-1"></i></a> 
+                                                                                        <span class="likeButton"><a href="discussion"><i id="img_17317684" class="fa-solid fa-thumbs-up"></i></a> 
                                                                                             <span id="countVoteLike_17317684" class="count-vote"> ${j.commentc_like}</span></span>
                                                                                             <c:if test="${sessionScope.account !=null}">
-                                                                                            <span class="footer-button reply-button" ><i
-                                                                                                    class="cl-icon-reply-full reply-img"></i>Reply
-                                                                                            </span>
+                                                                                            
                                                                                         </c:if>
                                                                                     </div>
                                                                                 </div>
@@ -513,12 +508,15 @@
                                                             <div class="view-more-comments-button as-link"><span class="view-more-text">View more</span><span
                                                                     class="glyphicon glyphicon-refresh"></span></div>
                                                         </div>
-                                                        <div class="edit-box reply-box  " id="${i.commentc_id}" style="display: none">
-                                                            <div placeholder="Write your comment" class="with-placeholder" id="comment-box" contenteditable="">
+                                                        <form action="commentc" method="post">              
+                                                            <div class="edit-box reply-box  " id="${i.commentc_id}" style="display: none">
+                                                                <input type="text" class="with-placeholder" name="replycomment"
+                                                                       id="comment-box" placeholder="Write your comment">
+                                                                <input type="hidden" name="id" value="${course.course_id}">
+                                                                <input type="hidden" name="reply" value="${i.commentc_id}">
+                                                                <input type="submit" class="submit-cmmt btn" title="Post" value="Post" style="color: white;font-size:150%;background-color: #0062cc" >
                                                             </div>
-                                                            <div class="waiting-indicator"><span class="glyphicon glyphicon-refresh"></span></div>
-                                                            <a href="#" class="submit-cmmt btn" title="Post"> Post</a>
-                                                        </div>
+                                                        </form>
                                                         <div class="comment-message"></div>
                                                     </div>
                                                 </div>

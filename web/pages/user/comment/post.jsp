@@ -187,7 +187,7 @@
                                                      src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
-                                            <li><a href="profile">My information</a></li>
+                                            <li><a href="ìnormation">My information</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="profile">My profile</a></li>
                                             <li role="separator" class="divider"></li>

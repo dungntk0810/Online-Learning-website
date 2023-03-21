@@ -7418,7 +7418,7 @@ ul#user-achievement li i {
 
 .visual-progress::after {
     font-family: "codelearn-font";
-    content: 'î§ˆ';
+    content: '▶';
     position: absolute;
     left: 49%;
     top: 50%;
@@ -8570,7 +8570,7 @@ select.ui-datepicker-month {
 .star-rating:before,
 .star-rating span:before {
     font-family: "codelearn-font";
-    content: 'î¦¸î¦¸î¦¸î¦¸î¦¸';
+    content: '★★★★★';
     display: inline-block;
     line-height: 1
 }
@@ -17318,7 +17318,7 @@ button.close {
 }
 
 .cl-icon-thumbs-up:before {
-    content: ''
+    content: '+'
 }
 
 .cl-icon-ticket:before {
@@ -17730,7 +17730,7 @@ button.close {
 }
 
 .cl-icon-plus:before {
-    content: ''
+    content: '+'
 }
 
 .cl-icon-keyhole-square:before {
@@ -18342,7 +18342,7 @@ button.close {
 }
 
 .cl-icon-comment-alt-dots:before {
-    content: ''
+    content: '+'
 }
 
 .cl-icon-comment-alt:before {
@@ -18418,7 +18418,7 @@ button.close {
 }
 
 .cl-icon-check:before {
-    content: ''
+    content: '✓'
 }
 
 .cl-icon-circle:before {

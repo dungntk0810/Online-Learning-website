@@ -121,6 +121,7 @@
             fbq('init', '700313553710795');
             fbq('track', 'PageView');
         </script>
+        <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
 
         <link href="css/MyProfile.css" rel="stylesheet" type="text/css" />
         <script src="js/MyProfile1.js" type="text/javascript"></script>
@@ -219,7 +220,7 @@
                                     <li class="dropdown notify">
                                         <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
                                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="cl-icon-bell-1"></i>
+                                            <i class="fa-regular fa-bell"></i>
                                             <span id="notification-count" class="label label-warning"></span>
                                         </a>
                                         <div class="dropdown-menu">
@@ -283,10 +284,10 @@
                                         <li><span><i class="fa-solid fa-user"></i></span>
                                             <span>${profile.user_fullname}</span>
                                         </li>
-                                        <li><span><i class="fa-solid fa-phone"></i></span> <span>${profile.user_phone}</span> 
+                                        <li><span><i class="fa-solid fa-location-dot"></i></span> 
                                             <span>${profile.user_address} -
                                                 ${profile.user_country}</span></li>
-                                        <li><span><i class="cl-icon-calendar-alt"></i></span> <span>${profile.user_birthday}</span></li>
+                                        <li><span><i class="fa-solid fa-calendar-days"></i></span> <span>${profile.user_birthday}</span></li>
                                     </ul>
                                 </div>
                                 <div class="break-line"></div>
@@ -296,7 +297,7 @@
 
                                     </h3>
                                     <ul id="user-achievement">
-                                        <li class=""><i class="cl-icon-check-circle"></i><span>${profile.user_achievement}</span></li>
+                                        <li class=""><i class="fa-regular fa-circle-check"></i><span>${profile.user_achievement}</span></li>
                                     </ul>
                                     <span id="more-achievement" class="hide">See more</span>
                                 </div>
@@ -307,7 +308,7 @@
 
                                     </h3>
                                     <ul id="user-achievement">
-                                        <li class=""><i class="cl-icon-check-circle"></i><span>${profile.user_summary}</span></li>
+                                        <li class=""><i class="fa-regular fa-circle-check"></i><span>${profile.user_summary}</span></li>
                                     </ul>
                                     <span id="more-achievement" class="hide">See more</span>
                                 </div>
@@ -360,13 +361,13 @@
                                                 </ul>
                                             </div>
                                         </span>-->
-                                        <a href="home">
+<!--                                        <a href="home">
                                             <span class="course-next-span" id="course-next-span"><i
                                                     class="cl-icon-arrow-circle-right-next-full course-next-img"
                                                     id="course-next-img"
                                                     src="/Themes/TheCodeCampPro/Resources/Images/cv/next_click.svg?v=5"></i>
                                             </span>
-                                        </a>
+                                        </a>-->
                                         <!--                                        <span class="course-prev-span course-prev-span-disable" id="course-prev-span"><i
                                                                                         class="cl-icon-arrow-circle-left-back-full course-prev-img"
                                                                                         id="course-prev-img"
@@ -386,7 +387,7 @@
                                                             <div class="course-rating"><span class="star-rating"><span
                                                                         style="width:88%"></span></span></div>
                                                             <div class="course-users-count"><i
-                                                                    class="cl-icon-users-alt course-users-icon"></i>${course.getCourse_number_user()}</div>
+                                                                    class="fa-solid fa-user"></i>${course.getCourse_number_user()}</div>
                                                             <div class="course-progress">
                                                                 <div class="visual-progress" id="vprog2"> <svg
                                                                         viewBox="0 0 100 100"

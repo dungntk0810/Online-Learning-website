@@ -47,6 +47,17 @@ public class Discussion implements Serializable{
         this.discussion_detail = discussion_detail;
         this.discussion_image = discussion_image;
     }
+
+    public Discussion(int discussion_id, int user_id, String discussion_detail, Date discussion_date, int discussion_reply, int discussion_like, String discussion_image) {
+        this.discussion_id = discussion_id;
+        this.user_id = user_id;
+        this.discussion_detail = discussion_detail;
+        this.discussion_date = discussion_date;
+        this.discussion_reply = discussion_reply;
+        this.discussion_like = discussion_like;
+        this.discussion_image = discussion_image;
+    }
+    
     
 
     public User getUser() {

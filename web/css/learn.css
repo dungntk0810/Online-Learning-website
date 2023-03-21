@@ -794,6 +794,7 @@
 .star-rating:before,
 .star-rating span:before {
     font-family: "codelearn-font";
+    content: '★★★★★';
     display: inline-block;
     line-height: 1;
 }

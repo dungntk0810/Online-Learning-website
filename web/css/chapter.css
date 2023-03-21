@@ -604,7 +604,7 @@ body {
 .star-rating:before,
 .star-rating>span:not(.vote-rate):before {
     font-family: "codelearn-font";
-    content: '';
+    content: '★★★★★';
     display: inline-block;
     line-height: 1;
 }

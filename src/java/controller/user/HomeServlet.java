@@ -6,6 +6,8 @@ package controller.user;
 
 import dal.CourseDAO;
 import dal.DAO;
+import dal.DiscussionDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,6 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Course;
+import model.Discussion;
 import model.Enroll;
 import model.User;
 
@@ -65,6 +68,8 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         DAO d = new DAO();
+        UserDAO u = new UserDAO();
+        DiscussionDAO dao = new DiscussionDAO();
         List<Course> listCourse = d.getAllCourse();
         List<Course> list = d.getAllAdvanceCourse();
 
@@ -79,11 +84,17 @@ public class HomeServlet extends HttpServlet {
             for (Course course : list) {
                 course.setUser_id(user.getUser_id());
             }
+            List<Discussion> l = dao.getReplyDiscussionByReply(user.getUser_id());
+
+            request.setAttribute("listD", l);
         }
+        List<User> listUser = u.getAllUser();
+        request.setAttribute("listUser", listUser);
         request.setAttribute("listC", listCourse);
         request.setAttribute("listA", list);
 
         request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
+
     }
 
     /**
@@ -105,7 +116,7 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.getAttribute("account") != null) {
             User user = (User) session.getAttribute("account");
-            DAO dao =new DAO() ;
+            DAO dao = new DAO();
             List<Enroll> listenroll = dao.listAllEnroll(user.getUser_id());
             request.setAttribute("lister", listenroll);
             for (Course course : listCourse) {

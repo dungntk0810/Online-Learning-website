@@ -119,6 +119,7 @@
         </script>
 
         <link href="css/info.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css"/>
 
         <script src="js/account1.js" type="text/javascript"></script>
         <script src="js/account2.js" type="text/javascript"></script>
@@ -224,7 +225,7 @@
                                 <li class="dropdown notify">
                                     <a title="Notifications" id="notify" href="#" class="dropdown-toggle"
                                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="cl-icon-bell-1"></i>
+                                        <i class="fa-regular fa-bell"></i>
                                         <span id="notification-count" class="label label-warning"></span>
                                     </a>
                                     <div class="dropdown-menu">

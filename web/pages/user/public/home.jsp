@@ -211,7 +211,24 @@
                                             <ul id="list-notify">
                                                 <li class="header">Notifications</li>
                                             </ul>
-                                            <div id="view-all-notify"><a href="/notification">View all</a></div>
+                                            <!--<div id="view-all-notify"><a href="/notification">View all</a></div>-->
+                                            <div class="notification-ui_dd-content">
+                                                <div class="notification-list notification-list--unread">
+                                                    <c:forEach var="listD" items="${requestScope.listD}">
+                                                        <c:forEach var="listUser" items="${requestScope.listUser}">
+                                                            <c:if test="${listD.getUser_id()==listUser.getUser_id()}">
+                                                                <div class="notification-list_detail">
+                                                                    <a style="color: black; font-weight: bold; font-size: medium;margin-left: 10px" href="topic?id=${account.getUser_id()}">
+                                                                        <img style="width: 70px ; height: 70px; border-radius: 50%; object-fit: cover; margin-left: 15px" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;   ${listUser.getUser_name()}</a>
+                                                                    <a style="font-size: medium; color: black">has reacted to your post!!!</a>
+                                                                    <p style="padding-left: 380px ;"><small>${listD.timediff}</small></p>
+                                                                    <hr>
+                                                                </div>                                                           
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="dropdown header-user-profile">
@@ -288,7 +305,7 @@
                                                             <img class="view-content-header__img-top"
                                                                  src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                  alt="course top img" />
-                                                            <span  ><span style="width:100.0%"></span></span>
+                                                            <span  class="star-rating"><span style="width:80.0%"></span></span>
                                                             <span class="course-type online">
                                                                 Online
                                                             </span>
@@ -391,7 +408,7 @@
                                                                 <img class="view-content-header__img-top"
                                                                      src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                      alt="course top img" />
-                                                                <span><span style="width:90.0%"></span></span>
+                                                                <span  class="star-rating"><span style="width:80.0%"></span></span>
                                                                 <span class="course-type online">
                                                                     Online
                                                                 </span>
@@ -601,7 +618,7 @@
                             <div class="tab-content">
                                 <h4 class="header-card">with your social network</h4>
                                 <div class="signin-options">
-                                    
+
                                     <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:9999/OnlineLearning/LoginGoogleHandler&response_type=code&client_id=132232716347-4mei2t22s3sups70fqi7u2ub30mrv5nr.apps.googleusercontent.com&approval_prompt=force" target="_blank" class="px-2">
                                         <button class="btn btn-default btn-block btn--google icon-left" id="googleSignIn">
                                             <i class="fa-brands fa-google" aria-hidden="true"></i>

@@ -31,7 +31,7 @@ public class CommentCourseDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new CommentCourse(new User(rs.getInt(9), rs.getString(10),
-                        rs.getString(12), rs.getInt(13)), rs.getInt(1),
+                        rs.getString(12), rs.getInt(13),rs.getString(17)), rs.getInt(1),
                         rs.getInt(3), rs.getInt(2), rs.getString(4),
                         rs.getDate(5), rs.getInt(6), rs.getInt(7), rs.getString(8)));
             }
@@ -53,7 +53,7 @@ public class CommentCourseDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new CommentCourse(new User(rs.getInt(9), rs.getString(10),
-                        rs.getString(12), rs.getInt(13)), rs.getInt(1),
+                        rs.getString(12), rs.getInt(13),rs.getString(17)), rs.getInt(1),
                         rs.getInt(3), rs.getInt(2), rs.getString(4),
                         rs.getDate(5), rs.getInt(6), rs.getInt(7), rs.getString(8)));
             }

@@ -12686,7 +12686,7 @@ video {
 }
 
 .widget-navigation .breadcrumb>li+li::before {
-    content: '';
+    content: '- ';
     font-family: "codelearn-font";
     padding: 0;
     color: var(--accent-color);

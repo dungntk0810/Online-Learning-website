@@ -26,5 +26,8 @@
         <i class="fa-solid fa-arrow-right"></i>
         <i class="fa-solid fa-user"></i>
         <i class="fa-solid fa-phone"></i>
+        <i class="fa-solid fa-calendar-days"></i>
+        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-regular fa-circle-check"></i>
     </body>
 </html>

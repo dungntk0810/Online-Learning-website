@@ -29,7 +29,7 @@ public class DiscussionDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Discussion(new User(rs.getInt(8), rs.getString(9),
-                        rs.getString(11), rs.getInt(12),rs.getString(16)),
+                        rs.getString(11), rs.getInt(12), rs.getString(16)),
                         rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
             }
@@ -49,7 +49,7 @@ public class DiscussionDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Discussion(new User(rs.getInt(8), rs.getString(9),
-                        rs.getString(11), rs.getInt(12),rs.getString(16)),
+                        rs.getString(11), rs.getInt(12), rs.getString(16)),
                         rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7)));
             }
@@ -128,10 +128,10 @@ public class DiscussionDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 Discussion d = new Discussion(new User(rs.getInt(8), rs.getString(9),
-                        rs.getString(11), rs.getInt(12),rs.getString(16)),
+                        rs.getString(11), rs.getInt(12), rs.getString(16)),
                         rs.getInt(1), rs.getInt(2), rs.getString(3),
                         rs.getDate(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
-                return d ;
+                return d;
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -139,10 +139,37 @@ public class DiscussionDAO extends DBContext {
         return null;
     }
 
+    public List<Discussion> getReplyDiscussionByReply(int id) {
+        List<Discussion> list = new ArrayList<>();
+        try {
+            String sql = "SELECT [discussion_Id]\n"
+                    + "      ,[user_id]\n"
+                    + "      ,[discussion_detail]\n"
+                    + "      ,[discussion_date]\n"
+                    + "      ,[discussion_reply]\n"
+                    + "      ,[discussion_like]\n"
+                    + "      ,[discussion_image]\n"
+                    + "  FROM [dbo].[Discussion]\n"
+                    + "  where discussion_reply=?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Discussion d = new Discussion(rs.getInt("discussion_Id"), rs.getInt("user_id"), rs.getString("discussion_detail"), rs.getDate("discussion_date"), rs.getInt("discussion_reply"), rs.getInt("discussion_like"), rs.getString("discussion_image"));
+                list.add(d);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         DiscussionDAO d = new DiscussionDAO();
-        d.replyDiscussion(2, new Discussion(new User(1, "kienpt", "123", 1), "reoly"));
+//        d.replyDiscussion(2, new Discussion(new User(1, "kienpt", "123", 1), "reoly"));
+        System.out.println(d.getReplyDiscussionByReply(2).size());
 //        System.out.println(d.getDiscussionbyID(1).getUser().getUser_name());
-        
+
     }
+
 }

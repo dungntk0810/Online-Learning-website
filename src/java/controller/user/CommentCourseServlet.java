@@ -94,23 +94,27 @@ public class CommentCourseServlet extends HttpServlet {
 //            }
 //            image = fileName;
 //        }
-        if (request.getParameter("discussion") != null) {
-            String comment = request.getParameter("discussion");
+        if (request.getParameter("commentcourse") != null) {
+            String comment = request.getParameter("commentcourse");
+            int id = Integer.parseInt(request.getParameter("id"));
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("account");
-            Discussion d = new Discussion(u, comment);
-            DiscussionDAO dao = new DiscussionDAO();
-            dao.addDiscussion(d);
-            response.sendRedirect("discussion");
-        } else if (request.getParameter("discusionReply") != null) {
-            String reply = request.getParameter("discusionReply");
+            CommentCourse c = new CommentCourse(u,id,comment);
+            CommentCourseDAO dao = new CommentCourseDAO();
+            dao.addCommentCourse(c);
+            String s = "course?id="+id+"";
+            response.sendRedirect(s);
+        } else if (request.getParameter("replycomment") != null) {
+            String reply = request.getParameter("replycomment");
+            int id = Integer.parseInt(request.getParameter("id"));
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("account");
-            Discussion d = new Discussion(u, reply);
-            int replyof = Integer.parseInt(request.getParameter("Replyof"));
-            DiscussionDAO dao = new DiscussionDAO();
-            dao.replyDiscussion(replyof, d);
-            response.sendRedirect("discussion");
+            CommentCourse d = new CommentCourse(u, id,reply);
+            int replyof = Integer.parseInt(request.getParameter("reply"));
+            CommentCourseDAO dao = new CommentCourseDAO();
+            dao.addCommentCourse2(d, replyof);
+            String s = "course?id="+id+"";
+            response.sendRedirect(s);
         }
     }
 
