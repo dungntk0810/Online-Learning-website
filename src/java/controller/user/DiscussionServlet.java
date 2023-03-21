@@ -108,7 +108,7 @@ public class DiscussionServlet extends HttpServlet {
             }
             image = fileName;
         }
-        if (request.getParameter("discussion") != null) {
+        if (!request.getParameter("discussion").trim().equals("")) {
             String comment = request.getParameter("discussion");
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("account");
@@ -116,17 +116,26 @@ public class DiscussionServlet extends HttpServlet {
             DiscussionDAO dao = new DiscussionDAO();
             dao.addDiscussion(d);
             response.sendRedirect("discussion");
-        } else if (request.getParameter("discusionReply") != null) {
-            String reply = request.getParameter("discusionReply");
-            HttpSession session = request.getSession();
-            User u = (User) session.getAttribute("account");
-            Discussion d = new Discussion(u, reply);
-            int replyof = Integer.parseInt(request.getParameter("Replyof"));
-            DiscussionDAO dao = new DiscussionDAO();
-            dao.replyDiscussion(replyof, d);
-            response.sendRedirect("discussion");
+        } else {
+            String errorCreate = "Discusstion title must not be empty.";
+            request.setAttribute("errorCreate", errorCreate);
+            request.getRequestDispatcher("/pages/user/comment/post.jsp").forward(request, response);
         }
 
+//        else if (request.getParameter("discusionReply") != null && !request.getParameter("discusstionReply").isEmpty()) {
+//            String reply = request.getParameter("discusionReply");
+//            HttpSession session = request.getSession();
+//            User u = (User) session.getAttribute("account");
+//            Discussion d = new Discussion(u, reply);
+//            int replyof = Integer.parseInt(request.getParameter("Replyof"));
+//            DiscussionDAO dao = new DiscussionDAO();
+//            dao.replyDiscussion(replyof, d);
+//            response.sendRedirect("discussion");
+//        } else if (request.getParameter("discusionReply") == null && request.getParameter("discusstionReply").isEmpty()) {
+//            String errorCreate = "Content reply must not be empty.";
+//            request.setAttribute("errorCreate", errorCreate);
+//            response.sendRedirect("discussion");
+//        }
     }
 
     /**

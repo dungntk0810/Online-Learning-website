@@ -92,14 +92,22 @@ public class TopicServlet extends HttpServlet {
 //        PrintWriter out= response.getWriter();
 //        out.print(id +"   "+content);
         String reply = request.getParameter("discussion");
-        HttpSession session = request.getSession();
-        User u = (User) session.getAttribute("account");
-        Discussion d = new Discussion(u, reply);
+        if(!reply.trim().equals("")){
+            HttpSession session = request.getSession();
+            User u = (User) session.getAttribute("account");
+            Discussion d = new Discussion(u, reply);
 //        int replyof = Integer.parseInt(request.getParameter("Replyof"));
-        DiscussionDAO dao = new DiscussionDAO();
-        dao.replyDiscussion(id, d);
-        String s= "topic?id=" + id ;
-        response.sendRedirect(s);
+            DiscussionDAO dao = new DiscussionDAO();
+            dao.replyDiscussion(id, d);
+            String s = "topic?id=" + id;
+            response.sendRedirect(s);
+        }else{
+            String replyEmpty = "Reply content must not be empty.";
+            request.setAttribute("erorrReply", replyEmpty);
+            String s = "topic?id=" + id;
+            response.sendRedirect(s);
+        }
+        
     }
 
     /**

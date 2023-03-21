@@ -57,9 +57,6 @@ public class LessonServlet extends HttpServlet {
                 User user = (User) session.getAttribute("account");
                 List<Percentage> listPercentage = pd.getPercentageByUserID(user.getUser_id());
                 request.setAttribute("listPercentage", listPercentage);
-                if (pd.checkPercentageByUserID(id, user.getUser_id()) != 1) {
-                    pd.addPercentage(user.getUser_id(), id, 1);
-                }
             }
 
             int chapterId = ld.findChapterIdByLessonId(id);

@@ -288,7 +288,7 @@
                                                             <img class="view-content-header__img-top"
                                                                  src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                  alt="course top img" />
-                                                            <span class="star-rating" ><span style="width:100.0%"></span></span>
+                                                            <span  ><span style="width:100.0%"></span></span>
                                                             <span class="course-type online">
                                                                 Online
                                                             </span>
@@ -391,7 +391,7 @@
                                                                 <img class="view-content-header__img-top"
                                                                      src="/Themes/TheCodeCampPro/Resources/Images/home-v2/bg-course-top.png"
                                                                      alt="course top img" />
-                                                                <span class="star-rating"><span style="width:90.0%"></span></span>
+                                                                <span><span style="width:90.0%"></span></span>
                                                                 <span class="course-type online">
                                                                     Online
                                                                 </span>

@@ -279,11 +279,11 @@
                                 <div class="break-line"></div>
                                 <div id="infomation">
                                     <h3>Information</h3>
-                                    <ul id="user-info-section">
-                                        <li><span><i class="cl-icon-envelope"></i></span>
+                                    <ul>
+                                        <li><span><i class="fa-solid fa-user"></i></span>
                                             <span>${profile.user_fullname}</span>
                                         </li>
-                                        <li><span><i class="cl-icon-phone"></i></span> <span>${profile.user_phone}</span> 
+                                        <li><span><i class="fa-solid fa-phone"></i></span> <span>${profile.user_phone}</span> 
                                             <span>${profile.user_address} -
                                                 ${profile.user_country}</span></li>
                                         <li><span><i class="cl-icon-calendar-alt"></i></span> <span>${profile.user_birthday}</span></li>

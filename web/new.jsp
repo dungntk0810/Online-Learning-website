@@ -24,5 +24,7 @@
         <i class="fa-regular fa-plus"></i>
         <i class="fa-regular fa-comment"></i>  
         <i class="fa-solid fa-arrow-right"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-phone"></i>
     </body>
 </html>
