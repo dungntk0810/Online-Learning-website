@@ -61,16 +61,16 @@
                                     <nav class="site-menu">
                                         <ul class="menu menu-main-menu">
                                             <li>
-                                                <a href="home" title="Learning">Learning</a>
+                                                <a href="home" title="Learning">Học tập</a>
                                             </li>
                                             <li>
-                                                <a href="/training" title="Training">Training</a>
+                                                <a href="/training" title="Training">Luyện tập</a>
                                             </li>
                                             <li>
-                                                <a href="discussion" title="Discussion">Discussion</a>
+                                                <a href="discussion" title="Discussion">Thảo luận</a>
                                             </li>
                                             <li>
-                                                <a href="/leaderboard" title="Contact">Contact</a>
+                                                <a href="/leaderboard" title="Contact">Liên hệ</a>
                                             </li>
                                         </ul>
                                         <div class="dropdown dropdown-language">
@@ -125,15 +125,15 @@
                             <div class="col-xs-12 col-lg-8">
                                 <div class="wrap-block-head-text">
                                     <div class="block-head-text">
-                                        <h1>Learn to code:<br> From zero to hero</h1>
-                                        <p>Easier to get started with coding on CodeLearn</p>
+                                        <h1>HỌC LẬP TRÌNH<br> TỪ CON SỐ 0</h1>
+                                        <p>Khởi đầu dễ dàng hơn với CodeLearn</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-lg-4" id="frmSignup">
                                 <div class="wrap-form-head-register">
                                     <div class="form-head-register">
-                                        <h4 class="title-block">Start now</h4>
+                                        <h4 class="title-block">Bắt Đầu Ngay</h4>
                                         <c:if test="${requestScope.message != null}">
                                             <h2 class="title-block" style="color: red" >${requestScope.message}</h2>  
                                         </c:if>
@@ -151,10 +151,9 @@
                                                        placeholder="Confirm your password" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-default btn-block btn-blue btn-signup">Start
-                                                studying now!</button>
+                                            <button type="submit" class="btn btn-default btn-block btn-blue btn-signup">Đăng ký ngay!</button>
                                         </form>
-                                        <div class="switch-type-login">or use another account</div>
+                                        <div class="switch-type-login">hoặc sử dụng tài khoản khác</div>
                                         <div class="signin-options">
                                             <!--                                            <button class="btn btn-default btn-block btn--microsoft icon-left"
                                                                                                 onclick="window.location.replace('https://oauth.codelearn.io/Home/SignIn')"
@@ -184,8 +183,8 @@
                 <section id="key-for-future" class="landing-section">
                     <div class="container">
                         <h2 class="title-section">
-                            Programming<br>
-                            is the in-demand skill for the future
+                            Lập trình<br>
+                            là xu thế của tương lai
                         </h2>
                         <div class="row">
                             <div class="col-xs-12 col-sm-5 col-md-6">
@@ -198,28 +197,25 @@
                                         <div class="heading-key"><img
                                                 src="themes/phat-trien-tu-duy-sang-tao.png"
                                                 alt="Develop creative thinking" />
-                                            <h3>Develop creative thinking</h3>
+                                            <h3>Phát triển tư duy sáng tạo</h3>
                                         </div>
-                                        <p class="key-des">Learning to code helps you improve logical thinking and take you to a
-                                            new level in solving problems.</p>
+                                        <p class="key-des">Học cách viết code giúp bạn trau dồi tư duy logic và đưa bạn đến một cấp độ giải quyết vấn đề hoàn toàn mới..</p>
                                     </li>
                                     <li>
                                         <div class="heading-key"><img
                                                 src="themes/lam-quen-cong-nghe.png"
                                                 alt="Get to know the technology world" />
-                                            <h3>Get to know the technology world</h3>
+                                            <h3>Làm quen thế giới công nghệ</h3>
                                         </div>
-                                        <p class="key-des">Learning to code to step into the world of Information Technology and
-                                            adapt to the Industry 4.0.</p>
+                                        <p class="key-des">Học lập trình giúp bạn thân thiết hơn với thế giới công nghệ, thích nghi với cuộc sống thời đại 4.0.</p>
                                     </li>
                                     <li>
                                         <div class="heading-key"><img
                                                 src="themes/mo-rong-co-hoi-nghe-nghiep.png"
                                                 alt="Get more job opportunities" />
-                                            <h3>Get more job opportunities</h3>
+                                            <h3>Mở rộng cơ hội nghề nghiệp</h3>
                                         </div>
-                                        <p class="key-des">Programming jobs are growing 50% faster than the overall job market
-                                            with an average salary of 30% higher than that of other jobs.</p>
+                                        <p class="key-des">Công việc lập trình đang tăng nhanh 50% so với thị trường việc làm nói chung với mức lương cao hơn trung bình 30%..</p>
                                     </li>
                                 </ul>
                             </div>
@@ -231,7 +227,7 @@
                 <section id="code-step" class="landing-section">
                     <div class="container">
                         <h2 class="title-section">
-                            Roadmap to become <br>a programmer
+                            Lộ trình trở thành <br>lập trình viên
                         </h2>
                         <div class="row">
                             <div class="col-xs-12 col-sm-4">
@@ -241,9 +237,8 @@
                                         <img src="themes/hoc-lap-trinh.png"
                                              alt="Learn to code" />
                                     </div>
-                                    <h3 class="step-title">Learn to code</h3>
-                                    <p class="step-des">Start learning with a wide range of basic to advanced courses created by
-                                        top experts.</p>
+                                    <h3 class="step-title">Học lập trình</h3>
+                                    <p class="step-des">Học lập trình cơ bản đến nâng cao thông qua các khóa học..</p>
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-4">
@@ -253,9 +248,8 @@
                                         <img src="themes/luyen-lap-trinh.png"
                                              alt="Practice coding" />
                                     </div>
-                                    <h3 class="step-title">Practice coding</h3>
-                                    <p class="step-des">Level up your programming skills every day with our library of 1000+
-                                        challenges.</p>
+                                    <h3 class="step-title">Luyện lập trình</h3>
+                                    <p class="step-des">Luyện lập trình hằng ngày với hàng nghìn bài tập lớn nhỏ..</p>
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-4">
@@ -265,7 +259,7 @@
                                         <img src="themes/thi-lap-trinh.png"
                                              alt="Coding contest" />
                                     </div>
-                                    <h3 class="step-title">Join coding contest</h3>
+                                    <h3 class="step-title">Thi lập trình</h3>
                                     <p class="step-des">Participate in contests to test the geek in you and improve your coding
                                         skills.</p>
                                 </a>
@@ -276,9 +270,9 @@
 
                 <section id="footer-banner" class="landing-section">
                     <div class="container">
-                        <h2 class="title-section">AROUSE YOUR <span style="color:#FAD93C">PROGRAMMING PASSION</span>!</h2>
-                        <h4>Register and join the best developer community!</h4>
-                        <a class="btn btn-important" href="#frmSignup" title="Start today!">Start today!</a>
+                        <h2 class="title-section">KHƠI DẬY ĐAM MÊ  <span style="color:#FAD93C">LẬP TRÌNH</span>!</h2>
+                        <h4>Đăng ký tài khoản và tham gia ngay hôm nay!</h4>
+                        <a class="btn btn-important" href="#frmSignup" title="Start today!">Bắt đầu ngay</a>
                     </div>
                 </section>
 
@@ -292,8 +286,7 @@
                                              alt="CodeLearn" />
                                     </div>
                                     <p>
-                                        BoxBox is an online platform that helps users to learn, practice coding skills and
-                                        join the online coding contests.
+                                        BoxBox là nền tảng tương tác trực tuyến hỗ trợ người dùng học tập, thực hành, thi đấu và đánh giá kỹ năng lập trình một cách nhanh chóng và chính xác.
                                     </p>
                                     <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"
                                        class="social-button">

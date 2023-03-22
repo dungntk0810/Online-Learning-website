@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/online-learning/web/Lesson_Java_JSP/lesson11.jsp</file>
+            <file>file:/D:/online-learning/src/java/controller/Admin/AddNewLesson.java</file>
+            <file>file:/D:/online-learning/web/LessonManage.jsp</file>
+            <file>file:/D:/online-learning/src/java/controller/user/DiscussionServlet.java</file>
+            <file>file:/D:/online-learning/web/pages/user/comment/post.jsp</file>
+            <file>file:/D:/online-learning/src/java/dal/LessonDAO.java</file>
+        </group>
+    </open-files>
 </project-private>

@@ -512,7 +512,7 @@
                         <div class="modal-content">                   
                             <form action="searchlesson">
                                 <div class="modal-header">						
-                                    <h4 class="modal-title">Add Lesson</h4>
+                                    <h4 class="modal-title">Search Lesson</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">					
@@ -553,7 +553,7 @@
                         <div class="modal-content">                   
                             <form action="addlesson" method="post">
                                 <div class="modal-header">						
-                                    <h4 class="modal-title">Search Lesson</h4>
+                                    <h4 class="modal-title">Add Lesson</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">					

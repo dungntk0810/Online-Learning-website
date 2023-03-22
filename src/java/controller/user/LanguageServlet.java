@@ -4,7 +4,6 @@
  */
 package controller.user;
 
-import dal.EnrollDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,14 +12,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.User;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "RateServlet", urlPatterns = {"/rate"})
-public class RateServlet extends HttpServlet {
+@WebServlet(name = "LanguageServlet", urlPatterns = {"/language"})
+public class LanguageServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +37,10 @@ public class RateServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RateServlet</title>");
+            out.println("<title>Servlet LanguageServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RateServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LanguageServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,13 +59,21 @@ public class RateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("account");
-        int rate = Integer.parseInt(request.getParameter("value"));
-        int id = Integer.parseInt(request.getParameter("id"));
-        EnrollDAO dao = new EnrollDAO() ;
-        dao.updateRateStar(rate, user.getUser_id(), id);
-        String s = "course?id="+id+"";
-        response.sendRedirect(s);
+        String s = request.getParameter("name");
+        String url = request.getParameter("url");
+
+        session.setAttribute("language", s);
+        if (url.equals("home")) {
+            response.sendRedirect("home");
+        } else if (url.equals("login")) {
+            response.sendRedirect("alogin");
+        } else {
+            String id = request.getParameter("id");
+            String link = "course?id="+id+"";
+            response.sendRedirect(link);
+        }
+
+
     }
 
     /**

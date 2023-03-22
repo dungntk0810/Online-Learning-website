@@ -264,11 +264,11 @@
                                                     <span class="star-rating">
                                                         <span style="width:88.0%"></span>
                                                         <span class="vote-rate">
-                                                            <a href="rate?value=1&id=${course.course_id}"><span value="1" class="star"><i class="cl-icon-favorite-full"></i></span></a>
-                                                            <a href="rate?value=2&id=${course.course_id}"><span value="1" class="star"><i class="cl-icon-favorite-full"></i></span></a>
-                                                            <a href="rate?value=3&id=${course.course_id}"><span value="1" class="star"><i class="cl-icon-favorite-full"></i></span></a>
-                                                            <a href="rate?value=4&id=${course.course_id}"><span value="1" class="star"><i class="cl-icon-favorite-full"></i></span></a>
-                                                            <a href="rate?value=5&id=${course.course_id}"><span value="1" class="star"><i class="cl-icon-favorite-full"></i></span></a>
+                                                            <span value="1" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="2" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="3" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="4" class="star"><i class="cl-icon-favorite-full"></i></span>
+                                                            <span value="5" class="star"><i class="cl-icon-favorite-full"></i></span>
                                                         </span>
                                                     </span>
 

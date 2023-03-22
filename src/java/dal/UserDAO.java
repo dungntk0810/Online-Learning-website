@@ -79,10 +79,9 @@ public class UserDAO extends DBContext {
                 + "           ,[user_role]\n"
                 + "           ,[user_gender]\n"
                 + "           ,[user_address]\n"
-                + "           ,[user_phone]\n"
-                + "           ,[user_avatar])\n"
+                + "           ,[user_phone])\n"
                 + "     VALUES\n"
-                + "           (?,?,?,?,?,?,?,?)";
+                + "           (?,?,?,?,?,?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, u.getUser_name());
@@ -92,7 +91,6 @@ public class UserDAO extends DBContext {
             st.setInt(5, u.getUser_gender());
             st.setString(6, u.getUser_address());
             st.setString(7, u.getUser_phone());
-            st.setString(8, u.getUser_avatar());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);

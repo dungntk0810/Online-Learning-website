@@ -93,7 +93,21 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("listC", listCourse);
         request.setAttribute("listA", list);
 
-        request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
+        if (null == (String) session.getAttribute("language")) {
+            request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
+        } else {
+            switch ((String) session.getAttribute("language")) {
+                case "en":
+                    request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
+                    break;
+                case "vi":
+                    request.getRequestDispatcher("/pages/user/change/home2.jsp").forward(request, response);
+                    break;
+                default:
+                    request.getRequestDispatcher("/pages/user/public/home.jsp").forward(request, response);
+                    break;
+            }
+        }
 
     }
 

@@ -46,13 +46,13 @@
                         case 'login':
                             $(".btn--facebook").attr('title', 'Login with Facebook');
                             $(".btn--google").attr('title', 'Login with Google');
-                            $("#loginModal .header-card").text('Login your account');
+                            $("#loginModal .header-card").text('Đăng nhập tài khoản của bạn');
                             SIGNUP_VALIDATOR && SIGNUP_VALIDATOR.resetForm();
                             break;
                         case 'signup':
                             $(".btn--facebook").attr('title', 'Continue with Facebook');
                             $(".btn--google").attr('title', 'Continue with Google');
-                            $("#loginModal .header-card").text('Register new account');
+                            $("#loginModal .header-card").text('Đăng ký tài khoản mới');
                             LOGIN_VALIDATOR && LOGIN_VALIDATOR.resetForm();
                             break;
                     }
@@ -149,16 +149,16 @@
                             <nav class="site-menu">
                                 <ul class="menu menu-main-menu">
 
-                                    <li><a href="home">Learning</a>
+                                    <li><a href="home">Học tập</a>
                                     </li>
                                     <li><a href="/training">Training</a>
                                     </li>
-                                    <li><a href="discussion">Discussion</a>
+                                    <li><a href="discussion">Thảo luận</a>
                                     </li>
-                                    <li><a href="Contact.jsp">Contact</a>
+                                    <li><a href="Contact.jsp">Chia sẻ</a>
                                     </li>
                                     <c:if test="${sessionScope.account.getUser_role()==0}">
-                                        <li><a href="manage">Manage</a>
+                                        <li><a href="manage">Quản lý</a>
                                         </li>
                                     </c:if>
                                 </ul>
@@ -242,12 +242,12 @@
                                                      src="upload/${user.user_avatar}">
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-user">
-                                            <li><a href="information">My information</a></li>
+                                            <li><a href="information">Thông tin của tôi</a></li>
                                             <li role="separator" class="divider"></li>
                                                 <c:set var="link" value="profile?id=${user.user_id}"></c:set>
-                                            <li><a href="${link}">My profile</a></li>
+                                            <li><a href="${link}">Hồ sơ của tôi</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a id="cick-logoff" href="logout">Sign out</a></li>
+                                            <li><a id="cick-logoff" href="logout">Đăng xuất</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -274,12 +274,12 @@
                     <div class="zone zone-content">
                         <div class="head-course">
                             <div class="container">
-                                <h2>Learning code online. Let's start with your first course!</h2>
+                                <h2>Tự học lập trình trực tuyến. Hãy bắt đầu với khoá học đầu tiên của bạn!</h2>
                                 <div id="search" class="block-top-head">
                                     <div class="input-group">
                                         <form id="form-search" action="home" method="post">
                                             <input Name="search" id="search-course" type="text" class="form-control"
-                                                   placeholder="Search...">
+                                                   placeholder="Nhập nội dung tìm kiếm ...">
                                             <!--<div class="input-group-addon btn"><i class="cl-icon-search"></i></div>-->
                                             <button type="submit" class="input-group-addon btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                                             <!--<span class="input-group-addon btn"><i class="cl-icon-search"></i></span>-->
@@ -291,7 +291,7 @@
                         <div class="container">
                             <div id="list">
                                 <section class="list-courses">
-                                    <h2 class="title-block">Basic knowledge</h2>
+                                    <h2 class="title-block">Kiến thức cơ sở</h2>
                                     <div class="row">
                                         <c:forEach items="${requestScope.listC}" var="listC">
                                             <article class="course-item col-12 col-md-4 col-lg-3">
@@ -332,7 +332,7 @@
                                                                         <c:when test="${listC.getCourse_price()==0}">
                                                                             <div class="view-content-footer">
                                                                                 <div class="course-footer-left">
-                                                                                    <span class="free-text">Free</span>
+                                                                                    <span class="free-text">Miễn phí</span>
                                                                                 </div>
                                                                                 <div class="course-footer-right">
                                                                                 </div>
@@ -357,7 +357,7 @@
                                                                         </div>
                                                                         <div class="course-footer-right">
                                                                             <a class="btn-continue-study"
-                                                                               href="course?id=${listC.getCourse_id()}">Continue learning <i
+                                                                               href="course?id=${listC.getCourse_id()}">Học tiếp <i
                                                                                     class="fa-solid fa-arrow-right"></i></a>
                                                                         </div>
                                                                     </div>
@@ -369,7 +369,7 @@
                                                                 <c:when test="${listC.getCourse_price()==0}">
                                                                     <div class="view-content-footer">
                                                                         <div class="course-footer-left">
-                                                                            <span class="free-text">Free</span>
+                                                                            <span class="free-text">Miễn phí</span>
                                                                         </div>
                                                                         <div class="course-footer-right">
                                                                         </div>
@@ -435,7 +435,7 @@
                                                                             <c:when test="${listA.getCourse_price()==0}">
                                                                                 <div class="view-content-footer">
                                                                                     <div class="course-footer-left">
-                                                                                        <span class="free-text">Free</span>
+                                                                                        <span class="free-text">Miễn phí</span>
                                                                                     </div>
                                                                                     <div class="course-footer-right">
                                                                                     </div>
@@ -460,7 +460,7 @@
                                                                             </div>
                                                                             <div class="course-footer-right">
                                                                                 <a class="btn-continue-study"
-                                                                                   href="course?id=${listA.getCourse_id()}">Continue learning <i
+                                                                                   href="course?id=${listA.getCourse_id()}">Học tiếp <i
                                                                                         class="fa-solid fa-arrow-right"></i></a>
                                                                             </div>
                                                                         </div>
@@ -472,7 +472,7 @@
                                                                     <c:when test="${listA.getCourse_price()==0}">
                                                                         <div class="view-content-footer">
                                                                             <div class="course-footer-left">
-                                                                                <span class="free-text">Free</span>
+                                                                                <span class="free-text">Miễn phí</span>
                                                                             </div>
                                                                             <div class="course-footer-right">
                                                                             </div>
@@ -541,8 +541,9 @@
                                          alt="" />
                                 </div>
                                 <p>
-                                    BoxBox is an online platform that helps users to learn, practice coding skills and
-                                    join the online coding contests.
+                                    BoxBox là nền tảng tương tác trực tuyến hỗ trợ người dùng 
+                                    học tập, thực hành, thi đấu và đánh giá kỹ năng lập trình một cách 
+                                    nhanh chóng và chính xác.
                                 </p>
                                 <a href="https://www.facebook.com/CodeLearnFanpage" title="Facebook" target="_blank"
                                    class="social-button">
@@ -562,19 +563,19 @@
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-2 links footer-column">
-                                <h4>Links</h4>
+                                <h4>Liên kết</h4>
                                 <p><a href="/learning" class="link-menu" title="Learning">Learning</a></p>
                                 <p><a href="/training" class="link-menu" title="Training">Training</a></p>
                                 <p><a href="/fights" class="link-menu" title="Fights">Fights</a></p>
                                 <p><a href="/game/index" class="link-menu" title="Game">Game</a></p>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-2 about footer-column">
-                                <h4>Information</h4>
+                                <h4>Thông tin</h4>
                                 <p><a href="/aboutus" title="About Us">About Us</a></p>
                                 <p><a href="/terms" title="Terms of Use">Terms of Use</a></p>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-2 help footer-column">
-                                <h4>Help</h4>
+                                <h4>Trợ giúp</h4>
                                 <p><a href="/help" title="Help">Help</a></p>
                                 <p><a href="/discussion" title="Discussion">Discussion</a></p>
                                 <p><a href="/cdn-cgi/l/email-protection#196a6c6969766b6d597a767d7c757c786b77377076"
@@ -630,7 +631,7 @@
                                         </button>
                                     </a>
                                 </div>
-                                <p class="label-or text-center">OR</p>
+                                <p class="label-or text-center">Hoặc</p>
                                 <div role="tabpanel" class="tab-pane " id="login">
                                     <c:set var="cookie" value="${pageContext.request.cookies}"></c:set>
                                         <form id="frmLogin" action="alogin" method="post">
@@ -646,15 +647,15 @@
                                         </div>
                                         <div class="form-button">
                                             <button type="submit"
-                                                    class="btn btn-default btn-block btn-blue btn-login">Login</button>
+                                                    class="btn btn-default btn-block btn-blue btn-login">Đăng nhập</button>
                                         </div>
                                         <div class="col-md-12 registered-forgot" role="tablist">
                                             <div class="col-md-6 text-left">
                                                 <input type="checkbox" ${cookie.crem!=null?'checked':''} name="remember" id="remember" value="${cookie.crem.value}">
-                                                <label for="remember">Remember me</label>
+                                                <label for="remember">Ghi nhớ</label>
                                             </div>
                                             <div class="col-md-6 text-right">
-                                                <a href="/forgot-password">I can't rememeber my password</a>
+                                                <a href="/forgot-password">Quên mật khẩu</a>
                                             </div>
                                         </div>
                                         <div class="col-md-12 terms-of-use">
@@ -689,12 +690,12 @@
                                                                                     <div id="cbAgree-error"></div>
                                                                                 </div>-->
                                         <button type="submit"
-                                                class="btn btn-default btn-block btn-blue btn-signup">Register</button>
+                                                class="btn btn-default btn-block btn-blue btn-signup">Đăng kí</button>
                                         <div class="col-md-12 registered-forgot" style="margin-bottom: 0;">
                                             <div class="col-md-6 text-left">
                                                 <a data-target="#login" aria-controls="login" role="tab" data-toggle="tab"
                                                    onclick="openModal('login')">
-                                                    Already registered? Login
+                                                    Đã có tài khoản? Đăng nhập
                                                 </a>
                                             </div>
                                         </div>
